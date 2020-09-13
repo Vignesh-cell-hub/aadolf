@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'mq&=2s6i_@#ydov)ik1&rc8!dqm@algbh&&b($l9mcv&&no$ww'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['aadolf-ledger.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['aadolf-ledger.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
