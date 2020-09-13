@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return render(request,'payment_received/payment_form.html')
+    return render(request,'payment_received/payment_tbl.html')
