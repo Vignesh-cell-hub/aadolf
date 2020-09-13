@@ -28,6 +28,20 @@
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto Slab', serif;
+  /* font-size: 12px; */
+}
+
+#new__customer__table{
+  font-family: 'Roboto Slab', serif;
+  font-weight: 900;
+  color: #0f0f0f;
+}
+
   
     /* side profile bar */
 
@@ -554,10 +568,12 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3" style="display: flex; justify-content: space-between; align-items: center;">
-              <h6 class="m-0 font-weight-bold text-primary">CUSTOMER TABLE</h6>
+              <h6 class="m-0 font-weight-bold text-primary new__customer__table">CUSTOMER TABLE</h6>
               <a class="nav-item dropdown no-arrow mx-1" href="upload/" style="float: right;"><button class="btn btn-primary">New</button></a>
-
             </div>
+
+
+
 
             <div class="card-body">
               <div class="table-responsive">
@@ -571,12 +587,12 @@
                       <th>WORK PHONE</th>
                       <th>GST TREATMENT</TH>
                       <th>RECEIVABLES</th>
-
                     </tr>
                   </thead>
                   <tbody>
                     {% for i in alldetails %}
                     <tr role="button" data-href="#">
+                      
                       <td style="text-align:center">
                         <hr><input type="checkbox" /></td>
                       <td style="text-align:center">
@@ -591,9 +607,6 @@
                         <hr>{{i.gst_treatment}}</td>
                       <td style="text-align:center">
                         <hr>{{i.tax_prefrence}}</td>
-
-
-
 
                     </tr>
                     {% endfor %}
