@@ -1,0 +1,56 @@
+{% extends 'report_base.html' %}
+{% load static %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: .5px solid #080a0f ;">
+    <div class="container">
+      <div class="col col-sm-12" style="text-align: center;">
+        <h4>AADOLF SOLUTIONS</h4>
+        <h5>Sales by Customer</h5>
+        <p class="from__date"></p>
+      </div>
+    </div>
+  </nav>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr id="tb__head">
+          <th scope="col" class="table__heading" style="white-space: nowrap;">NAME</th>
+          <th scope="col" class="table__heading" style="white-space: nowrap;">INVOICE COUNT</th>
+          <th scope="col" class="table__heading" style="white-space: nowrap;">SALES</th>
+          <th scope="col" class="table__heading" style="white-space: nowrap;">SALES BY TAX</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+          {% for data in invoice_data %}
+          <tr id="tb__head">
+              <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.name}}</th>
+              <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.count}}</th>
+              <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.subtotal}}</th>
+              <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.total}}</th>
+              
+            </tr>
+            {% endfor %}
+            <tr id="tb__head">
+              <th scope="col" class="table__heading" style="white-space: nowrap;">Total</th>
+              <th scope="col" class="table__heading" style="white-space: nowrap;">{{final.count}}</th>
+              <th scope="col" class="table__heading" style="white-space: nowrap;">{{final.subtotal}}</th>
+              <th scope="col" class="table__heading" style="white-space: nowrap;">{{final.total}}</th>
+              
+            </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+
+
+          
+    </div>
+      <!-- End of Main Content -->
+
+      {% endblock %}
+
+

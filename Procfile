@@ -1,0 +1,1 @@
+web: gunicorn adolf_project.wsgi --log-file -

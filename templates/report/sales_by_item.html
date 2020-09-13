@@ -1,0 +1,66 @@
+{% extends 'report_base.html' %}
+{% load static %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: .5px solid #080a0f ;">
+    <div class="container">
+      <div class="col col-sm-12" style="text-align: center;">
+        <h4>AADOLF SOLUTIONS</h4>
+        <h5>Sales by Items</h5>
+        <p class="from__date"></p>
+      </div>
+    </div>
+  </nav>
+
+<div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th style="text-align:center">ITEM NAME</th>
+            <th style="text-align:center">SKU</th>
+            <th style="text-align:center">QUANTITY SOLD</th>
+            <th style="text-align:center">AMOUNT</th>
+            <th style="text-align:center">AVERAGE PRICE</th>
+
+         </tr>
+        </thead>
+        <tbody>
+            {% for data in invoice_data_item %}
+          <tr role="button" data-href="#">
+
+            <td style="text-align:center">
+              {{data.name}}</td>
+            <td style="text-align:center"></td>
+            <td style="text-align:center"></td>
+            <td style="text-align:center"></td>
+            <td style="text-align:center">
+              {{data.sellamount}}</td>
+            <!--td style="text-align:center">
+                {{data.subtotal}}</td>
+            <td style="text-align:center">
+                {{data.total}}</td-->
+          </tr>
+          {% endfor %}
+          <!--tr class="hover-muted font-medium">
+            <td style="text-align:center">
+                Total</td>
+            <td style="text-align:center">
+                {{final.count}}</td>
+            <td style="text-align:center">
+                ₹ {{final.subtotal}}</td>
+            <td style="text-align:center">
+                ₹ {{final.total}}</td>
+         </tr-->
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+          
+    </div>
+      <!-- End of Main Content -->
+
+      {% endblock %}
+
+

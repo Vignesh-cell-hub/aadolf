@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+
+    <title>Items Form</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+
+    <link rel="stylesheet" type="text/css" href="css/items_form.css">
+
+
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    font-family: "Roboto Slab", sans-serif;
+
+}
+
+div {
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+.fill-header {
+    width: 100%;
+    padding: 0 25px;
+    margin: 0 0 10px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    font-weight: 600;
+}
+
+.items-form-body{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0 25px;
+    margin: 0 20px;
+    font-size: 14px;
+}
+
+.required{
+    color: red;
+}
+
+.items-top-bdy{
+    margin-bottom: 50px;
+}
+
+.items-btm-bdy{
+    margin-top: 50px;
+}
+
+.padding-left-20{
+    padding-left: 20px;
+}
+
+</style>
+
+<body>
+
+    <div class="row">
+        <div class="fill-header container-fluid">
+            <h2 class="float-left">New Items</h2>
+        </div>
+        <div class="items-form-body">
+            <form class="items-form" name="Itemform" method="POST" action="#">
+                {%csrf_token%}
+                <div class="items-top-body">
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0">Type</legend>
+                            <div class="col-sm-10">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="goods" name="type" value="Goods" class="custom-control-input"
+                                    {% if item.item_type == "Goods" %}
+                                      checked
+                                    {% endif %}
+                                    >
+                                    <label class="custom-control-label" for="goods">Goods</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="services" name="type" value="Services" class="custom-control-input"
+                                    {% if item.item_type == "Services" %}
+                                      checked
+                                    {% endif %} >
+                                    <label class="custom-control-label" for="services">Services</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group row required">
+                        <label for="item-name" class="col-sm-2 col-form-label">Name*</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="name" name="name" value={{item.name}}  required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="item-units" class="col-sm-2 col-form-label">Units</label>
+
+                        <div class="input-group col-sm-3 mb-3">
+                            <select class="custom-select" id="units" name="units" >
+                                <option value="null"></option>
+                                <option value="box" {% if item.units == "box" %} selected {% endif %} >box</option>
+                                <option value="cm" {% if item.units == "cm" %} selected {% endif %} >cm</option>
+                                <option value="dz" {% if item.units == "dz" %} selected {% endif %} >dz</option>
+                                <option value="ft" {% if item.units == "ft" %} selected{% endif %}>ft</option>
+                                <option value="g"  {% if item.units == "g" %} selected {% endif %}>g</option>
+                                <option value="in" {% if item.units == "in" %} selected{% endif %}>in</option>
+                                <option value="kg" {% if item.units == "kg" %} selected {% endif %}>kg</option>
+                                <option value="km" {% if item.units == "km" %} selected {% endif %}>km</option>
+                                <option value="lb" {% if item.units == "lb" %} selected {% endif %}>lb</option>
+                                <option value="mg" {% if item.units == "mg" %} selected {% endif %}>mg</option>
+                                <option value="m"  {% if item.units == "m" %}selected{% endif %}>m</option>
+                                <option value="pcs"{% if item.units == "pcs" %}selected {% endif %}>pcs</option>
+                                <option value="1" {% if item.units == "l" %} selected {% endif %}>1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="hsn" class="col-sm-2 col-form-label">HSN Code <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                            </svg></label>
+
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="hsncode" name="hsncode"  value={{item.hsncode}}  required>
+                        </div>
+                    </div>
+
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0  required">Tax Preference*</legend>
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tax-preference" id="Taxable" value="Taxable" {% if item.taxpreference == "Taxable" %} checked {% endif %} >
+                                    <label class="form-check-label" for="Taxable">Taxable</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tax-preference" id="Non-Taxable" value="Non-Taxable" {% if item.taxpreference == "Non-Taxable" %} checked {% endif %}>
+                                    <label class="form-check-label" for="Taxable">Non-Taxable</label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+
+                <div class="items-btm-bdy">
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group ">
+                                <div class="form-check form-check-inline">
+                                    <input id="" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label" for="">Sales Information</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row required">
+                                <label for="selling-price" class="col-sm-3 col-form-label">Selling Price*</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">INR</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="sellamount" aria-label="Amount" value={{item.sellamount}}>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="sales-acc" class="col-sm-3 col-form-label required">Account*</label>
+
+                                <div class="input-group col-sm-6 mb-3" required>
+                                    <select class="custom-select" id="sales-acc" name="salesacc">
+                                      <option value="null"></option>
+                                <option value="box" {% if item.salesacc == "box" %} selected {% endif %} >box</option>
+                                <option value="cm" {% if  item.salesacc == "cm" %} selected {% endif %} >cm</option>
+                                <option value="dz" {% if  item.salesacc == "dz" %} selected {% endif %} >dz</option>
+                                <option value="ft" {% if  item.salesacc == "ft" %} selected{% endif %}>ft</option>
+                                <option value="g"  {% if  item.salesacc == "g" %} selected {% endif %}>g</option>
+                                <option value="in" {% if  item.salesacc == "in" %} selected{% endif %}>in</option>
+                                <option value="kg" {% if  item.salesacc == "kg" %} selected {% endif %}>kg</option>
+                                <option value="km" {% if  item.salesacc == "km" %} selected {% endif %}>km</option>
+                                <option value="lb" {% if  item.salesacc == "lb" %} selected {% endif %}>lb</option>
+                                <option value="mg" {% if item.salesacc == "mg" %} selected {% endif %}>mg</option>
+                                <option value="m"  {% if  item.salesacc == "m" %}selected{% endif %}>m</option>
+                                <option value="pcs"{% if  item.salesacc == "pcs" %}selected {% endif %}>pcs</option>
+                                <option value="1" {% if  item.salesacc == "l" %} selected {% endif %}>1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="sales-des" class="col-sm-3">Description</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control" id="sales-des" name="salesdes" rows="3"> {{item.salesdes}} </textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-lg-6">
+
+                            <div class="form-group ">
+                                <div class="form-check form-check-inline">
+                                    <input id="" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label" for="">Purchase Information</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row required">
+                                <label for="cost-price" class="col-sm-3 col-form-label">Cost Price*</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">INR</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="puramount" aria-label="Amount" value={{item.puramount}}>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="purchase-acc" class="col-sm-3 col-form-label required">Account*</label>
+
+                                <div class="input-group col-sm-6 mb-3" required>
+                                    <select class="custom-select" id="purchase-acc" name="purchaseacc">
+                                          <option value="null"></option>
+                                        <option value="box" {% if item.purchaseacc == "box" %} selected {% endif %} >box</option>
+                                <option value="cm" {% if  item.purchaseacc == "cm" %} selected {% endif %} >cm</option>
+                                <option value="dz" {% if  item.purchaseacc == "dz" %} selected {% endif %} >dz</option>
+                                <option value="ft" {% if  item.purchaseacc == "ft" %} selected{% endif %}>ft</option>
+                                <option value="g"  {% if  item.purchaseacc == "g" %} selected {% endif %}>g</option>
+                                <option value="in" {% if  item.purchaseacc == "in" %} selected{% endif %}>in</option>
+                                <option value="kg" {% if  item.purchaseacc == "kg" %} selected {% endif %}>kg</option>
+                                <option value="km" {% if  item.purchaseacc == "km" %} selected {% endif %}>km</option>
+                                <option value="lb" {% if  item.purchaseacc == "lb" %} selected {% endif %}>lb</option>
+                                <option value="mg" {% if item.purchaseacc == "mg" %} selected {% endif %}>mg</option>
+                                <option value="m"  {% if  item.purchaseacc == "m" %}selected{% endif %}>m</option>
+                                <option value="pcs"{% if  item.purchaseacc == "pcs" %}selected {% endif %}>pcs</option>
+                                <option value="1" {% if  item.purchaseacc == "l" %} selected {% endif %}>1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="sales-des" class="col-sm-3">Description</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control" id="purchase-des" name="purchasedes"rows="3" >{{item.purchasedes}} </textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="items-end-bdy">
+
+                    <div class="end-bdy-heading">
+                        <h6>Default Tax Rates</h6>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="sales-acc" class="col-sm-2 col-form-label">Intra State Tax Rate</label>
+
+                        <div class="input-group col-sm-3 mb-3" required>
+                            <select class="custom-select" id="sales-acc" name="intrastate">
+                                 <option value="null"></option>
+                                <option value="box" {% if item.intrastate == "box" %} selected {% endif %} >box</option>
+                                <option value="cm" {% if item.intrastate == "cm" %} selected {% endif %} >cm</option>
+                                <option value="dz" {% if item.intrastate == "dz" %} selected {% endif %} >dz</option>
+                                <option value="ft" {% if item.intrastate == "ft" %} selected{% endif %}>ft</option>
+                                <option value="g"  {% if item.intrastate == "g" %} selected {% endif %}>g</option>
+                                <option value="in" {% if item.intrastate == "in" %} selected{% endif %}>in</option>
+                                <option value="kg" {% if item.intrastate == "kg" %} selected {% endif %}>kg</option>
+                                <option value="km" {% if item.intrastate == "km" %} selected {% endif %}>km</option>
+                                <option value="lb" {% if item.intrastate == "lb" %} selected {% endif %}>lb</option>
+                                <option value="mg" {% if item.intrastate == "mg" %} selected {% endif %}>mg</option>
+                                <option value="m"  {% if item.intrastate == "m" %}selected{% endif %}>m</option>
+                                <option value="pcs"{% if item.intrastate == "pcs" %}selected {% endif %}>pcs</option>
+                                <option value="1" {% if item.intrastate == "l" %} selected {% endif %}>1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="sales-acc" class="col-sm-2 col-form-label">Inter State Tax Rate</label>
+
+                        <div class="input-group col-sm-3 mb-3" required>
+                            <select class="custom-select" id="sales-acc" name="interstate">
+                                <option value="null"></option>
+                                <option value="box" {% if item.interstate == "box" %} selected {% endif %} >box</option>
+                                <option value="cm" {% if item.interstate == "cm" %} selected {% endif %} >cm</option>
+                                <option value="dz" {% if item.interstate == "dz" %} selected {% endif %} >dz</option>
+                                <option value="ft" {% if item.interstate == "ft" %} selected{% endif %}>ft</option>
+                                <option value="g"  {% if item.interstate == "g" %} selected {% endif %}>g</option>
+                                <option value="in" {% if item.interstate == "in" %} selected{% endif %}>in</option>
+                                <option value="kg" {% if item.interstate == "kg" %} selected {% endif %}>kg</option>
+                                <option value="km" {% if item.interstate == "km" %} selected {% endif %}>km</option>
+                                <option value="lb" {% if item.interstate == "lb" %} selected {% endif %}>lb</option>
+                                <option value="mg" {% if item.interstate == "mg" %} selected {% endif %}>mg</option>
+                                <option value="m"  {% if item.interstate == "m" %}selected{% endif %}>m</option>
+                                <option value="pcs"{% if item.interstate == "pcs" %}selected {% endif %}>pcs</option>
+                                <option value="1" {% if item.interstate == "l" %} selected {% endif %}>1</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+                <hr>
+                <br>
+                <p>Do you want to keep track of this item? Enable Inventory to view its stock based on the sales and purchase transactions you record for it. Go to Settings > Preferences > Items and enable inventory.</p>
+                <br><br><br><br>
+                <div class="row">
+                <div >
+                    <input class="btn btn-primary" type="submit" id="save" value="Save">
+                </div>
+                <div class="padding-left-20">
+
+                    <a href="{% url 'itemform_index' %} "><input class="btn btn-primary padding-left-10"  id="cancel" value="Cancel"></a>
+                </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="tether.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
+    <script>
+        $(function() {
+            $("[data-toggle='popover'").popover();
+        });
+
+        $(".popover-dismiss").popover({
+            trigger: "focus"
+        });
+
+    </script>
+</body>
+
+</html>

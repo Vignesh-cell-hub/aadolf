@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+    text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+    font-family: "Roboto Slab", sans-serif;
+}
+
+div {
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.row {
+    flex-wrap: nowrap;
+}
+
+.float-left {
+    padding: 25px;
+    margin-left: 10px;
+}
+
+button.close {
+    padding: 25px;
+    font-size: 2.5rem;
+    margin-right: 1.2rem;
+    align-content: center;
+}
+
+.header {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: cornsilk;
+}
+
+.inv-frm-bdy {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0 25px;
+    margin: 0 20px;
+    font-size: 14px;
+}
+
+.cust-btn {
+    width: 350px;
+}
+
+.required {
+    color: red;
+}
+
+.font-xs {
+    font-size: 12.5px;
+}
+
+i.zf-ac-toggler {
+    padding: 0 6px;
+    margin: -2px 0;
+    display: inline-block;
+    position: absolute;
+    fill: currentColor;
+    color: #999;
+}
+.form-control{
+    font-size: 14px;
+}
+
+.form-control-plaintext {
+    font-size: 14px;
+}
+
+svg {
+    width: 10px;
+}
+
+.add-line-item-separator {
+    border-left: 1px solid #eee;
+    padding: 0 5px 2px;
+    height: 14px;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+svg.add-icon {
+    width: 15px;
+}
+
+.btn {
+    font-size: 0.8rem;
+}
+
+svg.tx-imp {
+    width: 15px;
+    color: grey;
+}
+
+span.span-txt {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.total-amt {
+    float: right;
+    padding: 10px 1.5%;
+    text-align: right;
+    margin-left: -1%;
+}
+
+span.input-group-text {
+    font-size: 14px;
+}
+
+.input-group > .form-control {
+    height: auto;
+}
+
+.editable {
+    border: 1px dashed #ccc;
+    font-size: 14px;
+}
+
+.adjustment-exp svg {
+    width: 20px;
+    align-content: center;
+    margin: 2px;
+    font-size: 20px;
+    position: absolute;
+    padding-top: 4px;
+}
+
+label.bold {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.total {
+    font-weight: 600;
+    font-size: 1rem;
+    float: right;
+    padding: 10px 1.5%;
+    text-align: right;
+    margin-left: -1%;
+}
+
+.fill-container {
+    padding: 20px;
+}
+
+.grey-btm-bg {
+    background-color: #eee;
+}
+
+.txn-line-seperator {
+    border-right: 2px solid #fff;
+    padding: 0 10px 2px;
+    height: 100%;
+}
+
+.padding-left-20{
+    padding-left: 20px;
+}
+
+.padding-20{
+    padding: 20px;
+}
+
+.font-xxs{
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+}
+
+.text-blue{
+    color: dodgerblue;
+}
+
+.down-btn{
+    text-align: right;
+}

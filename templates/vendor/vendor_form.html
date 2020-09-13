@@ -1,0 +1,882 @@
+<!--DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1"-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+    /* font-size: 12px; */
+  }
+  
+  #new__customer{
+    font-family: 'Roboto Slab', serif;
+    color: #0f0f0f;
+  }
+  
+  /* Style the tab */
+  i.tablinks{
+          cursor: pointer;
+          padding: 10px;
+          margin: 30px;
+          top: 7.5px;
+          position: relative;
+    }
+  .tab {
+    overflow: hidden;
+    /* border: 1px solid #ccc; */
+    background-color: #f1f1f1;
+  }
+      .w3-bar{
+          min-height: 40px!important;
+      }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  
+  @-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+    
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 1px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: red;
+    background-color: #366339;
+    text-decoration: none;
+  }
+  a:hover {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: yellow;
+    background-color:transparent;
+    text-decoration: underline;
+  }
+  .container {
+    border-radius: 5px;
+    padding: 20px;
+  }
+  .col-20 {
+    float: left;
+    width: 15%;
+    margin-top: 6px;
+  }
+  .col-25 {
+    float: left;
+    width: 30%;
+    margin-top: 6px;
+  }
+  .col-75 {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+  }
+  .col-15 {
+    float: right;
+    width: 10%;
+    margin-top: 6px;
+    margin: 25px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .save {
+    border-color: #4CAF50;
+    color: green;
+  }
+  
+  .save:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  .cancel {
+    border-color: #e7e7e7;
+    color: black;
+  }
+  
+  .cancel:hover {
+    background: #e7e7e7;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .col-25, .col-25, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+  
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+
+
+  .header {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color:  #e3e6f0;
+    padding: 26px;
+    border-radius: 5px;
+    font-family: 'Roboto Slab', serif !important;
+  }
+
+   
+  </style>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<div class="container-fluid">
+
+  <!-- profile side bar -->
+  <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
+
+    <!-- Sidebar - Brand -->
+    <div class="card" style="align-items: center;" >
+      <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">AADOLFGROUPS</h5>
+        <p class="card-text">User ID: 60002359514</p>
+        <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
+      </div>
+      <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
+        <a href="#" id="#MyAccount" style="margin-right: 10px;" class="text-primary">My Account</a>
+        <div class="vl"></div>
+        <a href="#" style="color: rgb(226, 32, 32);">Sign Out</a>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-sm-12" style="margin-top: 30px ;">
+          <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
+            <h6>MY ORGANISATION</h6>
+            <a class="nav-item dropdown text-primary" style="float: right;" href="#"><i class="fa fa-cog" aria-hidden="true"></i> Manage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr style="width: 100%;">
+    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-sm-12" style="margin-bottom: 4%;">
+          <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
+          <h6>organisation id : 123455</h6>
+          <h6>GSTN FREE</h6>
+        </div>
+      </div>
+    </div>
+
+    <hr style="width: 100%;">
+  
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-sm-12" style="margin-bottom: 4%;">
+          <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
+          <h6>organisation id : 123455</h6>
+          <h6>GSTN FREE</h6>
+        </div>
+      </div>
+    </div>
+
+    <hr style="width: 100%;">
+              
+
+    </ul>
+
+
+
+
+  <div class="row">
+    <div class="col col-sm-12">
+      <div class="row">
+        <div class="header">
+          <h2 class="float-left text-primary" style="font-family:'Roboto Slab', serif;">New Vendor</h2>
+          <button type="button" class="close" aria-label="Close">
+           <span aria-hidden="true" style="font-size: 42px;">&times;</span>
+          </button>
+        </div>
+      </div>
+      <form class="customer-form" name="vendorform" method="POST" action="#">
+        {%csrf_token%}
+
+        <div class="row">
+
+          <div class="col col-sm-12 col-md-6">
+
+            <!-- primary contact -->
+            <div class="form-row">
+              <label for="pname" class="col-sm-2 col-form-label">Primary Contact</label>
+              <div class="col-md-2 mb-3">
+                <select style="width: 100% !important;" class="form-control" id="pname" name="primarycontact" placeholder="Salutation" onchange="generate_display_name()">
+                    <option value="mister">Mr.</option>
+                    <option value="mrs">Mrs.</option>
+                    <option value="ms">Ms.</option>
+                    <option value="miss">Miss.</option>
+                    <option value="doctor">Dr.</option>
+                </select>
+              </div>
+              <div class="col-md-2 mb-3">
+                <input type="text" class="form-control" id="fname" name="firstname" placeholder="First Name" required>
+              </div>
+              <div class="col-md-2 mb-3">
+                <input type="text" class="form-control" id="lname" name="lastname" placeholder="Last Name" required>
+              </div>
+            </div>
+
+            <!-- company name -->
+
+            <div class="form-group row">
+              <label for="cname" class="col-sm-2 col-form-label">Company Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control col-sm-7" id="cname" name="companyname" required>
+              </div>
+            </div>
+
+
+            <!-- display name -->
+
+            <div class="form-group row">
+              <label for="cdrname" class="col-sm-2 col-form-label">Vendor Display Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control col-sm-7" id="cdrname" name="customerdisplayname" required>
+              </div>
+            </div>
+
+            <!-- customer email -->
+
+            <div class="form-group row">
+              <label for="cname" class="col-sm-2 col-form-label">Vendor Email</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control col-sm-7" id="cemail" name="customeremail" required >
+              </div>
+            </div>
+
+            <!-- custoner phone -->
+
+            <div class="form-row">
+              <label for="cust" class="col-sm-2 col-form-label">Vendor Phone</label>
+              <div class="col-md-3 mb-3">
+                <input type="number" class="form-control" id="wphone"  name="Workphone" placeholder="Work Phone" required>
+              </div>
+              <div class="col-md-3 mb-3">
+                <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile" required>
+              </div>
+              <div class="col-md-2 mb-3">
+                <p><a href="#">Add more details</a></p>
+              </div>
+            </div>
+
+            <!-- customer weboste -->
+            <div class="form-group row">
+              <label for="web" class="col-sm-2 col-form-label">Customer Website</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control col-sm-7" id="web" name="website">
+              </div>
+            </div>
+
+          </div>
+          <div class="col col-sm-12 col-md-6"></div>
+        </div>
+
+       
+        <!-- other details buttons -->
+
+        <div class="tab w3-bar w3-white">
+          <i class="tablinks" onclick="openSwitch(event, 'Other Details')">Other Details</i>
+          <i class="tablinks" onclick="openSwitch(event, 'Address')">Address</i>
+          <i class="tablinks" onclick="openSwitch(event, 'Contact persons')">Contact Persons</i>
+          <i class="tablinks" onclick="openSwitch(event, 'Custom fields')">Custom Fields</i>
+          <i class="tablinks" onclick="openSwitch(event, 'Reporting Tags')">Reporting Tags</i>
+          <i class="tablinks" onclick="openSwitch(event, 'Remarks')">Remarks</i>
+         </div>
+
+         <!-- other details -->
+
+        <div id="Other Details" class="tabcontent">
+          <div class="container">
+              <div class="row">
+                  <div class="col-25">
+                    <label for="gst">GST Treatment</label>
+                  </div>
+                  <div class="col-25">
+                    <select id="gst" class="form-control" name="gsttreatment" required>
+                      <option value="regular">Registered Business - Regular</option>
+                      <option value="composition">Registered Business - Regular</option>
+                      <option value="unregistered">Unregistered Business</option>
+                      <option value="consumer">Consumer</option>
+                      <option value="overseas">Overseas</option>
+                      <option value="special">Special Economic Zone</option>
+                      <option value="deemed">Deemed Export</option>
+                      <option value="tax">Tax Deductor</option>
+                      <option value="sez">SEZ Developer</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-25">
+                    <label for="place">Source of supply</label>
+                  </div>
+                  <div class="col-25">
+                    <select id="place" name="place of supply" class="form-control" required>
+                      <option value="andamanandnicobar Islands">Andaman and Nicobar Islands </option>
+                      <option value="arunachalpradesh">Arunachal Pradesh</option>
+                      <option value="assam">Assam</option>
+                      <option value="bihar">Bihar</option>
+                      <option value="chandigarh">Chandigarh</option>
+                      <option value="chhattisgarh">Chhattisgarh</option>
+                      <option value="dadra">Dadra and Nagar Haveli and Daman and Diu</option>
+                      <option value="delhi">Delhi</option>
+                      <option value="goa">Goa</option>
+                      <option value="gujarat">Gujarat</option>
+                      <option value="haryana">Haryana</option>
+                      <option value="himachal">Himachal Pradesh</option>
+                      <option value="jammu">Jammu and Kashmir</option>
+                      <option value="jhar">Jharkhand</option>
+                      <option value="kar">Karnataka</option>
+                      <option value="ker">Kerala</option>
+                      <option value="ladakh">Ladakh</option>
+                      <option value="lak">Lakshadweep </option>
+                      <option value="madh">Madhya Pradesh</option>
+                      <option value="maha">Maharashtra</option>
+                      <option value="mani">Manipur</option>
+                      <option value="mega">Meghalaya</option>
+                      <option value="mizo">Mizoram</option>
+                      <option value="naga">Nagaland</option>
+                      <option value="odi">Odisha</option>
+                      <option value="puducherry">Puducherry</option>
+                      <option value="punjab">Punjab</option>
+                      <option value="rajas">Rajasthan</option>
+                      <option value="sikkim">Sikkim</option>
+                      <option value="tamilnadu">Tamil Nadu</option>
+                      <option value="tel">Telangana</option>
+                      <option value="tri">Tripura</option>
+                      <option value="uttar">Uttar Pradesh</option>
+                      <option value="uttarkhand">Uttarakhand</option>
+                      <option value="westbengal">West Bengal</option>
+                </select>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-25">
+                    <label for="currency">Currency</label>
+                  </div>
+                  <div class="col-25">
+                    <select id="currency" class="form-control" name="currency" required>
+                      <option value="inr">INR-Indian Rupee</option>
+                      <option value="aud">AUD-Australian dollar</option>
+                      <option value="cad">CAD-Canadian dollar</option>
+                      <option value="eur">EUR-Euro</option>
+                      <option value="aed">AED-UAE dirham</option>
+                      <option value="jpy">JPY-Japanese Yen</option>
+                      <option value="usd">USD-United States Dollar</option>
+                      <option value="sar">SAR-Saudi Riyal</option>
+                      <option value="zar">ZAR-South African Rand</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-25">
+                    <label for="openbal">Opening Balance</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="text" class="form-control" id="openbal" name="openingbalance">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-25">
+                    <label for="paymentterms">Payment Terms</label>
+                  </div>
+                  <div class="col-25">
+                    <select class="form-control" id="paymentterms" name="paymentterms">
+                      <option value="rec">Due on receipt</option>
+                      <option value="fif">NET 15</option>
+                      <option value="thi">NET 30</option>
+                      <option value="for">NET 45</option>
+                      <option value="six">NET 60</option>
+                      <option value="mon">Due end of the month</option>
+                      <option value="next">Due end of the next month</option>
+                </select>
+                </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-25">
+                    <label for="lang">TDS</label>
+                  </div>
+                  <div class="col-25">
+                    <select class="form-control" id="lang" name="tds">
+                      <option value="Commission">Commission</option>
+                      <option value="Dividend">Dividend</option>
+                      <option value="Contractor">Payment of contractors</option>
+                </select>
+                </div>
+              </div>
+
+
+              <div class="row">
+                  <div class="col-25">
+                    <label for="fb">Facebook</label>
+                  </div>
+                  <div class="col-25">
+                    <input class="form-control" type="text" id="fb" name="facebook">
+                  </div>
+              </div>
+
+
+              <div class="row">
+                  <div class="col-25">
+                    <label for="twitter">Twitter</label>
+                  </div>
+                  <div class="col-25">
+                    <input class="form-control" type="text" id="twitter" name="twitter">
+                  </div>
+              </div>
+
+
+              <p style="margin-top: 20px;">Customer Owner: Assign a user as the Customer owner to provide access only to the data of this customer <a href=""> Learn More</a></p>
+         </div>      
+        </div>
+
+        <!-- address section -->
+
+        <div id="Address" class="tabcontent">
+          <div class="container">
+              <div class="row">
+              <div class="col-75">
+                <p>BILLING ADDRESS</p>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="att">Attention</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="text" class="Attention form-control" id="att" name="billattention">
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-25">
+                    <label for="country">Country / Region</label>
+                  </div>
+                  <div class="col-25">
+                    <select id="country" class="Country form-control" name="billCountry">
+                      <option value="ind">India</option>
+                      <option value="ame">America</option>
+                      <option value="brazil">Brazil</option>
+                      <option value="egy">Egypt</option>
+                      <option value="france">France</option>
+                      <option value="usa">USA</option>
+                      <option value="uae">USE</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-25">
+                    <label for="address">Address</label>
+                  </div>
+                  <div class="col-25">
+                    <textarea id="address" name="billaddress" class="Street1 form-control" placeholder="Street1"></textarea>
+                    <textarea id="address" name="billaddress" class="Street2 form-control" placeholder="Street2"></textarea>
+                  </div>
+                </div>
+                
+            
+                <div class="row">
+                  <div class="col-25">
+                    <label for="city">City</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="text" id="city" class="City form-control" name="billcity">
+                  </div>
+                </div>
+            
+                <div class="row">
+                  <div class="col-25">
+                    <label for="state">State</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="text" id="state" class="State form-control" name="billstate">
+                  </div>
+                </div>
+            
+                <div class="row">
+                  <div class="col-25">
+                    <label for="zipc">Zip Code</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="number" class="Zip form-control" id="zipc" name="billzipc">
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-25">
+                    <label for="phone">Phone</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="number" class="Phone form-control" id="phone" name="billphone">
+                  </div>
+                </div>
+              
+              <div class="row">
+                  <div class="col-25">
+                    <label for="fax">Fax</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="number" class="Fax form-control" id="fax" name="billfax">
+                  </div>
+                </div>
+            
+              </div>
+              <div class="col-75">
+                <div style="display: flex;">
+                  <p>SHIPPING ADDRESS</p>
+                  <p style="cursor: pointer; margin-left: 5%" id="copy">Copy the billing address</p>
+                </div>
+                  <div class="row">
+                  <div class="col-25">
+                    <label for="att">Attention</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="text" class="Attention1 form-control" id="att" name="attention">
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-25">
+                    <label for="country">Country / Region</label>
+                  </div>
+                  <div class="col-25">
+                    <select id="country" class="Country1 form-control" name="Country">
+                      <option value="ind">India</option>
+                      <option value="ame">America</option>
+                      <option value="brazil">Brazil</option>
+                      <option value="egy">Egypt</option>
+                      <option value="france">France</option>
+                      <option value="usa">USA</option>
+                      <option value="uae">USE</option>
+                </select>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-25">
+                    <label for="address">Address</label>
+                  </div>
+                  <div class="col-25">
+                    <textarea id="address" class="Street11 form-control" name="address" placeholder="Street1"></textarea>
+                    <textarea id="address" class="Street21 form-control" name="address" placeholder="Street2"></textarea>
+                  </div>
+                </div>
+                
+            
+                <div class="row">
+                  <div class="col-25">
+                    <label for="city">City</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="text" class="City1 form-control" id="city" name="city">
+                  </div>
+                </div>
+            
+                <div class="row">
+                  <div class="col-25">
+                    <label for="state">State</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="text" class="State1 form-control" id="state" name="state">
+                  </div>
+                </div>
+            
+                <div class="row">
+                  <div class="col-25">
+                    <label for="zipc">Zip Code</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="number" id="zipc" class="Zip1 form-control" name="zipc">
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-25">
+                    <label for="phone">Phone</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="number" id="phone" class="Phone1 form-control" name="phone">
+                  </div>
+                </div>
+              
+              <div class="row">
+                  <div class="col-25">
+                    <label for="fax">Fax</label>
+                  </div>
+                  <div class="col-25">
+                    <input type="number" id="fax" class="Fax1 form-control" name="fax">
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+          <p>Note:<br>
+            You can add and manage additional addresses from contact details section.<br>
+            View and edit the address format of your transactions under Settings > Preferences > Customers and Vendors.</p>
+         </div>
+
+         <div id="Contact persons" class="tabcontent">
+           <div class="container-fluid">
+            <div class="table-responsive">
+                <table>
+                <tr>
+                  <td>Salutation</td>
+                  <td>First Name</th>
+                  <td>Last Name</td>
+                  <td>Email Address</td>
+                  <td>Work Phone</td>
+                  <td>Mobile</td>
+                </tr>
+                <tr style="background-color: transparent;">
+                  <td> <input class="form-control" name="person[salutation]"></td>
+                  <td> <input class="form-control" name="person[fname]"> </td>
+                  <td> <input class="form-control" name="person[lname]"> </td>
+                  <td> <input class="form-control" name="person[address]"> </td>
+                  <td> <input class="form-control" name="person[phone]"> </td>
+                  <td> <input class="form-control" name="person[mobile]"> </td>
+                    </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- customfeilds -->
+
+
+        <div id="Custom fields" class="tabcontent">
+          <center>
+            <p>
+              Start adding custom fields for your contacts by going to Settings  Preferences  Customers and Vendors. You can add as many as Ten extra fields, as well as refine the address format of your customers from there.
+            </p>
+          </center>
+         </div>
+
+
+         <!-- report -->
+
+         <div id="Reporting Tags" class="tabcontent">
+          <center><p>You've not created any Reporting Tags.
+         Start creating reporting tags by going to More Settings  Reporting Tags</p></center>
+         </div>
+
+         <!-- remarks -->
+
+         <div id="Remarks" class="tabcontent">
+              <div class="row">
+                  <div class="col-25">
+                    <label for="subject">Remarks(for internal usuage)</label>
+                  </div><br>
+                  <div class="col-75">
+                    <textarea id="subject" class="noBorder" name="subject" style="height:200px"></textarea>
+                  </div>
+              </div>
+         </div>
+
+
+         <!-- save and cancel -->
+         <div class="row" style="margin-top: 40px;">
+                <div class="col-14" style="margin-right: 2%;">
+                  <button class="btn btn-primary btn-lg" type="submit">Save <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-14">
+                  <button class="btn btn-dark btn-lg" type="reset">Cancel</button>
+                </div>
+          </div> 
+
+          
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script>
+function generate_display_name(){
+  pname = document.getElementById('pname');
+  fname = document.getElementById('fname');
+  lname = document.getElementById('lname');
+  dname = document.getElementById('dname'); 
+  dname.value = pname.value +" "+ fname.value +" "+ lname.value;
+}  
+function openSwitch(evt, tagName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
+  }
+  document.getElementById(tagName).style.display = "block";
+  evt.currentTarget.className += " w3-blue";
+}
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="tether.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    // Get value on button click and show alert
+    $("#copy").click(function(){
+        $(".Attention1").val($(".Attention").val());
+        $(".Country1").children("option:selected").text($(".Country").children("option:selected").text())
+        $(".Country1").children("option:selected").val($(".Country").children("option:selected").val())
+        $(".Street11").val($(".Street1").val());
+        $(".Street21").val($(".Street2").val());
+        $(".City1").val($(".City").val());
+        $(".State1").val($(".State").val());
+        $(".Zip1").val($(".Zip").val());
+        $(".Phone1").val($(".Phone").val());
+        $(".Fax1").val($(".Fax").val());
+    });
+});
+</script>
+
+<script>
+  function openSwitch(evt, tagName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
+    }
+    document.getElementById(tagName).style.display = "block";
+    evt.currentTarget.className += " w3-blue";
+  }
+</script>
+
+{% endblock %}

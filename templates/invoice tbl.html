@@ -1,0 +1,216 @@
+
+
+<!--!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.button {
+
+  background-color:#4CAF50;/*gn */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button1 {
+  background-color: #552155; /*gy */
+  border: none;
+  color: white;
+  padding: 15px 10px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button2 {
+  background-color: #f44336; /*Rd */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+.navbar {
+  overflow: hidden;
+ 
+}
+
+.navbar a {
+  float: right;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+   margin: 25px;
+}
+
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 25px;
+}
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color:  blue;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+</head>
+<body-->
+  {% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="navbar">
+  <div class="dropdown">
+	<button class="button1">All Invoices <i class="fa fa-caret-down"></i></button>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Pending Approval</a>
+      <a href="#">Approved</a>
+      <a href="#">Client Viewed</a>
+      <a href="#">Partially Paid</a>
+	<a href="#">Unpaid</a>
+	<a href="#">Overdue</a>
+	<a href="#">Payment Initiated</a>
+	<a href="#">Paid</a>
+	<a href="#">Void</a>
+	<a href="#">Invoices</a>
+	<a href="#">Bills of supply</a>
+	<a href="#">Debit note</a>
+	<a href="#">Write off</a><hr>
+	<a href="#"> + New Custom View</a>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+	 <button class="button" >+ New  <i class="fa fa-caret-down"></i></button>
+	 </button>
+    <div class="dropdown-content">
+      <a href="upload/">New Invoice</a>
+      <a href="#">New Invoice (pre GST)</a>
+      <a href="#">New Bill of Supply</a><hr>
+      <a href="#">Create Retail Invoice  c+r</a>
+	<a href="#">New Debit Note</a>
+    </div>
+  </div> 
+
+
+	 <div  class="dropdown">
+  	<button class="button2">Settings</button>
+
+	 </button>
+    <div class="dropdown-content">
+      <a href="#">Preferences</a>
+      <a href="#">Manage Custom Fields</a>
+      <a href="#">Online Payments</a>
+    </div>
+  </div> 
+
+ 
+<div class="dropdown">
+   <input type="button" class="button" value="SORT BY">
+     
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Created Time</a>
+      <a href="#">Last Modified Time</a>
+      <a href="#">Date</a>
+      <a href="#">Invoice#</a>
+	<a href="#">Order Number</a>
+	<a href="#">Customer Name</a>
+	<a href="#">Due Date</a>
+	<a href="#">Amount</a>
+	<a href="#">Balance Due</a><hr>
+	<a href="#">Import Invoices</a>
+	<a href="#">Import Bills of supply</a>
+	<a href="#">Export Invoices</a>
+	<a href="#">Export as E-Way Bill</a><hr>
+	<a href="#">Export Current View</a><hr>
+	<a href="#">Refresh List</a><hr>
+    </div>
+  </div> 
+</div>
+
+
+<div class="table">
+  <table style="width:100%"><hr>
+  <tr>
+    <th><input type="checkbox"/></th>
+    <th>NAME</th>
+    <th>SKU</th>
+    <th>DESCRIPTION</th>
+    <th>RATE</th>
+    <th>HSN/SAC</TH>
+    <th>USAGE UNIT</th>
+    <th><input type="button">search</input></th>
+  </tr>
+  <tbody>
+    {% for i in alldetails %}
+  <tr role="button" data-href="#">
+
+    <td style="text-align:center"><hr><input type="checkbox" /></td>
+    <td style="text-align:center"><hr><a href="#">{{i.name}}</a></td>
+    <td style="text-align:center"><hr>{{i.item_type}}</td>
+    <td style="text-align:center"><hr>{{i.salesdes}}</td>
+    <td style="text-align:center"><hr>{{i.sellamount}}</td>
+    <td style="text-align:center"><hr>{{i.hsncode}}</td>
+    <td style="text-align:center"><hr>{{i.units}}</td>
+    <td style="text-align:center"></td>
+    <td><a class="btn" href="{% url 'editItem' i.id %}"><button>Edit</button></a></td>
+
+    
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+ </div>
+ {% endblock %}

@@ -1,0 +1,557 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    font-family: "Roboto Slab", sans-serif;
+    
+}
+
+div {
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+.fill-header {
+    width: 100%;
+    padding: 0 25px;
+    margin: 0 0 10px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    font-weight: 600;
+}
+
+.items-form-body{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0 25px;
+    margin: 0 20px;
+    font-size: 14px;
+}
+
+.required{
+    color: red;
+}
+
+.items-top-bdy{
+    margin-bottom: 50px;
+}
+
+.items-btm-bdy{
+    margin-top: 50px;
+}
+
+.padding-left-20{
+    padding-left: 20px;
+}
+.button {
+
+background-color:#4CAF50;/*gn */
+border: none;
+color: white;
+padding: 10px 10px;
+text-align: right;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+}
+.button1 {
+background-color: #552155; /*gy */
+border: none;
+color: white;
+padding: 15px 10px;
+text-align: right;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+}
+.button2 {
+background-color: #f44336; /*Rd */
+border: none;
+color: white;
+padding: 10px 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+}
+
+
+.navbar {
+overflow: hidden;
+
+}
+
+.navbar a {
+float: right;
+font-size: 16px;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+.dropdown {
+float: left;
+overflow: hidden;
+ margin: 25px;
+}
+
+
+.dropdown .dropbtn {
+font-size: 16px;  
+border: none;
+outline: none;
+color: white;
+padding: 14px 16px;
+background-color: inherit;
+font-family: inherit;
+margin: 25px;
+}
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+background-color:  blue;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+}
+.dropdown-content a {
+float: none;
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+text-align: left;
+}
+
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+
+
+.header {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color:  #e3e6f0;
+    padding: 26px;
+    border-radius: 5px;
+  }
+
+</style>
+
+    <div class="row">
+
+           <!-- profile side bar -->
+           <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
+
+            <!-- Sidebar - Brand -->
+            <div class="card" style="align-items: center;" >
+              <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">AADOLFGROUPS</h5>
+                <p class="card-text">User ID: 60002359514</p>
+                <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
+              </div>
+              <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
+                <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
+                <div class="vl"></div>
+                <a href="#" style="color: rgb(226, 32, 32);">Sign Out</a>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col col-sm-12" style="margin-top: 30px ;">
+                  <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h6>MY ORGANISATION</h6>
+                    <a class="nav-item dropdown" style="float: right;" href="#"><i class="fa fa-cog" aria-hidden="true"></i> Manage</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr style="width: 100%;">
+            
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col col-sm-12" style="margin-bottom: 4%;">
+                  <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
+                  <h6>organisation id : 123455</h6>
+                  <h6>GSTN FREE</h6>
+                </div>
+              </div>
+            </div>
+
+            <hr style="width: 100%;">
+          
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col col-sm-12" style="margin-bottom: 4%;">
+                  <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
+                  <h6>organisation id : 123455</h6>
+                  <h6>GSTN FREE</h6>
+                </div>
+              </div>
+            </div>
+
+            <hr style="width: 100%;">
+                      
+
+            </ul>
+
+
+
+
+
+        <div class="container-fluid" style="margin-bottom: 15px;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="header">
+                      <h2 class="float-left text-primary">New Item</h2>
+                      <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 42px;">&times;</span>
+                      </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="items-form-body">
+            <form class="items-form" name="Itemform" method="POST" action="#">
+                {%csrf_token%}
+                <div class="items-top-body">
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0">Type</legend>
+                            <div class="col-sm-10">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="goods" name="type" value="Goods" class="custom-control-input">
+                                    <label class="custom-control-label" for="goods">Goods</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="services" name="type" value="Services" class="custom-control-input">
+                                    <label class="custom-control-label" for="services">Services</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group row required">
+                        <label for="item-name" class="col-sm-2 col-form-label">Name*</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="item-units" class="col-sm-2 col-form-label">Units</label>
+
+                        <div class="input-group col-sm-3 mb-3">
+                            <select class="custom-select" id="units" name="units">
+                                <option value="null"></option>
+                                <option value="box">box</option>
+                                <option value="cm">cm</option>
+                                <option value="dz">dz</option>
+                                <option value="ft">ft</option>
+                                <option value="g">g</option>
+                                <option value="in">in</option>
+                                <option value="kg">kg</option>
+                                <option value="km">km</option>
+                                <option value="lb">lb</option>
+                                <option value="mg">mg</option>
+                                <option value="m">m</option>
+                                <option value="pcs">pcs</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="hsn" class="col-sm-2 col-form-label">HSN Code <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                            </svg></label>
+
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="hsncode" name="hsncode" required>
+                        </div>
+                    </div>
+
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0  required">Tax Preference*</legend>
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tax-preference" id="Taxable" value="Taxable">
+                                    <label class="form-check-label" for="Taxable">Taxable</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tax-preference" id="Non-Taxable" value="Non-Taxable">
+                                    <label class="form-check-label" for="Taxable">Non-Taxable</label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+
+                <div class="items-btm-bdy">
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group ">
+                                <div class="form-check form-check-inline">
+                                    <input id="" class="form-check-input" type="checkbox" onclick="EnableDisableTextBox(this)">
+                                    <label class="form-check-label" for="">Sales Information</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row required">
+                                <label for="selling-price" class="col-sm-3 col-form-label">Selling Price*</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">INR</span>
+                                        </div>
+                                        <input type="number" id="SellingPricE" class="form-control" name="sellamount" aria-label="Amount" disabled="disabled">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="sales-acc" class="col-sm-3 col-form-label required">Account*</label>
+
+                                <div class="input-group col-sm-6 mb-3" required>
+                                    <select class="custom-select" id="sales-acc" name="salesacc" disabled="disabled">
+                                        <option value="null"></option>
+                                        <option value="box">box</option>
+                                        <option value="cm">cm</option>
+                                        <option value="dz">dz</option>
+                                        <option value="ft">ft</option>
+                                        <option value="g">g</option>
+                                        <option value="in">in</option>
+                                        <option value="kg">kg</option>
+                                        <option value="km">km</option>
+                                        <option value="lb">lb</option>
+                                        <option value="mg">mg</option>
+                                        <option value="m">m</option>
+                                        <option value="pcs">pcs</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="sales-des" class="col-sm-3">Description</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control" id="sales-des" name="salesdes" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-lg-6">
+
+                            <div class="form-group ">
+                                <div class="form-check form-check-inline">
+                                    <input id="" class="form-check-input" type="checkbox" onclick="EnableDisableTextBox2(this)">
+                                    <label class="form-check-label" for="">Purchase Information</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row required">
+                                <label for="cost-price" class="col-sm-3 col-form-label">Cost Price*</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">INR</span>
+                                        </div>
+                                        <input type="number" min="1" id="Amount" disabled="disabled" class="form-control" name="puramount" aria-label="Amount">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="purchase-acc" class="col-sm-3 col-form-label required">Account*</label>
+
+                                <div class="input-group col-sm-6 mb-3" required>
+                                    <select class="custom-select" id="purchase-acc" name="purchaseacc" disabled="disabled">
+                                        <option value="null"></option>
+                                        <option value="box">box</option>
+                                        <option value="cm">cm</option>
+                                        <option value="dz">dz</option>
+                                        <option value="ft">ft</option>
+                                        <option value="g">g</option>
+                                        <option value="in">in</option>
+                                        <option value="kg">kg</option>
+                                        <option value="km">km</option>
+                                        <option value="lb">lb</option>
+                                        <option value="mg">mg</option>
+                                        <option value="m">m</option>
+                                        <option value="pcs">pcs</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="sales-des" class="col-sm-3">Description</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control" id="purchase-des" name="purchasedes"rows="3" disabled="disabled"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="items-end-bdy">
+
+                    <div class="end-bdy-heading">
+                        <h6>Default Tax Rates</h6>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="sales-acc" class="col-sm-2 col-form-label">Intra State Tax Rate</label>
+
+                        <div class="input-group col-sm-3 mb-3" required>
+                            <select class="custom-select" id="sales-acc" name="intrastate">
+                                <option value="null"></option>
+                                <option selected="selected" value="GST18">GST18[18%]</option>
+                                <!--option value="cm">cm</option>
+                                <option value="dz">dz</option>
+                                <option value="ft">ft</option>
+                                <option value="g">g</option>
+                                <option value="in">in</option>
+                                <option value="kg">kg</option>
+                                <option value="km">km</option>
+                                <option value="lb">lb</option>
+                                <option value="mg">mg</option>
+                                <option value="m">m</option>
+                                <option value="pcs">pcs</option>
+                                <option value="1">1</option-->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="sales-acc" class="col-sm-2 col-form-label">Inter State Tax Rate</label>
+
+                        <div class="input-group col-sm-3 mb-3" required>
+                            <select class="custom-select" id="sales-acc" name="interstate">
+                                <option value="null"></option>
+                                <option value="GST0">GST0[0%]</option>
+                                <option value="GST5">GST5[5%]</option>
+                                <option value="GST12">GST12[12%]</option>
+                                <option selected="selected" value="GST18">GST18[18%]</option>
+                                <option value="GST28">GST28[28%]</option>
+                                <!--option value="in">in</option>
+                                <option value="kg">kg</option>
+                                <option value="km">km</option>
+                                <option value="lb">lb</option>
+                                <option value="mg">mg</option>
+                                <option value="m">m</option>
+                                <option value="pcs">pcs</option>
+                                <option value="1">1</option-->
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+                <hr>
+                <br>
+                <p>Do you want to keep track of this item? Enable Inventory to view its stock based on the sales and purchase transactions you record for it. Go to Settings > Preferences > Items and enable inventory.</p>
+                <br><br><br><br>
+                <div class="row">
+                <div >
+                    <button class="btn btn-lg btn-primary btn-block">Save <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                </div>
+                <div class="padding-left-20">
+                    <button class="btn btn-dark btn-lg" type="reset">Cancel</button>
+                    <!-- <a class="btn btn-lg btn-dark btn-block" id="cancel" href="#">Cancel</a> -->
+                    <!-- <input class="btn btn-lg btn-dark btn-block " type="submit" id="cancel" value="Cancel"> -->
+                </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="tether.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script>
+        $(function() {
+            $("[data-toggle='popover'").popover();
+        });
+
+        $(".popover-dismiss").popover({
+            trigger: "focus"
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        var Sales_Description            = document.getElementById("sales-des");
+        var SellingPrice                 = document.getElementById("SellingPricE");
+        var Account                      = document.getElementById("sales-acc");
+
+        var Purchase_Description         = document.getElementById("purchase-des");
+        var Amount                       = document.getElementById("Amount");
+        var Purchase_acc                 = document.getElementById("purchase-acc");
+        Sales_Description.disabled       = true;
+        Purchase_Description .disabled   = true;
+                
+
+        function EnableDisableTextBox(ckeck) {
+            SellingPrice.disabled       = ckeck.checked ? false : true;
+            Account.disabled            = ckeck.checked ? false : true;
+            Sales_Description.disabled  = ckeck.checked ? false : true;            
+        }
+
+        function EnableDisableTextBox2(ckeck) {
+            Purchase_Description.disabled   = ckeck.checked ? false : true;
+            Amount.disabled                 = ckeck.checked ? false : true;
+            Purchase_acc.disabled           = ckeck.checked ? false : true;
+        }
+
+
+
+    </script>
+
+{% endblock %}
