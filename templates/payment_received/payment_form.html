@@ -39,6 +39,12 @@
 		font-family: "Roboto Slab", sans-serif;
 	}
 
+	.option__title{
+		font-size: 1rem;
+		text-align: center;
+		font-weight: bold;
+	}
+
 	input[type=number]::-webkit-inner-spin-button,
 	input[type=number]::-webkit-outer-spin-button {
 		-webkit-appearance: none;
@@ -73,10 +79,13 @@
 	}
 
 	.header {
-		width: 100%;
-		margin-bottom: 30px;
-		background-color: #88bef5;
-	}
+    width: 100%;
+    margin-bottom: 30px;
+    background-color:  #e3e6f0;
+    border-radius: 5px;
+  }
+
+    
 
 	.inv-frm-bdy {
 		display: block;
@@ -301,6 +310,23 @@
 	#dropdownSelectedName {
 		font-weight: 350;
 	}
+
+
+
+
+	/* total heading */
+
+	.total__heading{
+		text-align: right;
+		letter-spacing: 1.3px;;
+	}
+
+	.total__heading2{
+		text-align:center;
+		letter-spacing: 1.3px;;
+	}
+
+
 </style>
 
 <body>
@@ -347,7 +373,7 @@
 				<li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse"
 						data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+						<i class="fa fa-shopping-cart" aria-hidden="true"></i> 
 						<span>Sales</span>
 					</a>
 					<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -380,9 +406,9 @@
 						<div class="bg-white py-2 collapse-inner rounded">
 
 							<a class="collapse-item" href="../../vendor/">Vendors</a>
-            <a class="collapse-item" href="#">Enquuiry</a>
-            <a class="collapse-item" href="#">Purchase Orders</a>
-            <a class="collapse-item" href="../../expenses/">Expenses</a>
+							<a class="collapse-item" href="#">Enquuiry</a>
+							<a class="collapse-item" href="#">Purchase Orders</a>
+							<a class="collapse-item" href="../../expenses/">Expenses</a>
 						</div>
 					</div>
 				</li>
@@ -420,13 +446,6 @@
 						toggle.classList.toggle('active');
 					}
 				</script>
-
-
-
-
-
-
-
 
 
 			</ul>
@@ -697,18 +716,18 @@
 
 
 					<div id="scroll-container">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="header">
-									<h2 class="float-left" style="color:#071a52">New Sales Order</h2>
-									<button type="button" class="close" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
 
-							</div>
 
-						</div>
+						<div class="container-fluid mb-4">
+                            <div class="row">
+                                <div class="header">
+                                    <h2 class="float-left text-primary">New PAYMENT RECEIVED</h2>
+                                    <button type="button" class="close" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
 						<div class="container-fluid">
 							<div class="row">
@@ -742,6 +761,8 @@
 														</svg>
 													</button>
 												</div>
+
+
 											</div>
 										</div>
 										<div class="form-group placeholder-container row">
@@ -880,14 +901,12 @@
 																						<hr></a>
 
 																					<a class="drop__item"><span
-																							style="word-wrap:break-word">Sandysadsadsdsdddsadsadsadsadsadsadsadsadsadsadsasd</span><br><span
+																							style="word-wrap:break-word">Sandysadadsadsasd</span><br><span
 																							class="search__span">Use
 																							these settings for all
 																							future transactions of
 																							this customer</span>
 																						<hr></a>
-
-
 																				</div>
 																			</div>
 																		</div>
@@ -938,44 +957,92 @@
 											</div>
 										</div>
 
-										<div class="form-group row"><label
-												class="col-form-label col-lg-2 required">Place Of
-												Supply</label>
-											<div class="col-lg-4">
-												<div id="" class="auto-complete ember-view">
-													<div id="ember875" class="ember-view">
-														<div class="ac-box ">
-															<span class="ac-selected form-control " tabindex="0">
-																<span data-integrity-label="">[TN] - Tamil Nadu <svg
-																		width="1em" height="1em" viewBox="0 0 16 16"
-																		class="bi bi-chevron-down down-btn"
-																		fill="currentColor"
-																		xmlns="http://www.w3.org/2000/svg">
-																		<path fill-rule="evenodd"
-																			d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-																	</svg></span>
-																<!---->
-																<div>
-																</div>
-															</span>
-														</div>
+										<!-- Amount received -->
 
-														<!---->
+										<div class="form-group row">
+                                            <label class="col-form-label col-lg-2 required">Amount Received</label>
+                                            <div class="col-lg-3">
+                                                <input placeholder="INR" id="" class="form-control" name="amount_received"
+                                                    type="number" />
+											</div>
+											<div class="col-lg-2">
+												<p class="form-control-plaintext" style="white-space: nowrap;">Bank Charges(if any)</p>
+											</div>
+                                            <div class="col-lg-2">
+												<div id="" class="">
+													<div class="ac-box">
+														<input placeholder="Bank Charges" id="" class="form-control" name="bank_charges"
+														type="text" />
 													</div>
 												</div>
-												<!---->
+											</div>
+										</div>
+										
+										<!-- PAYMENT DATE -->
+
+										<div class="form-group row required">
+											<label for="inv-no" class="col-sm-2 col-form-label">Payment Date*</label>
+											<div class="col-sm-4">
+												<input type="date" class="form-control" id="inv-no" name="sales_order"
+													required />
 											</div>
 										</div>
 
+
+										<!-- PAYMENT#* -->
+
 										<div class="form-group row required">
-											<label for="inv-no" class="col-sm-2 col-form-label">Sales Order#*</label>
-											<div class="col-sm-4">
-												<input type="text" class="form-control" id="inv-no" name="sales_order"
-													required />
-											</div><a data-toggle="modal" data-target="#invoiceModal"><i id="Invoive11"
-													class="fa fa-cog" style="color: black ; cursor: pointer;"
-													aria-hidden="true"></i></a>
+                                            <label for="inv-no" class="col-sm-2 col-form-label">Payment#*</label>
+                                            <div class="col-sm-4" style="display: flex;">
+                                                <input type="text" class="form-control" id="paymentNo" name="payment"
+                                                    disabled />
+                                                <a data-toggle="modal" data-target="#invoiceModal" style="margin-left: 3%;"><i id="Invoive11" class="fa fa-cog" style="color: black ; cursor: pointer;" aria-hidden="true"></i></a>
+                                            </div>
 										</div>
+										
+
+
+										<!-- payment mode -->
+
+
+										<div class="form-group row required">
+                                            <label for="inv-no" class="col-sm-2 col-form-label">Paymen Mode</label>
+                                            <div class="col-sm-4" style="display: flex;">
+												<select id="country" class="Country form-control " name="billCountry" required>
+													<option value="bank_transfer">Bank Transfer</option>
+													<option value="bank_remittance">Bank Remittance</option>
+													<option value="cash">Cash</option>
+													<option value="check">Check</option>
+													<option value="credit_card">Credit Card</option>
+												</select>
+                                            </div>
+                                        </div>
+
+										
+										<!-- deposite to -->
+
+										
+										<div class="form-group row required">
+                                            <label for="inv-no" class="col-sm-2 col-form-label">Deposite To*</label>
+                                            <div class="col-sm-4" style="display: flex;">
+												<select id="deposite_to*" class="Country form-control " name="deposite_to" required>
+													<option disabled class="option__title">Cash</option>
+													<option value="petty_cash">Petty Cash</option>
+													<option value="undeposited_funds">Undeposited Funds</option>
+
+													<option disabled class="option__title">Other Current Liability</option>
+													<option value="employee_reimbursements">Employee Remibursements</option>
+													<option value="opening_balance_adjustment">Opening Balance Adjustment</option>
+													<option value="TDS_payable">TDS Payable</option>
+
+													<option disabled class="option__title">Payment Clearing Account</option>
+													<option value="rezorpay_clearing">Razorpay Clearing</option>
+												</select>
+                                            </div>
+										</div>
+										
+
+										<!-- reference -->
 
 										<div class="form-group row">
                                             <label for="ord-no" class="col-sm-2 col-form-label">Reference#</label>
@@ -984,292 +1051,185 @@
                                                     required />
                                             </div>
 										</div>
+
+
+										<!-- Tax deducted? -->
 										
 										<div class="form-group row">
-                                            <label class="col-form-label col-lg-2 required">Sales Order Date*</label>
-                                            <div class="col-lg-4">
-                                                <input placeholder="" id="" class="form-control" name="sales_date"
-                                                    type="date" />
-
-                                                <div style="padding-top: 2px" class="font-xs">
-                                                    To create transaction dated before 01/07/2017,
-                                                    <a href="#">click here</a>
-                                                </div>
+                                            <label class="col-form-label col-lg-2 required">Tax deducted ?</label>
+                                            <div class="col-lg-3" onclick="hidetds_tax()">
+                                                <input  id="no_tax"  name="tax_deducted" type="radio" /><label for="no_tax" class="form-control-plaintext" style="white-space: nowrap;">No Tax deducted</label>
+											</div>
+											<div class="col-lg-3" onclick="showtds_tax()">
+                                                <input  id="yes_tax" name="tax_deducted"  type="radio" /><label for="yes_tax" class="form-control-plaintext" style="white-space: nowrap;">Yes , TDS(Income Tax)</label>
 											</div>
 										</div>
 
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2 required">Expected Shipment Date</label>
-                                            <div class="col-lg-4">
-                                                <input placeholder="" id="" class="form-control" name="shipment_date"
-                                                    type="date" />
-											</div>
+										
 
-											<div class="col-lg-1">
-												<p class="form-control-plaintext">Payment Terms</p>
-											</div>
-                                            <div class="col-lg-2">
-												<div id="" class="">
-													<div class="ac-box">
-														<span class="ac-selected form-control" tabindex="0">
-															<span data-integrity-label="">Due on Receipt
-																<i class="zf-ac-toggler">
-																	<svg version="1.1" id="Layer_1"
-																		xmlns="http://www.w3.org/2000/svg" x="0" y="0"
-																		viewBox="0 0 512 512" xml:space="preserve">
-																		<path
-																			d="M493.9 227.8c-21.4-21-56.1-21.1-77.6-.3L256 382.9 95.7 227.6c-21.5-20.8-56.3-20.7-77.6.3-10.6 10.4-15.9 24-15.9 37.7 0 13.8 5.4 27.5 16.2 38l199 192.9c21.4 20.7 55.9 20.7 77.3 0l199-192.9c21.4-20.9 21.6-54.8.2-75.8z">
-																		</path>
-																	</svg> </i></span>
-														</span>
-													</div>
-												</div>
-											</div>
+
+										<!-- TDS TAX Account* -->
+
+										<div class="form-group row required" id="tds_tax">
+                                            <label for="inv-no" class="col-sm-2 col-form-label">TDS Tax Account*</label>
+                                            <div class="col-sm-4" style="display: flex;">
+												<select id="tds_tax_account" class="Country form-control " name="billCountry">
+													<option value="advTax">Advance Tax</option>
+													<option value="intrest"> Cash Ledger : Intrest </option>
+													<option value="intrest_cess"> Cash Ledger : CESS Intrest </option>
+													<option value="intrest_cgst"> Cash Ledger : CGST Intrest </option>
+													<option value="intrest_igst"> Cash Ledger : IGST Intrest </option>
+													<option value="intrest_sgst"> Cash Ledger : SGST Intrest </option>
+
+													<option value="latefee"> Cash Ledger : Latefee </option>
+													<option value="latefee_cess"> Cash Ledger : CESS Latefee </option>
+													<option value="latefee_cgst"> Cash Ledger : CGST Latefee </option>
+													<option value="latefee_igst"> Cash Ledger : IGST Latefee </option>
+													<option value="latefee_sgst"> Cash Ledger : SGST Latefee </option>
+
+													<option value="tax"> Cash Ledger : Tax </option>
+													<option value="tax_cess"> Cash Ledger : CESS Tax </option>
+													<option value="tax_cgst"> Cash Ledger : CGST Tax </option>
+													<option value="tax_igst"> Cash Ledger : IGST Tax </option>
+													<option value="tax_sgst"> Cash Ledger : SGST Tax </option>
+
+													<option value="employee_advance"> Employee Advance </option>
+
+													<option value="input"> Input Tax Credit </option>
+													<option value="input_cess"> Input CESS </option>
+													<option value="input_cgst"> Input CGST </option>
+													<option value="input_igst"> Input IGST </option>
+													<option value="input_sgst"> Input SGST </option> 
+
+													<option value="prepaid_expenses"> Prepaid Paid Expeneses </option>
+													<option value="reverse_charge"> Reverse Charge Tax Input But Not Due</option>
+													<option value="tds_receivable"> TDS Receivable </option>
+												</select>
+                                            </div>
                                         </div>
 
-
-										<hr />
-
-										<div class="form-group row">
-											<label for="item-units" class="col-sm-2 col-form-label">Delivery Method</label>
-
-											<div class="input-group col-sm-3 mb-3">
-												<select class="custom-select" id="units">
-													<option value="null"></option>
-													<!--option value="box">box</option>
-													<option value="cm">cm</option>
-													<option value="dz">dz</option>
-													<option value="ft">ft</option>
-													<option value="g">g</option>
-													<option value="in">in</option>
-													<option value="kg">kg</option>
-													<option value="km">km</option>
-													<option value="lb">lb</option>
-													<option value="mg">mg</option>
-													<option value="m">m</option>
-													<option value="pcs">pcs</option>
-													<option value="1">1</option-->
-												</select>
-											</div>
-										</div>
+										<br>
+										<br>
 
 										<div class="form-group row">
-											<label for="item-units" class="col-sm-2 col-form-label">Sales person</label>
-
-											<div class="input-group col-sm-3 mb-3">
-												<select class="custom-select" id="units">
-													<option value="null"></option>
-                                                    <option value="box">Sales Person 1</option>
-                                                    <option value="cm">Sales Person 2</option>
-                                                    <option value="dz">Sales Person 3</option>
-												</select>
-											</div>
+                                            <h3> <label class="col-form-label col-lg-2" style="white-space: nowrap;">UnPiad Invoice </label> </h3>
 										</div>
+
 										<hr />
-										<br />
-										<br />
+	
+
 										<div>
 											<table class="table table-bordered">
 												<thead>
 													<tr>
-														<th scope="col">Item Details</th>
-														<th scope="col">Quantity</th>
-														<th scope="col">Rate</th>
-														<th scope="col">
-															Tax
-															<svg width="2rem" height="1em" viewBox="0 0 16 16"
-																class="tx-imp bi bi-exclamation-circle-fill ml-2"
-																fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-																<path fill-rule="evenodd"
-																	d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-															</svg>
-														</th>
-														<th scope="col">Amount</th>
+														<th scope="col">Date</th>
+														<th scope="col" colspan="3">Invoice Number</th>
+														<th scope="col">Invoice Amount</th>
+														<th scope="col">Amount Due</th>
+														<th scope="col">Payment</th>
 													</tr>
 												</thead>
 												<tbody id="itemtable">
 													<tr>
-
+														<td scope="col" colspan="7" style="text-align: center;padding: 60px;font-size: 1.2rem;">There are no unpaid Invoices for this customer, that can be applied for this payment.</td>
 													</tr>
 												</tbody>
 											</table>
+											<small>*List contains only SENT invoices</small>
 										</div>
+
+
+
 
 										<div class="row">
 											<div class="col-lg-6 d-flex flex-column">
-												<div id=""
-													class="btn-group line-seperator align-self-start add-line-item-btn dropdown">
-													<div class="dropdown mb-4">
-														<button class="btn btn-primary dropdown-toggle" type="button"
-															style="width: 130px;" id="dropdownMenuButton"
-															data-toggle="dropdown" aria-haspopup="true"
-															aria-expanded="false">
-															Add Item
-														</button>
-														<div class="dropdown-menu animated--fade-in"
-															aria-labelledby="dropdownMenuButton">
-															{% for item in items %}
-															<div class="dropdown-item"
-																onclick="addItemRow('{{item.id}}','{{item.name}}','{{item.sellamount}}','{{item.intrastate}}')">
-																{{item.name}}</div>
-															{% endfor %}
-														</div>
-													</div>
-													<!--check
-                                    <div class="dropdown mb-4">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Dropdown
-                                        </button>
-                                        <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                                          <a class="dropdown-item" href="#">Action</a>
-                                          <a class="dropdown-item" href="#">Another action</a>
-                                          <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                      </div>
-
-                                      <!--check-->
-												</div>
-
-												<div class="pt-7 mt-auto">
-													<div class="mb-2">Customer Notes:</div>
-													<div>
-														<textarea name="" id="" cols="50" rows="2" style="
-                          margin-top: 0px;
-                          margin-bottom: 0px;
-                          height: 100px;
-                        "></textarea>
-													</div>
-													<span class="span-txt">Will be displayed on the invoice</span>
-												</div>
+												
 											</div>
 
-											<div class="col-lg-6 total-frm"
-												style="background-color: #eee; border-radius: 10px">
+											<div class="col-lg-6 total-frm col-sm-12" style="background-color: #eee; border-radius: 10px">
 												<div class="form-group row">
-													<label for="sub-total" class="col-lg-9 col-form-label">Sub
-														Total</label>
-													<div id="subtotal" class="col-lg-3 total-amt">0.00</div>
+													<h4 for="sub-total" class="col-lg-6 col-sm-6 col-form-label total__heading">Total</h4>
+													<div id="subtotal" class="col-lg-6 col-sm-6 total-amt"><h5 class="total__heading2">0.00</h5></div>
 												</div>
 
 												<div class="form-group row">
-													<label for="CGST" class="col-lg-9 col-form-label">CGST9[9%]</label>
-													<div id="cgst" class="col-lg-3 total-amt">0.00</div>
+													<label for="CGST" class="col-sm-6 col-lg-6 col-form-label total__heading">Amount Received : </label>
+													<div id="cgst" class="col-sm-6 col-lg-6 total-amt total__heading2">0.00</div>
 												</div>
 
 
 												<div class="form-group row">
-													<label for="SGST" class="col-lg-9 col-form-label">SGST9[9%]</label>
-													<div id="sgst" class="col-lg-3 total-amt">0.00</div>
+													<label for="SGST" class="col-sm-6 col-lg-6 col-form-label total__heading">Amount used for payments : </label>
+													<div id="sgst" class="col-sm-6 col-lg-6 total-amt total__heading2">0.00</div>
 												</div>
-
-
-												<!-- <div class="form-group row">
-                                    <label for="IGST" class="col-lg-9 col-form-label">IGST18[18%]</label>
-                                    <div class="col-lg-3 total-amt">0.00</div>
-                                </div> -->
-
+								
 
 												<div class="form-group row">
-													<label class="col-form-label col-lg-4">Discount</label>
-													<div class="input-group col-lg-4">
-														<input id="discount" value="0.00" type="text"
-															onchange="getdiscount()" class="form-control"
-															aria-label="Rupees amount">
-														<div class="input-group-append">
-															<span class="input-group-text">₹</span>
-														</div>
-													</div>
-													<div id="showdiscount" class="col-lg-4 total-amt">-0.00</div>
+													<label for="SGST" class="col-sm-6 col-lg-6 col-form-label total__heading">Amount Refunded : </label>
+													<div id="sgst" class="col-sm-6 col-lg-6 total-amt total__heading2">0.00</div>
 												</div>
 
 												<div class="form-group row">
-													<div class="col-lg-4 col-sm-4 col-4">
-														<input type="text" class="form-control" placeholder="Adjustment"
-															readonly>
-													</div>
-
-													<div class="input-group col-lg-4">
-														<input id="adjustment" type="text" value="0.00"
-															onchange="adjustment_calc()" class="form-control"
-															aria-label="Rupees amount">
-														<div class="adjustment-exp">
-															<svg width="1em" height="1em" viewBox="0 0 16 16"
-																class="bi bi-question-circle mt-2 ml-1"
-																fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-																<path fill-rule="evenodd"
-																	d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-																<path
-																	d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-															</svg>
-														</div>
-													</div>
-													<div id="showadjustment" class="col-lg-4 total-amt">0.00</div>
+													<label for="SGST" class="col-sm-6 col-lg-6 col-form-label total__heading">
+														<i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:#E90036;"></i> 
+															Amount in excess : 
+													</label>
+													<div id="sgst" class="col-sm-6 col-lg-6 total-amt total__heading2">&#8377; 0.00</div>
 												</div>
 
-												<!-- <div class="form-group row">
-                                    <label for="sub-total" class="col-lg-9 col-form-label">Round Off</label>
-                                    <div class="col-lg-3 total-amt">0.00</div>
-                                </div> -->
-
-												<div class="form-group row ">
-													<label for="total" class="col-lg-9 col-form-label bold">Total
-														(₹)</label>
-													<div id="total" class="col-lg-3 total">0.00</div>
-												</div>
-												<input id="grandtotal" class="d-none" type="text" name="totalamount"
-													value="0.00">
 											</div>
-
-
-
 										</div>
+
+
+
+										<!-- </div> -->
 
 										<hr>
 										<div class="fill-container grey-btm-bg">
 											<div class="row ">
-												<div class="col-lg-8 txn-line-seperator">
-													<div class="mb-2">Terms &amp; Conditions</div>
+												<div class="col col-lg-12 col-sm-12 txn-line-seperator">
+													<div class="mb-2">Notes (Internal use. Not visible to customer)</div>
 													<div>
 														<textarea name="termsbx" id="termsbx" class="form-control"
-															cols="20" rows="4"
-															placeholder="Enter the terms and conditions of your business to be displayed in your transaction"></textarea>
-													</div>
-
-												</div>
-
-												<div class="col-lg-4">
-													<div class="form-group">
-
-														<div class="form-control-plaintext">
-															<span class="font-xs">Attach File(s) to Invoice</span>
-														</div>
-														<div class="input-group mb-3">
-															<div class="custom-file">
-																<input type="file" class="custom-file-input"
-																	id="inputGroupFile02">
-																<label class="custom-file-label" for="inputGroupFile02"
-																	aria-describedby="inputGroupFileAddon02">Choose
-																	file</label>
-															</div>
-														</div>
-
+															cols="20" rows="4"></textarea>
 													</div>
 												</div>
+											</div>
 
+											<div class="row mt-5">
+												<div class="col col-lg-6 col-sm-6 ">
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+														  <span class="input-group-text"><i class="fa fa-upload" aria-hidden="true"></i></span>
+														</div>
+														<div class="custom-file">
+														  <input type="file" class="custom-file-input" id="inputGroupFile01">
+														  <label class="custom-file-label" for="inputGroupFile01">Upload File</label>
+														</div>
+													</div>
+													<small>You can upload of 5 files(5MB each)</small>
+												</div>
 											</div>
 										</div>
+
 										<hr>
+										<br>
+
+
+										<p><span style="font-size: 1rem;font-weight: bold;">Additional Fields :</span> Start adding custom fields for your payments received by going to Settings  Preferences  Payments Received. You can add as many as Ten extra fields.</p>
+
+
 										<br><br>
 										<div class="row padding-20">
 											<div>
-												<button class="btn btn-primary" type="submit">Save as Draft</button>
+												<button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save as Draft</button>
 											</div>
 											<div class="padding-left-20">
-												<button class="btn btn-primary padding-left-20" type="submit">Save and
+												<button class="btn btn-primary" type="submit"><i class="fa fa-print" aria-hidden="true"></i> Save and
 													Print</button>
 											</div>
 											<div class="padding-left-20">
-												<button class="btn btn-primary padding-left-20"
+												<button class="btn btn-dark"
 													type="cancel">cancel</button>
 											</div>
 										</div>
@@ -1586,7 +1546,7 @@
 					} else {
 						var combinevalue = inputCurrentYear;
 					}
-					$("#inv-no").val(combinevalue)
+					$("#paymentNo").val(combinevalue)
 				})
 			</script>
 
@@ -1838,6 +1798,26 @@
 					event.stopPropagation();
 				})
 			</script>
+
+			<script>
+				$(document).ready(function(){
+					$("#tds_tax").hide();
+				});
+
+				function showtds_tax(){
+					$("#tds_tax").show();
+				}
+
+				function hidetds_tax(){
+					$("#tds_tax").hide();
+				}
+			</script>
+
+
+			
+
+
+
 
 	</body>
 
