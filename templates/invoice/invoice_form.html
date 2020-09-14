@@ -333,7 +333,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-          <a class="nav-link" href="/">
+          <a class="nav-link" href="#">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
         </li>
@@ -359,12 +359,12 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-              <a class="collapse-item" href="../../customer/">Customer</a>
-              <a class="collapse-item" href="../../estimate/">Quotation</a>
+              <a class="collapse-item" href="customer/">Customer</a>
+              <a class="collapse-item" href="estimates/">Quotation</a>
               <a class="collapse-item" href="../../sales/">Sales Order</a>
-              <a class="collapse-item" href="#">Delivery Challans</a>
-              <a class="collapse-item" href="../../invoice/">Invoices</a>
-              <a class="collapse-item" href="#">Payments Received</a>
+              <a class="collapse-item" href="customer_form.html">Delivery Challans</a>
+              <a class="collapse-item" href="customer_form.html">Invoices</a>
+              <a class="collapse-item" href="customer_form.html">Payments Received</a>
             </div>
           </div>
         </li>
@@ -383,10 +383,10 @@
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-				<a class="collapse-item" href="../vendor/">Vendors</a>
-				<a class="collapse-item" href="#">Enquuiry</a>
-				<a class="collapse-item" href="#">Purchase Orders</a>
-				<a class="collapse-item" href="../expenses/">Expenses</a>
+              <ul class="collapse-item" href="vendor/">Vendors</ul>
+              <ul class="collapse-item" href="expenses/">Expenses</ul>
+              <ul class="collapse-item" href="blank.html">Purchase Orders</ul>
+              <ul class="collapse-item" href="blank.html">Payment made</ul>
             </div>
           </div>
         </li>
@@ -654,26 +654,6 @@
                   aria-haspopup="true" aria-expanded="false">
                   <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                 </a>
-                <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                  </a>
-                </div>
               </li>
 
             </ul>
@@ -1643,7 +1623,6 @@
 
         function calc_grandtotal() {
           var total = sub_total + sgst + cgst - discount + adjustment
-		  total = total.toFixed(2)
           console.log("total", total);
           document.getElementById("total").innerHTML = total;
           document.getElementById("grandtotal").value = total;
