@@ -26,82 +26,6 @@
 
 </head>
 
-
-
-<style>
-
-
-#SideProfileBar{
-    /* width: 40% !important; */
-    box-shadow:0.1rem 0.1rem 0.9rem 0.35rem black;
-    right : 0 ;
-    /* display: none; */
-    border-radius: 10px;
-    z-index: 1000 ;
-    position: fixed;
-    height: 90vh;
-    overflow-y: scroll ;
-    transition: all .5s ;
-    background-color: #f9f9f9 !important;
-  }
-
-  .summaclass{
-    width: 0% !important;
-    transition: all .5s ;
-  }
-
- .SideProfileBarClass{
-  width: 40% !important;
-  transition: all .5s ;
- }
-
-  @media (max-width: 673px)
-  {
-    .SideProfileBarClass
-	  {
-		  width: 70% !important;
-	  } 
-  }
-
-  @media (max-width: 400px)
-  {
-  	.SideProfileBarClass
-	  {
-		  width: 90% !important;
-	  } 
-  }
-
-  @media (min-height : 1034px)
-  {
-	  #SideProfileBar
-	  {
-		  height: auto;
-	  } 
-  }
-
-
-  #Profile__image{
-    height: 100px;
-    width: 100px; 
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3%;
-  }
-
-  #MyAccount{ 
-    color: hsl(249, 73%, 43%);
-  }
-
-  .vl{
-    border-left: 1px solid #0f0f0f; 
-    margin-right: 10px; 
-    height: 15px; 
-    align-self: center;
-  }
-
-</style>
-
 <body id="page-top">
 
 
@@ -144,7 +68,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
           aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <i class="fas fa-fw fa-salesforce"></i>
           <span>Sales</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -174,9 +98,9 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="../vendor/">Vendors</a>
-            <a class="collapse-item" href="../expenses/">Expenses</a>
+            <a class="collapse-item" href="#">Enquuiry</a>
             <a class="collapse-item" href="#">Purchase Orders</a>
-            <a class="collapse-item" href="#">Payment made</a>
+            <a class="collapse-item" href="../expenses/">Expenses</a>
           </div>
         </div>
       </li>
@@ -190,7 +114,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="blank.html">
+        <a class="nav-link" href="#">
           <i class="fas fa-fw fa-passport"></i>
           <span>Documents</span></a>
       </li>
@@ -278,8 +202,8 @@
                 </form>
               </div>
             </li>
-            
-            
+
+
             <!--settings-->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
@@ -444,7 +368,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -478,80 +402,18 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-
-           <!-- profile side bar -->
-           <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
-
-            <!-- Sidebar - Brand -->
-            <div class="card" style="align-items: center;" >
-              <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">AADOLFGROUPS</h5>
-                <p class="card-text">User ID: 60002359514</p>
-                <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
-              </div>
-              <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
-                <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
-                <div class="vl"></div>
-                <a href="#" style="color: rgb(226, 32, 32);">Sign Out</a>
-              </div>
-            </div>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col col-sm-12" style="margin-top: 30px ;">
-                  <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
-                    <h6>MY ORGANISATION</h6>
-                    <a class="nav-item dropdown" style="float: right;" href="#"><i class="fa fa-cog" aria-hidden="true"></i> Manage</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <hr style="width: 100%;">
-            
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col col-sm-12" style="margin-bottom: 4%;">
-                  <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
-                  <h6>organisation id : 123455</h6>
-                  <h6>GSTN FREE</h6>
-                </div>
-              </div>
-            </div>
-
-            <hr style="width: 100%;">
-          
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col col-sm-12" style="margin-bottom: 4%;">
-                  <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
-                  <h6>organisation id : 123455</h6>
-                  <h6>GSTN FREE</h6>
-                </div>
-              </div>
-            </div>
-
-            <hr style="width: 100%;">
-                      
-
-            </ul>
-
           <!-- Page Heading -->
-          
+
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3" style="display: flex; justify-content: space-between; align-items: center;">
               <h6 class="m-0 font-weight-bold text-primary">ITEM TABLE</h6>
-              <a class="nav-item dropdown no-arrow mx-1" href="upload/" style="float: right;"><button class="btn btn-primary">New</button></a>
-              
+              <a class="nav-item dropdown no-arrow mx-1" href="upload/" style="float: right;"><button
+                  class="btn btn-primary">New</button></a>
+
             </div>
-            
+
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -588,7 +450,12 @@
                       <td style="text-align:center">
                         {{i.units}}</td>
 
-                      <td><a class="btn" href="{% url 'editItem' i.id %}"><button>Edit</button></a></td>
+                      <td><a href="{% url 'editItem' i.id %}"><svg width="1em" height="1em"
+                            viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                              d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                          </svg></a></td>
 
 
                     </tr>
@@ -664,14 +531,6 @@
 
   <!-- Page level custom scripts -->
   <script src="{% static 'js/demo/datatables-demo.js' %}"></script>
-
-  <script>
-    $("#img__Trigger").click(function(){
-      $("#SideProfileBar").toggleClass("SideProfileBarClass");
-      $("#SideProfileBar").toggleClass("summaclass");
-      // console.log("dsadasdas")
-    });
-  </script>
 
 </body>
 
