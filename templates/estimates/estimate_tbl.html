@@ -25,87 +25,8 @@
   <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
 
 </head>
-
-<style>
-
+ 
   
-  /* side profile bar */
-
-
-#SideProfileBar{
-  /* width: 40% !important; */
-  box-shadow:0.1rem 0.1rem 0.9rem 0.35rem black;
-  right : 0 ;
-  /* display: none; */
-  border-radius: 10px;
-  z-index: 1000 ;
-  position: fixed;
-  height: 90vh;
-  overflow-y: scroll ;
-  transition: all .5s ;
-  background-color: #f9f9f9 !important;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-.summaclass{
-  width: 0% !important;
-  transition: all .5s ;
-}
-
-.SideProfileBarClass{
-width: 40% !important;
-transition: all .5s ;
-}
-
-@media (max-width: 673px)
-{
-  .SideProfileBarClass
-  {
-    width: 70% !important;
-  } 
-}
-
-@media (max-width: 400px)
-{
-  .SideProfileBarClass
-  {
-    width: 90% !important;
-  } 
-}
-
-@media (min-height : 1034px)
-{
-  #SideProfileBar
-  {
-    height: auto;
-  } 
-}
-
-
-#Profile__image{
-  height: 100px;
-  width: 100px; 
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3%;
-}
-
-#MyAccount{ 
-  color: hsl(249, 73%, 43%);
-}
-
-.vl{
-  border-left: 1px solid #0f0f0f; 
-  margin-right: 10px; 
-  height: 15px; 
-  align-self: center;
-}
-
-</style>
 
 <body id="page-top">
 
@@ -553,7 +474,7 @@ transition: all .5s ;
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3" style="display: flex; justify-content: space-between; align-items: center;">
-              <h6 class="m-0 font-weight-bold text-primary">ESTIMATE TABLE</h6>
+              <h5 class="m-0 font-weight-bold text-primary" id="table__title">ESTIMATE TABLE</h5>
               <a class="nav-item dropdown no-arrow mx-1" href="upload/" style="float: right;"><button class="btn btn-primary">New</button></a>
 
             </div>

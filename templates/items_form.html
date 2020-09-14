@@ -235,10 +235,11 @@ display: block;
 
 
         <div class="container-fluid" style="margin-bottom: 15px;">
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="header">
-                      <h2 class="float-left text-primary">New Item</h2>
+                      <h2 class="float-left text-primary" id="table__title">New Item</h2>
                       <button type="button" class="close" aria-label="Close">
                         <span aria-hidden="true" style="font-size: 42px;">&times;</span>
                       </button>
@@ -246,8 +247,10 @@ display: block;
                 </div>
             </div>
         </div>
+
+
         <div class="items-form-body">
-            <form class="items-form" name="Itemform" method="POST" action="#">
+            <form class="items-form" name="Itemform" method="POST" action="#" onsubmit="submitForm()">
                 {%csrf_token%}
                 <div class="items-top-body">
                     <fieldset class="form-group">
@@ -515,6 +518,7 @@ display: block;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="tether.js"></script>
     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
     <script>
         $(function() {
             $("[data-toggle='popover'").popover();
@@ -525,6 +529,16 @@ display: block;
         });
 
     </script>
+
+
+
+    <script>
+        function submitForm(){
+            console.log("fomr submited")
+        }
+    </script>
+
+
 
     <script type="text/javascript">
         var Sales_Description            = document.getElementById("sales-des");
@@ -549,9 +563,6 @@ display: block;
             Amount.disabled                 = ckeck.checked ? false : true;
             Purchase_acc.disabled           = ckeck.checked ? false : true;
         }
-
-
-
     </script>
 
 {% endblock %}

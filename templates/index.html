@@ -23,83 +23,6 @@
 </head>
 
 
-<style>
-  /* profile side bar */
-  #SideProfileBar{
-    box-shadow:0.1rem 0.1rem 0.9rem 0.35rem black;
-    right : 0 ;
-    /* display: none; */
-    border-radius: 10px;
-    z-index: 1000 ;
-    position: fixed;
-    height: 90vh;
-    overflow-y: scroll ;
-    transition: all .5s ;
-    background-color: #f9f9f9 !important;
-  }
-
-  .summaclass{
-    width: 0% !important;
-    transition: all .5s ;
-  }
-
- .SideProfileBarClass{
-  width: 24% !important;
-  transition: all .5s ;
- }
-
-  @media (max-width: 673px)
-  {
-    .SideProfileBarClass
-	  {
-		  width: 70% !important;
-	  } 
-  }
-
-  @media (max-width: 400px)
-  {
-  	.SideProfileBarClass
-	  {
-		  width: 90% !important;
-	  } 
-  }
-
-  @media (min-height : 1034px)
-  {
-	  #SideProfileBar
-	  {
-		  height: auto;
-	  } 
-  }
-
-
-  #Profile__image{
-    height: 100px;
-    width: 100px; 
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3%;
-  }
-
-  #MyAccount{ 
-    color: hsl(249, 73%, 43%);
-  }
-
-  .vl{
-    border-left: 1px solid #0f0f0f; 
-    margin-right: 10px; 
-    height: 15px; 
-    align-self: center;
-  }
-
-  /* end of profile side bar */
-</style>
-
-
-
-
-
 <body id="page-top">
 
   <!-- Page Wrapper -->
@@ -517,7 +440,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800" id="table__title">Dashboard</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 

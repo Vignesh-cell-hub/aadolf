@@ -303,82 +303,6 @@
   }
 
     
-  /* side profile bar */
-
-
-#SideProfileBar{
-  /* width: 40% !important; */
-  box-shadow:0.1rem 0.1rem 0.9rem 0.35rem black;
-  right : 0 ;
-  /* display: none; */
-  border-radius: 10px;
-  z-index: 1000 ;
-  position: fixed;
-  height: 90vh;
-  overflow-y: scroll ;
-  transition: all .5s ;
-  background-color: #f9f9f9 !important;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-.summaclass{
-  width: 0% !important;
-  transition: all .5s ;
-}
-
-.SideProfileBarClass{
-width: 40% !important;
-transition: all .5s ;
-}
-
-@media (max-width: 673px)
-{
-  .SideProfileBarClass
-  {
-    width: 70% !important;
-  } 
-}
-
-@media (max-width: 400px)
-{
-  .SideProfileBarClass
-  {
-    width: 90% !important;
-  } 
-}
-
-@media (min-height : 1034px)
-{
-  #SideProfileBar
-  {
-    height: auto;
-  } 
-}
-
-
-#Profile__image{
-  height: 100px;
-  width: 100px; 
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3%;
-}
-
-#MyAccount{ 
-  color: hsl(249, 73%, 43%);
-}
-
-.vl{
-  border-left: 1px solid #0f0f0f; 
-  margin-right: 10px; 
-  height: 15px; 
-  align-self: center;
-}
-
 </style>
 
 <body>
@@ -833,7 +757,7 @@ transition: all .5s ;
                         <div class="container-fluid mb-4">
                             <div class="row">
                                 <div class="header">
-                                    <h2 class="float-left text-primary">New Estimates</h2>
+                                    <h2 class="float-left text-primary" id="table__title">New Estimates</h2>
                                     <button type="button" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -1635,20 +1559,22 @@ transition: all .5s ;
                 function generateTable() {
                     itemtable.innerHTML = "";
                     console.log("inside");
+                    var i = 0;
                     for (const id in item_data) {
+                        i = i+1;
                         console.log("for");
                         data = item_data[id];
                         itemtable.innerHTML += `<tr>
-                                        <th scope="row">${data.name}</th>
-                                        <td><input id="quantity-${id}" type="text" class="form-control" value="${data.quantity}" onchange="updatequantity('${id}','quantity-${id}')"></td>
-                                        <td>${data.rate}</td>
-                                        <td>${data.gst}</td>
-                                        <td>${data.amount}</td>
+                                        <th  child="name${i}" scope="row">${data.name}</th>
+                                        <td><input id="quantity-${id}" type="text" name="quantity${i}" class="form-control" value="${data.quantity}" onchange="updatequantity('${id}','quantity-${id}')"></td>
+                                        <td child="rate${i}" >${data.rate}</td>
+                                        <td child="gst${i}" >${data.gst}</td>
+                                        <td child="amount${i}" >${data.amount}</td>
                                     </tr>`;
                     }
                     calculatesubtotal_and_tax();
                 }
-
+s
                 function updatequantity(id, quantityid) {
                     console.log(id, quantityid);
                     that_particular_quantity = document.getElementById(quantityid);

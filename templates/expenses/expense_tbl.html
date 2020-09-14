@@ -367,7 +367,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -401,12 +401,72 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+          <!-- profile side bar -->
+          <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
+
+            <!-- Sidebar - Brand -->
+            <div class="card" style="align-items: center;" >
+              <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">AADOLFGROUPS</h5>
+                <p class="card-text">User ID: 60002359514</p>
+                <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
+              </div>
+              <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
+                <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
+                <div class="vl"></div>
+                <a href="#" style="color: rgb(226, 32, 32);">Sign Out</a>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col col-sm-12" style="margin-top: 30px ;">
+                  <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h6>MY ORGANISATION</h6>
+                    <a class="nav-item dropdown" style="float: right;" href="#"><i class="fa fa-cog" aria-hidden="true"></i> Manage</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr style="width: 100%;">
+            
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col col-sm-12" style="margin-bottom: 4%;">
+                  <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
+                  <h6>organisation id : 123455</h6>
+                  <h6>GSTN FREE</h6>
+                </div>
+              </div>
+            </div>
+
+            <hr style="width: 100%;">
+          
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col col-sm-12" style="margin-bottom: 4%;">
+                  <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
+                  <h6>organisation id : 123455</h6>
+                  <h6>GSTN FREE</h6>
+                </div>
+              </div>
+            </div>
+
+            <hr style="width: 100%;">
+          </ul>
+
           <!-- Page Heading -->
           
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3" style="display: flex; justify-content: space-between; align-items: center;">
-              <h6 class="m-0 font-weight-bold text-primary">EXPENSE TABLE</h6>
+              <h5 class="m-0 font-weight-bold text-primary table__title">EXPENSE TABLE</h5>
               <a class="nav-item dropdown no-arrow mx-1" href="upload/" style="float: right;"><button class="btn btn-primary">New</button></a>
 
 
@@ -513,7 +573,15 @@
 
   <!-- Page level custom scripts -->
   <script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+  
 
+  <script>
+    $("#img__Trigger").click(function(){
+        $("#SideProfileBar").toggleClass("SideProfileBarClass");
+        $("#SideProfileBar").toggleClass("summaclass");
+    // console.log("dsadasdas")
+    });
+</script>
 </body>
 
 </html>
