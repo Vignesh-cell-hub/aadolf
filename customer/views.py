@@ -108,7 +108,7 @@ def editcustomer(request, id):
         first_name = request.POST['firstname']
         last_name = request.POST['lastname']
         company_name = request.POST['companyname']
-        display_name = request.POST['customerdisplayname']
+        display_name = primarycontact + " " + first_name + " " + last_name
         email = request.POST['customeremail']
         work_phone_no = request.POST['Workphone']
         mobile_phone_no = request.POST['mobile']
