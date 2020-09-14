@@ -1,0 +1,739 @@
+<!--DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1"-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the tab */
+    i.tablinks{
+        cursor: pointer;
+        padding: 10px;
+        margin: 30px;
+        top: 7.5px;
+        position: relative;
+    }
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+    .w3-bar{
+        min-height: 40px!important;
+    }
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  resize: vertical;
+  box-shadow: 5px 10px #888888;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+<!-- input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  float: right;
+} -->
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: red;
+  background-color: #366339;
+  text-decoration: none;
+}
+a:hover {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color:transparent;
+  text-decoration: underline;
+}
+.container {
+  border-radius: 5px;
+
+  padding: 20px;
+}
+.col-20 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
+}
+.col-25 {
+  float: left;
+  width: 30%;
+  margin-top: 6px;
+}
+.col-75 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+}
+.col-15 {
+  float: right;
+  width: 10%;
+  margin-top: 6px;
+  margin: 25px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.save {
+  border-color: #4CAF50;
+  color: green;
+}
+
+.save:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+.cancel {
+  border-color: #e7e7e7;
+  color: black;
+}
+
+.cancel:hover {
+  background: #e7e7e7;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-25, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<h2 style="color:black;">New Vendor</h2>
+<form class="customer-form" name="vendorform" method="POST" action="#">
+  {%csrf_token%}
+<div class="container">
+
+
+    <div class="row">
+      <div class="col-20">
+        <label for="pname">Primary Contact</label>
+      </div>
+      <div class="col-20">
+        <select id="pname" name="primarycontact" placeholder="Salutation">
+          <option value="mister"  {% if customer.primarycontact == "mister" %} selected {% endif %}>Mr.</option>
+          <option value="mrs" {% if customer.primarycontact == "mrs" %} selected {% endif %}>Mrs.</option>
+          <option value="ms" {% if customer.primarycontact == "ms" %} selected {% endif %}>Ms.</option>
+	  <option value="miss" {% if customer.primarycontact == "miss" %} selected {% endif %}>Miss.</option>
+	  <option value="doctor" {% if customer.primarycontact == "doctor" %} selected {% endif %}>Dr.</option>
+        </select>
+      </div>
+      <div class="col-20">
+        <label for="validationServerfname"></label>
+      </div>
+      <div class="col-20">
+        <input type="text" class="form-control is-valid" id="validationServerfname" name="firstname"  placeholder="First Name" value='{{customer.first_name}}'>
+      </div>
+      <div class="col-20">
+        <label for="lname"></label>
+      </div>
+      <div class="col-20">
+        <input type="text" id="lname" name="lastname"   placeholder="Last Name" value='{{customer.last_name}}'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-20">
+        <label for="cname">Company Name</label>
+      </div>
+      <div class="col-20">
+        <input type="text" id="cname" name="companyname"  value='{{customer.company_name}}' required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-20">
+        <label for="cdrname">Vendor Display Name</label>
+      </div>
+      <div class="col-20">
+        <select id="cdname" name="customerdisplayname">
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-20">
+        <label for="cemail">Vendor Email</label>
+      </div>
+      <div class="col-20">
+        <input type="text" id="cemail" name="customeremail" value='{{customer.email}}'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-20">
+        <label for="cust">Vendor Phone</label>
+      </div>
+      <div class="col-20">
+        <input type="text" id="wphone" name="Workphone"  placeholder="Work Phone"  value='{{customer.work_phone_no}}'>
+      </div>
+      <div class="col-20">
+        <label for="wphone"></label>
+      </div>
+      <div class="col-20">
+        <input type="text" id="mobile" name="mobile" placeholder="Mobile" value='{{customer.mobile_phone_no}}' >
+      </div>
+      <div class="col-20">
+	<label for="mobile"></label>
+      </div>
+      <div class="col-20">
+        <p><a href="">Add more details</a></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-20">
+        <label for="web">Website</label>
+      </div>
+      <div class="col-20">
+        <input type="text" id="web" name="website" value='{{customer.website}}'>
+      </div>
+    </div>
+</div>
+
+<div class="tab w3-bar w3-white">
+
+  <i class="tablinks" onclick="openSwitch(event, 'Other Details')">Other Details</i>
+  <i class="tablinks" onclick="openSwitch(event, 'Address')">Address</i>
+  <i class="tablinks" onclick="openSwitch(event, 'Contact persons')">Contact Persons</i>
+  <i class="tablinks" onclick="openSwitch(event, 'Custom fields')">Custom Fields</i>
+  <i class="tablinks" onclick="openSwitch(event, 'Reporting Tags')">Reporting Tags</i>
+  <i class="tablinks" onclick="openSwitch(event, 'Remarks')">Remarks</i>
+ </div>
+
+<div id="Other Details" class="tabcontent">
+  <div class="row">
+      <div class="col-25">
+        <label for="gst">GST Treatment</label>
+      </div>
+      <div class="col-25">
+        <select id="gst" name="gsttreatment" required>
+          <option value="regular" {% if customer.gst_treatment == "regular" %} selected {% endif %}>Registered Business - Regular</option>
+          <option value="composition" {% if customer.gst_treatment == "composition" %} selected {% endif %}>Registered Business - Regular</option>
+          <option value="unregistered"  {% if customer.gst_treatment == "unregistered" %} selected {% endif %}>Unregistered Business</option>
+	  <option value="consumer"  {% if customer.gst_treatment == "consumer" %} selected {% endif %}>Consumer</option>
+	  <option value="overseas"  {% if customer.gst_treatment == "overseas" %} selected {% endif %}>Overseas</option>
+	  <option value="special"  {% if customer.gst_treatment == "special" %} selected {% endif %}>Special Economic Zone</option>
+ 	  <option value="deemed"  {% if customer.gst_treatment == "deemed" %} selected {% endif %}>Deemed Export</option>
+	  <option value="tax"  {% if customer.gst_treatment == "tax" %} selected {% endif %}>Tax Deductor</option>
+	  <option value="sez"  {% if customer.gst_treatment == "sez" %} selected {% endif %}>SEZ Developer</option>
+        </select>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-25">
+        <label for="place">Source of supply</label>
+      </div>
+      <div class="col-25">
+        <select id="place" name="place_of_supply" required>
+          <option value="andamanandnicobar Islands" {% if customer.source_of_supply == "andamanandnicobar Islands" %} selected {% endif %}>Andaman and Nicobar Islands </option>
+          <option value="arunachalpradesh"  {% if customer.source_of_supply == "arunachalpradesh" %} selected {% endif %}>Arunachal Pradesh</option>
+	  <option value="assam"  {% if customer.source_of_supplysource_of_supply == "assam" %} selected {% endif %}>Assam</option>
+	  <option value="bihar"  {% if customer.source_of_supply == "bihar" %} selected {% endif %}>Bihar</option>
+	  <option value="chandigarh" {% if customer.source_of_supply == "chandigarh" %} selected {% endif %}>Chandigarh</option>
+ 	  <option value="chhattisgarh" {% if customer.source_of_supply == "chhattisgarh" %} selected {% endif %}>Chhattisgarh</option>
+	  <option value="dadra" {% if customer.source_of_supply == "dadra" %} selected {% endif %}>Dadra and Nagar Haveli and Daman and Diu</option>
+	  <option value="delhi" {% if customer.source_of_supply == "delhi" %} selected {% endif %}>Delhi</option>
+	  <option value="goa" {% if customer.source_of_supply == "goa" %} selected {% endif %}>Goa</option>
+          <option value="gujarat" {% if customer.source_of_supply == "gujarat" %} selected {% endif %}>Gujarat</option>
+          <option value="haryana" {% if customer.source_of_supply == "haryana" %} selected {% endif %}>Haryana</option>
+	  <option value="himachal" {% if customer.source_of_supply == "himachal" %} selected {% endif %}>Himachal Pradesh</option>
+	  <option value="jammu" {% if customer.source_of_supply == "jammu" %} selected {% endif %}>Jammu and Kashmir</option>
+	  <option value="jhar" {% if customer.source_of_supply == "jhar" %} selected {% endif %}>Jharkhand</option>
+ 	  <option value="kar" {% if customer.source_of_supply == "kar" %} selected {% endif %}>Karnataka</option>
+	  <option value="ker" {% if customer.source_of_supply == "ker" %} selected {% endif %}>Kerala</option>
+	  <option value="ladakh" {% if customer.source_of_supply == "ladakh" %} selected {% endif %}>Ladakh</option>
+	  <option value="lak" {% if customer.source_of_supply == "lak" %} selected {% endif %}>Lakshadweep </option>
+	  <option value="madh" {% if customer.source_of_supply == "madh" %} selected {% endif %}>Madhya Pradesh</option>
+	  <option value="maha" {% if customer.source_of_supply == "madh" %} selected {% endif %}>Maharashtra</option>
+	  <option value="mani" {% if customer.source_of_supply == "mani" %} selected {% endif %}>Manipur</option>
+          <option value="mega" {% if customer.source_of_supply == "mega" %} selected {% endif %}>Meghalaya</option>
+          <option value="mizo" {% if customer.source_of_supply == "mizo" %} selected {% endif %}>Mizoram</option>
+	  <option value="naga" {% if customer.source_of_supply == "naga" %} selected {% endif %}>Nagaland</option>
+	  <option value="odi" {% if customer.source_of_supply == "odi" %} selected {% endif %}>Odisha</option>
+	  <option value="puducherry" {% if customer.source_of_supply == "puducherry" %} selected {% endif %}>Puducherry</option>
+	  <option value="punjab" {% if customer.source_of_supply == "punjab" %} selected {% endif %}>Punjab</option>
+	  <option value="rajas" {% if customer.source_of_supply == "rajas" %} selected {% endif %}>Rajasthan</option>
+	  <option value="sikkim" {% if customer.source_of_supply == "sikkim" %} selected {% endif %}>Sikkim</option>
+          <option value="tamilnadu" {% if customer.source_of_supply == "tamilnadu" %} selected {% endif %}>Tamil Nadu</option>
+          <option value="tel" {% if customer.source_of_supply == "tel" %} selected {% endif %}>Telangana</option>
+	  <option value="tri" {% if customer.source_of_supply == "tri" %} selected {% endif %}>Tripura</option>
+	  <option value="uttar" {% if customer.source_of_supply == "uttar" %} selected {% endif %}>Uttar Pradesh</option>
+	  <option value="uttarkhand" {% if customer.source_of_supply == "uttarkhand" %} selected {% endif %}>Uttarakhand</option>
+ 	  <option value="westbengal" {% if customer.source_of_supply == "westbengal" %} selected {% endif %}>West Bengal</option>
+	  </select>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-25">
+        <label for="currency">Currency</label>
+      </div>
+      <div class="col-25">
+        <select id="currency" name="currency" required>
+          <option value="inr" {% if customer.currency == "inr" %} selected {% endif %}>INR-Indian Rupee</option>
+          <option value="aud" {% if customer.currency == "aud" %} selected {% endif %}>AUD-Australian dollar</option>
+	  <option value="cad" {% if customer.currency == "cad" %} selected {% endif %}>CAD-Canadian dollar</option>
+	  <option value="eur" {% if customer.currency == "eur" %} selected {% endif %}>EUR-Euro</option>
+	  <option value="aed" {% if customer.currency == "aed" %} selected {% endif %}>AED-UAE dirham</option>
+ 	  <option value="jpy" {% if customer.currency == "jpy" %} selected {% endif %}>JPY-Japanese Yen</option>
+	  <option value="usd" {% if customer.currency == "usd" %} selected {% endif %}>USD-United States Dollar</option>
+	  <option value="sar" {% if customer.currency == "sar" %} selected {% endif %}>SAR-Saudi Riyal</option>
+	  <option value="zar" {% if customer.currency == "zar" %} selected {% endif %}>ZAR-South African Rand</option>
+        </select>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-25">
+        <label for="openbal">Opening Balance</label>
+      </div>
+      <div class="col-25">
+        <input type="text" id="openbal" name="openingbalance" value="{{customer.opening_balance}}">
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-25">
+        <label for="paymentterms">Payment Terms</label>
+      </div>
+      <div class="col-25">
+        <select id="paymentterms" name="paymentterms">
+          <option value="rec" {% if customer.payment_terms == "rec" %} selected {% endif %}>Due on receipt</option>
+          <option value="fif" {% if customer.payment_terms == "fif" %} selected {% endif %}>NET 15</option>
+	  <option value="thi" {% if customer.payment_terms == "thi" %} selected {% endif %}>NET 30</option>
+	  <option value="for" {% if customer.payment_terms == "for" %} selected {% endif %}>NET 45</option>
+	  <option value="six" {% if customer.payment_terms == "six" %} selected {% endif %}>NET 60</option>
+ 	  <option value="mon" {% if customer.payment_terms == "mon" %} selected {% endif %}>Due end of the month</option>
+	  <option value="next" {% if customer.payment_terms == "next" %} selected {% endif %}>Due end of the next month</option>
+	  </select>
+     </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-25">
+      <label for="lang">TDS</label>
+    </div>
+    <div class="col-25">
+      <select id="lang" name="tds">
+        <option value="Commission" {% if customer.tds == "Commission" %} selected {% endif %}>Commission</option>
+        <option value="Dividend" {% if customer.tds == "Dividend" %} selected {% endif %}>Dividend</option>
+        <option value="Contractor" {% if customer.tds == "Contractor" %} selected {% endif %}>Payment of contractors</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-25">
+        <label for="fb">Facebook</label>
+      </div>
+      <div class="col-25">
+        <input type="text" id="fb" name="facebook" value='{{customer.facebook}}'>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-25">
+        <label for="twitter">Twitter</label>
+      </div>
+      <div class="col-25">
+        <input type="text" id="twitter" name="twitter" value='{{customer.twitter}}'>
+      </div>
+  </div>
+  <p>Customer Owner: Assign a user as the Customer owner to provide access only to the data of this customer <a href=""> Learn More</a></p>
+</div>
+
+<div id="Address" class="tabcontent">
+  <div class="row">
+   <div class="col-75">
+     <p>BILLING ADDRESS</p>
+     <div class="row">
+      <div class="col-25">
+        <label for="att">Attention</label>
+      </div>
+      <div class="col-25">
+        <input type="text" class="Attention" id="att" name="billattention" value='{{customer.billing_attention}}'>
+      </div>
+     </div>
+
+     <div class="row">
+      <div class="col-25">
+        <label for="country">Country / Region</label>
+      </div>
+      <div class="col-25">
+        <select id="country" class="Country" name="billCountry">
+          <option value="ind"  {% if customer.billing_country == "ind" %} selected {% endif %}>India</option>
+          <option value="ame"  {% if customer.billing_country == "ame" %} selected {% endif %}>America</option>
+	        <option value="brazil"  {% if customer.billing_country == "brazil" %} selected {% endif %}>Brazil</option>
+	        <option value="egy"  {% if customer.billing_country == "egy" %} selected {% endif %}>Egypt</option>
+	        <option value="france"  {% if customer.billing_country == "france" %} selected {% endif %}>France</option>
+ 	        <option value="usa"  {% if customer.billing_country == "usa" %} selected {% endif %}>USA</option>
+          <option value="uae"  {% if customer.billing_country == "uae" %} selected {% endif %}>USA</option>
+	  </select>
+      </div>
+     </div>
+
+     <div class="row">
+      <div class="col-25">
+        <label for="address">Address</label>
+      </div>
+      <div class="col-25">
+        <textarea id="address" name="billaddress" class="Street1" placeholder="Street1">{{customer.billing_address}}</textarea>
+
+      </div>
+     </div>
+
+
+     <div class="row">
+      <div class="col-25">
+        <label for="city">City</label>
+      </div>
+      <div class="col-25">
+        <input type="text" id="city" class="City" name="billcity" value='{{customer.billing_city}}'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="state">State</label>
+      </div>
+      <div class="col-25">
+        <input type="text" id="state" class="State" name="billstate"  value='{{customer.billing_state}}'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="zipc">Zip Code</label>
+      </div>
+      <div class="col-25">
+        <input type="text" class="Zip" id="zipc" name="billzipc"  value='{{customer.billing_zipcode}}'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="phone">Phone</label>
+      </div>
+      <div class="col-25">
+        <input type="text" class="Phone" id="phone" name="billphone"  value='{{customer.billing_phone}}'>
+      </div>
+    </div>
+
+   <div class="row">
+      <div class="col-25">
+        <label for="fax">Fax</label>
+      </div>
+      <div class="col-25">
+        <input type="text" class="Fax" id="fax" name="billfax" value='{{customer.billing_fax}}'>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-75">
+    <div style="display: flex;">
+      <p>SHIPPING ADDRESS</p>
+      <p style="cursor: pointer; margin-left: 5%" id="copy">Copy the billing address</p>
+    </div>
+      <div class="row">
+      <div class="col-25">
+        <label for="att">Attention</label>
+      </div>
+      <div class="col-25">
+        <input type="text" class="Attention1" id="att" name="attention" value='{{customer.shipping_attention}}'>
+      </div>
+     </div>
+
+     <div class="row">
+      <div class="col-25">
+        <label for="country">Country / Region</label>
+      </div>
+      <div class="col-25">
+        <select id="country" class="Country1" name="Country" >
+          <option value="ind" {% if customer.shipping_country == "ind" %} selected {% endif %}>India</option>
+          <option value="ame" {% if customer.shipping_country == "ame" %} selected {% endif %}>America</option>
+	  <option value="brazil"  {% if customer.shipping_country == "brazil" %} selected {% endif %}>Brazil</option>
+	  <option value="egy"   {%if customer.shipping_country == "ind" %} selected {% endif %}>Egypt</option>
+	  <option value="france" {% if customer.shipping_country == "egy" %} selected {% endif %}>France</option>
+ 	  <option value="usa" {% if customer.shipping_country == "usa" %} selected {% endif %}>USA</option>
+          <option value="uae" {% if customer.shipping_country == "uae" %} selected {% endif %}>USA</option>
+	  </select>
+      </div>
+     </div>
+
+     <div class="row">
+      <div class="col-25">
+        <label for="address">Address</label>
+      </div>
+      <div class="col-25">
+        <textarea id="address" class="Street11" name="address" placeholder="Street1">{{customer.shipping_address}}</textarea>
+
+      </div>
+     </div>
+
+
+     <div class="row">
+      <div class="col-25">
+        <label for="city">City</label>
+      </div>
+      <div class="col-25">
+        <input type="text" class="City1" id="city" name="city" value='{{customer.shipping_city}}'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="state">State</label>
+      </div>
+      <div class="col-25">
+        <input type="text" class="State1" id="state" name="state"  value='{{customer.shipping_state}}'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="zipc">Zip Code</label>
+      </div>
+      <div class="col-25">
+        <input type="text" id="zipc" class="Zip1" name="zipc"  value='{{customer.shipping_zipcode}}'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="phone">Phone</label>
+      </div>
+      <div class="col-25">
+        <input type="text" id="phone" class="Phone1" name="phone"  value='{{customer.shipping_phone}}'>
+      </div>
+    </div>
+
+   <div class="row">
+      <div class="col-25">
+        <label for="fax">Fax</label>
+      </div>
+      <div class="col-25">
+        <input type="text" id="fax" class="Fax1" name="fax"  value='{{customer.shipping_fax}}'>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  <p>Note:<br>
+
+You can add and manage additional addresses from contact details section.<br>
+View and edit the address format of your transactions under Settings > Preferences > Customers and Vendors.</p>
+ </div>
+
+
+<div id="Contact persons" class="tabcontent">
+  <table>
+  <tr>
+    <th>Salutation</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email Address</th>
+    <th>Work Phone</th>
+    <th>Mobile</th>
+  </tr>
+  <tr>
+      <td> <input name="person[salutation]"></td>
+    <td> <input name="person[fname]"> </td>
+    <td> <input name="person[lname]"> </td>
+    <td> <input name="person[address]"> </td>
+    <td> <input name="person[phone]"> </td>
+    <td> <input name="person[mobile]"> </td>
+      </tr>
+</table>
+</div>
+
+<div id="Custom fields" class="tabcontent">
+ <center><p>Start adding custom fields for your contacts by going to Settings  Preferences  Customers and Vendors. You can add as many as Ten extra fields, as well as refine the address format of your customers from there.</p></center>
+</div>
+
+<div id="Reporting Tags" class="tabcontent">
+ <center><p>You've not created any Reporting Tags.
+Start creating reporting tags by going to More Settings  Reporting Tags</p></center>
+</div>
+
+<div id="Remarks" class="tabcontent">
+ <div class="row">
+      <div class="col-25">
+        <label for="subject">Remarks(for internal usuage)</label>
+      </div><br>
+      <div class="col-75">
+        <textarea id="subject" name="subject" style="height:200px"></textarea>
+      </div>
+ </div>
+</div>
+<div class="row">
+      <div class="col-15">
+       <a href="{% url 'vendor_index' %}"><button class="btn cancel" >Cancel </button></a>
+      </div>
+      <div class="col-15">
+          <button class="btn save" type="submit">Save</button>
+      </div>
+</div>
+</form>
+<script>
+function openSwitch(evt, tagName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
+  }
+  document.getElementById(tagName).style.display = "block";
+  evt.currentTarget.className += " w3-blue";
+}
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="tether.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    // Get value on button click and show alert
+    $("#copy").click(function(){
+        // alert($(".c").children("option:selected").text())
+        // $(".f").children("option:selected").text("India")
+        // $(".f").children("option:selected").val("ind")
+        $(".Attention1").val($(".Attention").val());
+        $(".Country1").children("option:selected").text($(".Country").children("option:selected").text())
+        $(".Country1").children("option:selected").val($(".Country").children("option:selected").val())
+        $(".Street11").val($(".Street1").val());
+        $(".Street21").val($(".Street2").val());
+        $(".City1").val($(".City").val());
+        $(".State1").val($(".State").val());
+        $(".Zip1").val($(".Zip").val());
+        $(".Phone1").val($(".Phone").val());
+        $(".Fax1").val($(".Fax").val());
+    });
+});
+</script>
+
+{% endblock %}

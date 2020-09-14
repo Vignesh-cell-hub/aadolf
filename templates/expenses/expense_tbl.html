@@ -447,7 +447,7 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3" style="display: flex; justify-content: space-between; align-items: center;">
               <h5 class="m-0 font-weight-bold text-primary table__title">EXPENSE TABLE</h5>
-              <a class="nav-item dropdown no-arrow mx-1" href="upload/" style="float: right;"><button class="btn btn-primary">New</button></a>
+              <a class="nav-item dropdown no-arrow mx-1" href="{% url 'expense_upload'  %}" style="float: right;"><button class="btn btn-primary">New</button></a>
 
 
             </div>
@@ -481,6 +481,8 @@
                       <td style="text-align:center">{{i.customer_name}}</td>
                       <td style="text-align:center">{{i.expense_tax}}</td>
                       <td style="text-align:center">{{i.expense_amount}}</td>
+                     <td style="text-align:center">
+                         <a class="btn" href="{% url 'edit_expense' i.id %}"> <button>Edit</button></a> </td>
                     </tr>
                     {% endfor %}
                   </tbody>

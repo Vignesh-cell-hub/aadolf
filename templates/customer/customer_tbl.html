@@ -454,7 +454,7 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3" style="display: flex; justify-content: space-between; align-items: center;">
               <h5 class="m-0 font-weight-bold text-primary" id="table__title">CUSTOMER TABLE</h5>
-              <a class="nav-item dropdown no-arrow mx-1" href="upload/" style="float: right;"><button class="btn btn-primary">New</button></a>
+              <a class="nav-item dropdown no-arrow mx-1" href="{% url 'customer_upload' %}" style="float: right;"><button class="btn btn-primary">New</button></a>
             </div>
 
 
@@ -492,6 +492,8 @@
                         <hr>{{i.gst_treatment}}</td>
                       <td style="text-align:center">
                         <hr>{{i.tax_prefrence}}</td>
+                       <td style="text-align:center">
+                         <a class="btn" href="{% url 'edit_customer' i.id %}"> <button>Edit</button></a> </td>
 
                     </tr>
                     {% endfor %}
