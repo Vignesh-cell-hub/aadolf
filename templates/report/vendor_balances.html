@@ -1,0 +1,60 @@
+{% extends 'report_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: .5px solid #080a0f ;">
+  <div class="container">
+    <div class="col col-sm-12" style="text-align: center;">
+      <h4>AADOLF SOLUTIONS</h4>
+      <h5>Expense Details</h5>
+      <p class="from__date"></p>
+    </div>
+  </div>
+</nav>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr id="tb__head">
+        <th scope="col" class="table__heading" style="white-space: nowrap;">STATUS</th>
+        <th scope="col" class="table__heading" style="white-space: nowrap;">INVOICE DATE</th>
+        <th scope="col" class="table__heading" style="white-space: nowrap;">DUE DATE</th>
+        <th scope="col" class="table__heading" style="white-space: nowrap;">INVOICE#</th>
+        <th scope="col" class="table__heading" style="white-space: nowrap;">ORDER NUMBER</th>
+        <th scope="col" class="table__heading" style="white-space: nowrap;">CUSTOMER NAME</th>
+        <th scope="col" class="table__heading" style="white-space: nowrap;">TOTAL</th>
+        <!--th scope="col" class="table__heading" style="white-space: nowrap;">Amount With Tax</th-->
+      </tr>
+    </thead>
+    <tbody>
+        {% for data in all_expense %}
+        <tr id="tb__head">
+            <th scope="col" class="table__heading" style="white-space: nowrap;"></th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.invoice_date}}</th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.due_date}}</th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.invoice}}</th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.order_no}}</th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.customer_name}}</th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;">{{data.total}}</th>
+          </tr>
+          {% endfor %}
+          <tr id="tb__head">
+            <th scope="col" class="table__heading" style="white-space: nowrap;">Total</th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;"></th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;"></th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;"></th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;"></th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;"></th>
+            <th scope="col" class="table__heading" style="white-space: nowrap;">{{final.total}}</th>
+          </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+{% endblock %}
