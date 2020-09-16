@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,JsonResponse
 from customer.models import Customer
 from itemform.models import Item
-from .models import Invoice
+from .models import Invoice,Invoice_transaction
 from django.core import serializers
 
 # Create your views here.
@@ -15,15 +15,23 @@ def upload(request):
     
 
     if request.method == 'POST':
-        invoice_date = request.POST['invoicedate']
-        invoice = request.POST['invoice']
-        order_no = request.POST['order_no']
         customer_name = Customer.objects.get(pk = request.POST['customer_name']).company_name
-        due_date = request.POST['due_date']
-        amount = request.POST['totalamount']
-        sub_total = request.POST['sub_totalamount']
-        user = Invoice(invoice_date = invoice_date,invoice = invoice, order_no = order_no, customer_name = customer_name, due_date=due_date,amount=amount, sub_total = sub_total,total = amount)
+        invoice=request.POST['invoice']
+        order_no=request.POST['order_no']
+        invoice_date=request.POST['invoicedate']
+        due_date=request.POST['due_date']
+        user = Invoice(invoice_date = invoice_date,invoice = invoice, order_no = order_no, customer_name = customer_name, due_date=due_date)
         user.save()
+
+        for obj in range(1,3):
+            item_details = request.POST['name' + str(obj)]
+            quantity = request.POST['quantity' + str(obj)]
+            rate = request.POST['rate' + str(obj)]
+            tax = request.POST['gst' + str(obj)]
+            amount = request.POST['amount' + str(obj)]
+            final = Invoice_transaction(item_details=item_details, quantity=quantity, rate=rate, tax=tax, amount=amount,invoice=user)
+            final.save()
+
         return redirect(index)
     else:
         count = len(Invoice.objects.all())

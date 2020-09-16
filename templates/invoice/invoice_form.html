@@ -359,7 +359,7 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-              <a class="collapse-item" href="customer/">Customer</a>
+              <a class="collapse-item" href="{%url 'customer_index'%}">Customer</a>
               <a class="collapse-item" href="estimates/">Quotation</a>
               <a class="collapse-item" href="../../sales/">Sales Order</a>
               <a class="collapse-item" href="customer_form.html">Delivery Challans</a>
@@ -1547,24 +1547,25 @@
 
         itemtable = document.getElementById("itemtable");
 
+
         function generateTable() {
-          itemtable.innerHTML = "";
-          console.log("inside");
-          var i = 0;
-          for (const id in item_data) {
-            i = i+1;
-            console.log("for");
-            data = item_data[id];
-            itemtable.innerHTML += `<tr>
-                                        <th child="name${i}" scope="row">${data.name}</th>
+                    itemtable.innerHTML = "";
+                    console.log("inside");
+                    var i = 0;
+                    for (const id in item_data) {
+                        i = i+1;
+                        console.log("for");
+                        data = item_data[id];
+                        itemtable.innerHTML += `<tr>
+                                        <th  scope="row"><input id="name-${id}" type="text" name="name${i}" class="form-control" value="${data.name}" readonly></th>
                                         <td><input id="quantity-${id}" type="text" name="quantity${i}" class="form-control" value="${data.quantity}" onchange="updatequantity('${id}','quantity-${id}')"></td>
-                                        <td child="rate${i}">${data.rate}</td>
-                                        <td child="gst${i}">${data.gst}</td>
-                                        <td child="amount${i}">${data.amount}</td>
+                                        <td> <input id="rate-${id}" type="text" name="rate${i}" class="form-control" value="${data.rate}" readonly></td>
+                                        <td><input id="gst-${id}" type="text" name="gst${i}" class="form-control" value="${data.gst}" readonly></td>
+                                        <td><input id="amount-${id}" type="text" name="amount${i}" class="form-control" value="${data.amount}" readonly></td>
                                     </tr>`;
-          }
-          calculatesubtotal_and_tax();
-        }
+                    }
+                    calculatesubtotal_and_tax();
+                }
 
         function updatequantity(id, quantityid) {
           console.log(id, quantityid);

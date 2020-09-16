@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'adolf_project.wsgi.application'
 DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'adolf_project',
+    #     'NAME': 'adolf_new',
     #     'USER':'postgres',
-    #     "PASSWORD":'password',
+    #     "PASSWORD":'1234',
     #     'HOST':'localhost'
     # }
     'default': {
