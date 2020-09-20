@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'mq&=2s6i_@#ydov)ik1&rc8!dqm@algbh&&b($l9mcv&&no$ww'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['aadolf-ledger.herokuapp.com', '127.0.0.1']
 
@@ -84,20 +84,20 @@ WSGI_APPLICATION = 'adolf_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'adolf_new',
-        'USER':'postgres',
-        "PASSWORD":'1234',
-        'HOST':'localhost'
-    }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'd85io2avg2mqkh',
-    #     'USER': 'carbvfmxldmizh',
-    #     'PASSWORD':'8a06ef714ab559775c5beb1b7634bc4aa9ba6b904911730a4d27658cfdafd818',
-    #     'HOST': 'ec2-54-158-122-162.compute-1.amazonaws.com'
+    #     'NAME': 'adolf_new',
+    #     'USER':'postgres',
+    #     "PASSWORD":'1234',
+    #     'HOST':'localhost'
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd85io2avg2mqkh',
+        'USER': 'carbvfmxldmizh',
+        'PASSWORD':'8a06ef714ab559775c5beb1b7634bc4aa9ba6b904911730a4d27658cfdafd818',
+        'HOST': 'ec2-54-158-122-162.compute-1.amazonaws.com'
+    }
 }
 
 
