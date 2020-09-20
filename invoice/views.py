@@ -16,11 +16,33 @@ def upload(request):
 
     if request.method == 'POST':
         customer_name = Customer.objects.get(pk = request.POST['customer_name']).company_name
+        billingStreet=request.POST['billing0']
+        billingCity=request.POST['billing1']
+        billingState=request.POST['billing2']
+        billingZipcode=request.POST['billing3']
+        shippingStreet =request.POST['shipping0']
+        shippingCity =request.POST['shipping1']
+        shippingState =request.POST['shipping2']
+        shippingZipcode =request.POST['shipping3']
+        placeofsupply=request.POST['placeofsupply']
+        salesperson=request.POST['salesperson']
+        subtotal=request.POST['subtotal']
+        cgst=request.POST['cgst']
+        sgst=request.POST['sgst']
+        igst=request.POST['igst']
+        discount=request.POST['showdiscount']
+        adjustment=request.POST['showadjustment']
+        total=request.POST['total']
+        customernotes=request.POST['customernotes']
+        terms=request.POST['terms']
         invoice=request.POST['invoice']
         order_no=request.POST['order_no']
         invoice_date=request.POST['invoicedate']
         due_date=request.POST['due_date']
-        user = Invoice(invoice_date = invoice_date,invoice = invoice, order_no = order_no, customer_name = customer_name, due_date=due_date)
+
+        user = Invoice(invoice_date = invoice_date,invoice = invoice, order_no = order_no, customer_name = customer_name, due_date=due_date,billingStreet=billingStreet,billingCity=billingCity,billingState=billingState,billingZipcode=billingZipcode,
+                       shippingStreet=shippingStreet,shippingCity=shippingCity,shippingState=shippingState,shippingZipcode=shippingZipcode,place_of_supply=placeofsupply,sales_person=salesperson,sub_total=subtotal,cgst=cgst,sgst=sgst,igst=igst,
+                       discount=discount,adjustments=adjustment,total=total,customer_notes=customernotes,terms_condition=terms)
         user.save()
 
         for obj in range(1,3):
@@ -41,7 +63,7 @@ def upload(request):
         else:
             next_num = 1
         print("next",next_num)   
-        context = {"alldetails":alldetails,'items':allitems,'next_number':1}
+        context = {"alldetails":alldetails,'items':allitems,'next_number':next_num}
     return render(request, "invoice/invoice_form.html",context)
 
 def getdata(request,id):

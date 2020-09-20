@@ -305,6 +305,23 @@
     width: 100% !important;
   }
 
+  .dynamic_table{
+    background-color: transparent;
+    color: inherit;
+    border:none;
+  }
+
+  .dynamic_table:focus{
+    background-color: transparent;
+    color: inherit;
+    border:none;
+    outline: none;
+  }
+
+  #th{
+    font-weight: bold;
+  }
+
 
 </style>
 
@@ -359,7 +376,7 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-              <a class="collapse-item" href="{%url 'customer_index'%}">Customer</a>
+              <a class="collapse-item" href="customer/">Customer</a>
               <a class="collapse-item" href="estimates/">Quotation</a>
               <a class="collapse-item" href="../../sales/">Sales Order</a>
               <a class="collapse-item" href="customer_form.html">Delivery Challans</a>
@@ -683,11 +700,11 @@
                     <a href="#" style="color: rgb(226, 32, 32);">Sign Out</a>
                   </div>
                 </div>
-    
+
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
-    
-    
+
+
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col col-sm-12" style="margin-top: 30px ;">
@@ -698,9 +715,9 @@
                     </div>
                   </div>
                 </div>
-    
+
                 <hr style="width: 100%;">
-                
+
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col col-sm-12" style="margin-bottom: 4%;">
@@ -710,9 +727,9 @@
                     </div>
                   </div>
                 </div>
-    
+
                 <hr style="width: 100%;">
-              
+
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col col-sm-12" style="margin-bottom: 4%;">
@@ -722,10 +739,10 @@
                     </div>
                   </div>
                 </div>
-    
+
                 <hr style="width: 100%;">
-                          
-    
+
+
                 </ul>
               <!-- end of profile side bar -->
 
@@ -739,8 +756,8 @@
               </div>
 
             </div>
-            
-  
+
+
             <div class="container-fluid">
               <div class="row">
                 <form class="inv-frm"  method="POST" onsubmit="submitform()">
@@ -779,19 +796,20 @@
                         <div class="row">
                           <div class="col-lg-6">
                             <div id="" class="popovercontainer address-group">
-                              <div class="text-uppercase text-muted">Billing Address &nbsp;&nbsp;
-                                  <span class="text-blue font-xxs" href="#" data-toggle="modal" data-target="#exampleModal">Change</span></div>
-                              <p><span id="BillingAdd"></span><a class="font-xs" href="#" data-ember-action=""
-                                  data-ember-action-863="863"> Add new
-                                  address</a></p>
+                              <div class="text-uppercase text-muted">Billing Address &nbsp;&nbsp;</div>
+                              <p>
+                                <span id="BillingAdd"></span>
+                                <a class="font-xs" href="#" data-ember-action="" data-ember-action-863="863">Add new address</a>
+                              </p>
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div id="" class="popovercontainer address-group">
-                              <div class="text-uppercase text-muted">Shipping Address &nbsp;&nbsp;
-                                <span class="text-blue font-xxs" href="#" data-toggle="modal" data-target="#exampleModal2">Change</span></div>
-                              <p id="ShippingAdd"><a class="font-xs" href="#" data-action=""> <span
-                                    id="ShippingAdd"></span> Add new address</a></p>
+                              <div class="text-uppercase text-muted">Shipping Address &nbsp;&nbsp;</div>
+                              <p id="ShippingAdd">
+                                <span id="ShippingAdd"></span>
+                                <a class="font-xs" href="#" data-action="">Add new address</a>
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -840,8 +858,8 @@
                                                 <a class="drop__item"><span style="word-wrap:break-word">Fillup</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
 
                                                 <a class="drop__item"><span  style="word-wrap:break-word">Sandy</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-                                                
-                                                <a class="drop__item"><span style="word-wrap:break-word">Sandysadsadsdsdddsadsadsadsadsadsadsadsadsadsadsasd</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a> 
+
+                                                <a class="drop__item"><span style="word-wrap:break-word">Sandysadsadsdsdddsadsadsadsadsadsadsadsadsadsadsasd</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
                                             </div>
                                           </div>
                                       </div>
@@ -876,7 +894,7 @@
                     <div class="form-group row">
                       <label class="col-form-label col-lg-2 required">Place Of Supply</label>
                       <div class="input-group col-sm-3 mb-3">
-                        <select class="custom-select choose" id="indian__states" onchange="sgst_cgst_change()">
+                        <select class="custom-select choose" id="indian__states" name="placeofsupply" onchange="sgst_cgst_change()">
                           <option value="Tamil Nadu">Tamil Nadu</option>
                           <option value="Andhra Pradesh">Andhra Pradesh</option>
                           <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -980,7 +998,7 @@
                       <label for="item-units" class="col-sm-2 col-form-label">Sales person</label>
 
                       <div class="input-group col-sm-3 mb-3">
-                        <select class="custom-select choose" id="units">
+                        <select class="custom-select choose" id="units" name="salesperson">
                           <option value="null"></option>
                           <option value="box">box</option>
                           <option value="cm">cm</option>
@@ -1062,7 +1080,7 @@
                         <div class="pt-7 mt-auto">
                           <div class="mb-2">Customer Notes:</div>
                           <div>
-                            <textarea name="" id="" cols="50" rows="2" style="
+                            <textarea name="customernotes" id="" cols="50" rows="2" style="
                           margin-top: 0px;
                           margin-bottom: 0px;
                           height: 100px;
@@ -1075,24 +1093,24 @@
                       <div class="col-lg-6 total-frm" style="background-color: #eee; border-radius: 10px">
                         <div class="form-group row">
                           <label for="sub-total" class="col-lg-9 col-form-label">Sub Total</label>
-                          <div id="subtotal" class="col-lg-3 total-amt">0.00</div>
+                          <input id="subtotal" class="col-lg-3 total-amt dynamic_table" type="number" name="subtotal" value="0.00" readonly>
                         </div>
 
                         <div class="form-group row only__TN">
                           <label for="CGST" class="col-lg-9 col-form-label">CGST9[9%]</label>
-                          <div id="cgst" class="col-lg-3 total-amt">0.00</div>
+                          <input id="cgst" class="col-lg-3 total-amt dynamic_table" type="number" name="cgst" value="0.00" readonly>
                         </div>
 
 
                         <div class="form-group row only__TN" >
                           <label for="SGST" class="col-lg-9 col-form-label">SGST9[9%]</label>
-                          <div id="sgst" class="col-lg-3 total-amt">0.00</div>
+                          <input id="sgst" class="col-lg-3 total-amt dynamic_table" type="number" name="sgst" value="0.00" readonly>
                         </div>
 
 
                         <div class="form-group row not__TN">
                             <label for="IGST" class="col-lg-9 col-form-label">IGST18[18%]</label>
-                            <div class="col-lg-3 total-amt">0.00</div>
+                            <input class="col-lg-3 total-amt dynamic_table" id="igst" type="number" name="igst" value="0.00" readonly>
                         </div>
 
 
@@ -1105,7 +1123,7 @@
                               <span class="input-group-text">₹</span>
                             </div>
                           </div>
-                          <div id="showdiscount" class="col-lg-4 total-amt">-0.00</div>
+                          <input id="showdiscount" class="col-lg-4 total-amt dynamic_table" name="showdiscount" type="text" value="-0.00" readonly>
                         </div>
 
                         <div class="form-group row">
@@ -1126,7 +1144,7 @@
                               </svg>
                             </div>
                           </div>
-                          <div id="showadjustment" class="col-lg-4 total-amt">0.00</div>
+                           <input id="showadjustment" class="col-lg-4 total-amt dynamic_table" name="showadjustment" type="text" value="0.00" readonly>
                         </div>
 
                         <!-- <div class="form-group row">
@@ -1136,9 +1154,9 @@
 
                         <div class="form-group row ">
                           <label for="total" class="col-lg-9 col-form-label bold">Total (₹)</label>
-                          <div id="total" class="col-lg-3 total">0.00</div>
+                          <input id="total" class="col-lg-3 total dynamic_table" name="total" type="number" value="0.00">
                         </div>
-                        <input id="grandtotal" class="d-none" type="text" name="totalamount" value="0.00">
+                        <input id="grandtotal" class="d-none" type="text" name="totalamount" value="0.00" readonly>
                       </div>
                     </div>
 
@@ -1148,7 +1166,7 @@
                         <div class="col-lg-12 txn-line-seperator">
                           <div class="mb-2">Terms &amp; Conditions</div>
                           <div>
-                            <textarea name="termsbx" id="termsbx" class="form-control" cols="20" rows="4"
+                            <textarea name="terms" id="termsbx" class="form-control" cols="20" rows="4"
                               placeholder="Enter the terms and conditions of your business to be displayed in your transaction"></textarea>
                           </div>
 
@@ -1232,160 +1250,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-<!-- change modal Billing address -->
-
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">BILLING ADDRESS</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                     <label for="Attention">Attention</label>
-                    <input id="Attention" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="country">Country / Region</label>
-                    <div class="dropdown">
-                       <select id="country" class="Country form-control" name="billCountry" style="width: 100%">
-                          <option  class="dropdown-item" value="ind">India</option>
-                          <option  class="dropdown-item" value="ame">America</option>
-                          <option  class="dropdown-item" value="brazil">Brazil</option>
-                          <option  class="dropdown-item" value="egy">Egypt</option>
-                          <option  class="dropdown-item" value="france">France</option>
-                          <option  class="dropdown-item"  value="usa">USA</option>
-                          <option  class="dropdown-item" value="uae">USA</option>
-                        </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="address">Address</label>
-                    <textarea id="address" name="billaddress" class="Street1 form-control" placeholder="Street1"></textarea>
-                    <textarea id="address" name="billaddress" class="Street2 form-control" placeholder="Street2" style="margin-top: 3%"></textarea>
-                  </div>
-
-                  <div class="form-group">
-                     <label for="City">City</label>
-                    <input id="City" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="State">State</label>
-                    <input id="State" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Zip-code">Zip Code</label>
-                    <input id="Zip-code" type="number" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Phone">Phone</label>
-                    <input id="Phone" type="number" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Fax">Fax</label>
-                    <input id="Fax" type="number" class="form-control">
-                  </div>
-
-                </form>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Update Address</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- change modal BShipping address -->
-
-     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">SHIPPING ADDRESS</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                     <label for="Attention">Attention</label>
-                    <input id="Attention" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="country">Country / Region</label>
-                    <div class="dropdown">
-                       <select id="country" class="Country form-control" name="billCountry" style="width: 100%">
-                          <option  class="dropdown-item" value="ind">India</option>
-                          <option  class="dropdown-item" value="ame">America</option>
-                          <option  class="dropdown-item" value="brazil">Brazil</option>
-                          <option  class="dropdown-item" value="egy">Egypt</option>
-                          <option  class="dropdown-item" value="france">France</option>
-                          <option  class="dropdown-item"  value="usa">USA</option>
-                          <option  class="dropdown-item" value="uae">USA</option>
-                        </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="address">Address</label>
-                    <textarea id="address" name="billaddress" class="Street1 form-control" placeholder="Street1"></textarea>
-                    <textarea id="address" name="billaddress" class="Street2 form-control" placeholder="Street2" style="margin-top: 3%"></textarea>
-                  </div>
-
-                  <div class="form-group">
-                     <label for="City">City</label>
-                    <input id="City" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="State">State</label>
-                    <input id="State" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Zip-code">Zip Code</label>
-                    <input id="Zip-code" type="number" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Phone">Phone</label>
-                    <input id="Phone" type="number" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Fax">Fax</label>
-                    <input id="Fax" type="number" class="form-control">
-                  </div>
-
-                </form>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Update Address</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
 
 
     <!-- invoice # modal-->
@@ -1476,11 +1340,11 @@
         $("#invoiceEstimateSave").click(() => {
           if($("#NextNumber1").val())
           {
-            var combinevalue = inputCurrentYear + "-" + $("#NextNumber1").val(); 
+            var combinevalue = inputCurrentYear + "-" + $("#NextNumber1").val();
           }
           else
           {
-            var combinevalue = inputCurrentYear ; 
+            var combinevalue = inputCurrentYear ;
           }
           $("#inv-no").val(combinevalue)
         })
@@ -1498,7 +1362,7 @@
         function getdata() {
           var selected_company_dropdown = document.getElementById("company_name");
           var selected_company_name = selected_company_dropdown.options[selected_company_dropdown.selectedIndex].value;
-          console.log("getdata" + selected_company_name);
+          // console.log("getdata" + selected_company_name);
           $.ajax({
             type: "POST",
             url: `../getdata/${selected_company_name}/`,
@@ -1507,8 +1371,27 @@
             },
             success: function (returnedData) {
               data = returnedData.data;
-              BillingAdd.innerHTML = data.billing_address + "<br>";
-              ShippingAdd.innerHTML = data.shipping_address + "<br>";
+              var billing__address = data.billing_address.split("<br>");
+              var shipping__address = data.shipping_address.split("<br>");
+              console.log(shipping__address)
+              BillingAdd.innerHTML = `
+                                        <input class="dynamic_table" type="text" name="billing0" value="${billing__address[0]}">
+                                        <input class="dynamic_table" type="text" name="billing1" value="${billing__address[1]}">
+                                        <input class="dynamic_table" type="text" name="billing2" value="${billing__address[2]}">
+                                        <input class="dynamic_table" type="text" name="billing3" value="${billing__address[3]}">
+                                        <br>
+                                        <small>You can edit this feilds </small>
+                                        <br>
+                                      `
+              ShippingAdd.innerHTML = `
+                                        <input class="dynamic_table" type="text" name="shipping0" value="${shipping__address[0]}">
+                                        <input class="dynamic_table" type="text" name="shipping1" value="${shipping__address[1]}">
+                                        <input class="dynamic_table" type="text" name="shipping2" value="${shipping__address[2]}">
+                                        <input class="dynamic_table" type="text" name="shipping3" value="${shipping__address[3]}">
+                                        <br>
+                                        <small>You can edit this feilds </small>
+                                        <br>
+                                      `
               gst.innerHTML = data.gst;
             }
           });
@@ -1546,26 +1429,26 @@
         }
 
         itemtable = document.getElementById("itemtable");
-
-
+// .dynamic_table
         function generateTable() {
-                    itemtable.innerHTML = "";
-                    console.log("inside");
-                    var i = 0;
-                    for (const id in item_data) {
-                        i = i+1;
-                        console.log("for");
-                        data = item_data[id];
-                        itemtable.innerHTML += `<tr>
-                                        <th  scope="row"><input id="name-${id}" type="text" name="name${i}" class="form-control" value="${data.name}" readonly></th>
-                                        <td><input id="quantity-${id}" type="text" name="quantity${i}" class="form-control" value="${data.quantity}" onchange="updatequantity('${id}','quantity-${id}')"></td>
-                                        <td> <input id="rate-${id}" type="text" name="rate${i}" class="form-control" value="${data.rate}" readonly></td>
-                                        <td><input id="gst-${id}" type="text" name="gst${i}" class="form-control" value="${data.gst}" readonly></td>
-                                        <td><input id="amount-${id}" type="text" name="amount${i}" class="form-control" value="${data.amount}" readonly></td>
+          itemtable.innerHTML = "";
+          console.log("inside");
+          var i = 0;
+          for (const id in item_data) {
+            i = i+1;
+            console.log("for");
+            data = item_data[id];
+            itemtable.innerHTML += `<tr>
+
+                                        <th scope="row"><input class="dynamic_table" id="th" type="text" name="name${i}" value="${data.name}" readonly="readonly"></th>
+                                        <td><input class="dynamic_table" id="quantity-${id}" type="number" name="quantity${i}" class="form-control" value="${data.quantity}" onchange="updatequantity('${id}','quantity-${id}')"></td>
+                                        <td><input class="dynamic_table" type="number" name="rate${i}" value="${data.rate}" readonly="readonly"></td>
+                                        <td><input class="dynamic_table" type="text" name="gst${i}" value="${data.gst}" readonly="readonly"></td>
+                                        <td><input class="dynamic_table" type="number" name="amount${i}" value="${data.amount}" readonly="readonly"></td>
                                     </tr>`;
-                    }
-                    calculatesubtotal_and_tax();
-                }
+          }
+          calculatesubtotal_and_tax();
+        }
 
         function updatequantity(id, quantityid) {
           console.log(id, quantityid);
@@ -1589,12 +1472,13 @@
           for (const id in item_data) {
             temp_subtotal += parseInt(item_data[id].amount);
           }
-          document.getElementById("subtotal").innerHTML = temp_subtotal;
+          document.getElementById("subtotal").value = temp_subtotal;
           sub_total = temp_subtotal;
           temp_cgst = (temp_subtotal * 9) / 100;
           cgst = sgst = temp_cgst;
-          document.getElementById("sgst").innerHTML = temp_cgst;
-          document.getElementById("cgst").innerHTML = temp_cgst;
+          document.getElementById("sgst").value = temp_cgst;
+          document.getElementById("cgst").value = temp_cgst;
+          document.getElementById("igst").value = temp_cgst * 2;
           calc_grandtotal();
         }
         discount = 0.0;
@@ -1602,7 +1486,7 @@
 
         function getdiscount() {
           temp_discount = document.getElementById("discount").value;
-          document.getElementById("showdiscount").innerHTML = "-" + temp_discount;
+          document.getElementById("showdiscount").value = "-" + temp_discount;
           discount = temp_discount
           calc_grandtotal();
         }
@@ -1625,7 +1509,7 @@
         function calc_grandtotal() {
           var total = sub_total + sgst + cgst - discount + adjustment
           console.log("total", total);
-          document.getElementById("total").innerHTML = total;
+          document.getElementById("total").value = total;
           document.getElementById("grandtotal").value = total;
         }
       </script>

@@ -4,8 +4,14 @@ from django.db import models
 
 class Estimate(models.Model):
     customer_name = models.CharField(max_length=200)
-    billingAddress = models.TextField(default="")
-    shippingAddress = models.TextField(default="")
+    billingStreet = models.TextField(default="")
+    billingCity = models.TextField(default="")
+    billingState = models.TextField(default="")
+    billingZipcode = models.TextField(default="")
+    shippingStreet = models.TextField(default="")
+    shippingCity = models.TextField(default="")
+    shippingState = models.TextField(default="")
+    shippingZipcode = models.TextField(default="")
     gst_treatment = models.CharField(max_length=200,default="")
     place_of_supply = models.CharField(max_length=200,default="")
     estimate = models.CharField(max_length=200,default="")
