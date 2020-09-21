@@ -1,11 +1,15 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Expenses
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+
+@login_required
 def index(request):
-    alldetails = Expenses.objects.all()
+    alldetails = Expenses.objects.filter(user=request.user)
     context = {"alldetails":alldetails}
     return render(request,'expenses/expense_tbl.html',context)
+
+@login_required
 def upload(request):
     if request.method == 'POST':
         expense_date = request.POST['date']
@@ -39,12 +43,14 @@ def upload(request):
                         expense_invoice = expense_invoice,
                         expense_notes = expense_notes,
                         customer_name = customer_name,
-                        expense_file = expense_file)
+                        expense_file = expense_file,
+                        user=request.user)
 
         expense.save()
         return redirect(index)
     return render(request,'expenses/expenses.html')
 
+@login_required
 def editexpense(request,id):
     if request.method == 'POST':
         expense_date = request.POST['date']

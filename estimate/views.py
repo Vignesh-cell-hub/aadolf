@@ -3,15 +3,19 @@ from customer.models import Customer
 from itemform.models import Item
 from django.http import HttpResponse,JsonResponse
 from .models import Estimate,Estimate_transaction
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required
 def index(request):
-    details = Estimate.objects.all()
+    details = Estimate.objects.filter(user=request.user)
     return render(request, "estimates/estimate_tbl.html",{"details":details})
+
+@login_required
 def upload(request):
-    alldetails = Customer.objects.all()
-    allitems = Item.objects.all()
+    alldetails = Customer.objects.filter(user=request.user)
+    allitems = Item.objects.filter(user=request.user)
 
     if request.method == 'POST':
         customer_name = Customer.objects.get(pk=request.POST['customer_name']).company_name
@@ -43,7 +47,7 @@ def upload(request):
                        billingState=billingState, billingZipcode=billingZipcode,
                        shippingStreet=shippingStreet, shippingCity=shippingCity, shippingState=shippingState,
                        shippingZipcode=shippingZipcode, project_name=projectname, sales_person=salesperson,
-                       sub_total=subtotal, cgst=cgst, sgst=sgst,
+                       sub_total=subtotal, cgst=cgst, sgst=sgst,user=request.user,
                        discount=discount, adjustments=adjustment, customer_notes=customernotes,
                        terms_condition=terms)
         user.save()
@@ -70,7 +74,7 @@ def upload(request):
         context = {"alldetails": alldetails, 'items': allitems, 'next_number': next_num}
     return render(request, "estimates/estimate_form.html", context)
 
-
+@login_required
 def getdata(request,id):
     print("id :",id)
     current_user_data = Customer.objects.get(id=id)

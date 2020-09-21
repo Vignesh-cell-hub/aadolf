@@ -1,11 +1,15 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Vendor
+from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponse
 # Create your views here.
+
+@login_required
 def index(request):
-    alldetails = Vendor.objects.all()
+    alldetails = Vendor.objects.filter(user=request.user)
     context = {"alldetails":alldetails}
     return render(request,'vendor/vendor_tbl.html',context)
+@login_required
 def upload(request):
     if request.method == 'POST':
         primarycontact = request.POST['primarycontact']
@@ -81,13 +85,14 @@ def upload(request):
                     shipping_zipcode =shipping_zipcode,
                     shipping_phone =shipping_phone,
                     shipping_fax =shipping_fax,
+                    user=request.user,
                     )
         user.save()
         return redirect(index)
     else:print('get request')
     return render(request,'vendor/vendor_form.html')
 
-
+@login_required
 def editvendor(request,id):
     if request.method == 'POST':
         primarycontact = request.POST['primarycontact']

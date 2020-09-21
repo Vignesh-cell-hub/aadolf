@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Customer
+from django.contrib.auth.decorators import login_required
 
 
 # from django.http import HttpResponse
 # Create your views here.
+@login_required
 def index(request):
-    alldetails = Customer.objects.all()
+    print(request.user)
+    alldetails = Customer.objects.filter(user=request.user)
     context = {"alldetails": alldetails}
     return render(request, 'customer/customer_tbl.html', context)
 
-
+@login_required
 def upload(request):
     if request.method == 'POST':
         print('hi')
@@ -92,6 +95,7 @@ def upload(request):
                         shipping_zipcode=shipping_zipcode,
                         shipping_phone=shipping_phone,
                         shipping_fax=shipping_fax,
+                        user=request.user,
                         )
         user.save()
         return redirect(index)
@@ -100,7 +104,7 @@ def upload(request):
 
     return render(request, 'customer/customer_form.html')
 
-
+@login_required
 def editcustomer(request, id):
     if request.method == 'POST':
         customer_type = request.POST['type']

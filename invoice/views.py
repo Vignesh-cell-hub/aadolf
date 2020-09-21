@@ -4,14 +4,18 @@ from customer.models import Customer
 from itemform.models import Item
 from .models import Invoice,Invoice_transaction
 from django.core import serializers
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def index(request):
-    details = Invoice.objects.all()
+    details = Invoice.objects.filter(user=request.user)
     return render(request, "invoice/invoice_tbl.html",{"details":details})
+
+@login_required
 def upload(request):
-    alldetails = Customer.objects.all()
-    allitems = Item.objects.all()
+    alldetails = Customer.objects.filter(user=request.user)
+    allitems = Item.objects.filter(user=request.user)
     
 
     if request.method == 'POST':
@@ -42,7 +46,7 @@ def upload(request):
 
         user = Invoice(invoice_date = invoice_date,invoice = invoice, order_no = order_no, customer_name = customer_name, due_date=due_date,billingStreet=billingStreet,billingCity=billingCity,billingState=billingState,billingZipcode=billingZipcode,
                        shippingStreet=shippingStreet,shippingCity=shippingCity,shippingState=shippingState,shippingZipcode=shippingZipcode,place_of_supply=placeofsupply,sales_person=salesperson,sub_total=subtotal,cgst=cgst,sgst=sgst,igst=igst,
-                       discount=discount,adjustments=adjustment,total=total,customer_notes=customernotes,terms_condition=terms)
+                       discount=discount,adjustments=adjustment,total=total,customer_notes=customernotes,terms_condition=terms,user=request.user)
         user.save()
 
         for obj in range(1,3):
@@ -66,6 +70,7 @@ def upload(request):
         context = {"alldetails":alldetails,'items':allitems,'next_number':next_num}
     return render(request, "invoice/invoice_form.html",context)
 
+@login_required
 def getdata(request,id):
     print("id :",id)
     current_user_data = Customer.objects.get(id=id)

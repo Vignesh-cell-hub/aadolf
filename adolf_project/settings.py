@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 from pathlib import Path
 import os
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -46,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'customer',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'adolf_project.wsgi.application'
 DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'adolf_new',
+    #     'NAME': 'adolf_new3',
     #     'USER':'postgres',
     #     "PASSWORD":'1234',
     #     'HOST':'localhost'
@@ -144,3 +144,5 @@ STATIC_ROOT = os.path.join(BASE_DIR,'assets')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = '/accounts/login/'
