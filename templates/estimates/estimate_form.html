@@ -302,7 +302,35 @@
     border-radius: 5px;
   }
 
-    
+  .dynamic_table{
+    background-color: transparent;
+    color: inherit;
+    border:none;
+  }
+
+  .dynamic_table:focus{
+    background-color: transparent;
+    color: inherit;
+    border:none;
+    outline: none;
+  }
+
+  #th{
+    font-weight: bold;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
 </style>
 
 <body>
@@ -684,14 +712,14 @@
                             <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
                                 <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
                                 <div class="vl"></div>
-                                <a href="#" style="color: rgb(226, 32, 32);">Sign Out</a>
+                                <a href="{%url 'logoutuser' %}" style="color: rgb(226, 32, 32);">Sign Out</a>
                             </div>
                             </div>
-                
+
                             <!-- Divider -->
                             <hr class="sidebar-divider my-0">
-                
-                
+
+
                             <div class="container-fluid">
                             <div class="row">
                                 <div class="col col-sm-12" style="margin-top: 30px ;">
@@ -702,9 +730,9 @@
                                 </div>
                             </div>
                             </div>
-                
+
                             <hr style="width: 100%;">
-                            
+
                             <div class="container-fluid">
                             <div class="row">
                                 <div class="col col-sm-12" style="margin-bottom: 4%;">
@@ -714,9 +742,9 @@
                                 </div>
                             </div>
                             </div>
-                
+
                             <hr style="width: 100%;">
-                        
+
                             <div class="container-fluid">
                             <div class="row">
                                 <div class="col col-sm-12" style="margin-bottom: 4%;">
@@ -726,10 +754,10 @@
                                 </div>
                             </div>
                             </div>
-                
+
                             <hr style="width: 100%;">
-                                    
-                
+
+
                         </ul>
 
 
@@ -738,7 +766,7 @@
                                 <div class="header">
                                     <h2 class="float-left text-primary" id="table__title">New Estimates</h2>
                                     <button type="button" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                        <span aria-hidden="true" style="font-size: 40px">&times;</span>
                                     </button>
                                 </div>
                             </div>
@@ -785,24 +813,23 @@
                                                         <div id="" class="popovercontainer address-group">
                                                             <div class="text-uppercase text-muted">Billing Address
                                                                 &nbsp;&nbsp;
-            <span class="text-blue font-xxs" href="#" data-toggle="modal" data-target="#exampleModal">Change</span>
                                                             </div>
-
-                                                            <p><span id="BillingAdd"></span><a class="font-xs" href="#"
-                                                                    data-ember-action="" data-ember-action-863="863">
-                                                                    Add new
-                                                                    address</a></p>
+                                                            <p>
+                                                        <span id="BillingAdd"></span>
+                            <a class="font-xs" href="#" data-ember-action="" data-ember-action-863="863">Add newaddress</a>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div id="" class="popovercontainer address-group">
                                                             <div class="text-uppercase text-muted">Shipping Address
                                                                 &nbsp;&nbsp;
-            <span class="text-blue font-xxs" href="#" data-toggle="modal" data-target="#exampleModal2">Change</span></div>
+                                                            </div>
 
-                                                            <p id="ShippingAdd"><a class="font-xs" href="#"
-                                                                    data-action=""> <span id="ShippingAdd"></span> Add
-                                                                    new address</a></p>
+                                                            <p id="ShippingAdd">
+                                                                <span id="ShippingAdd"></span>
+                                                                <a class="font-xs" href="#" data-action="">Add new address</a>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -838,24 +865,24 @@
                                                                       <div id="myDropdown1" class="dropdown-content1">
                                                                        <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction1()">
                                                                         <div style="max-height: 200px; border-radius: 10px;cursor: pointer; width: 100%;">
-                            
+
                                                                             <a class="drop__item"><span>Unregistered Business</span><hr></a>
-                            
+
                                                                             <a  class="drop__item"><span style="word-wrap:break-word">About</span><br><span class="search__span" >Use these settings for all future transactions of this customer</span><hr></a>
-                            
+
                                                                             <a class="drop__item"><span style="word-wrap:break-word">Base</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-                            
+
                                                                             <a class="drop__item"><span style="word-wrap:break-word">Blog</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-                            
+
                                                                             <a class="drop__item"><span style="word-wrap:break-word">Xavier</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-                            
+
                                                                             <a class="drop__item"><span style="word-wrap:break-word">Zoo</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-                            
+
                                                                             <a class="drop__item"><span style="word-wrap:break-word">Fillup</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-                            
+
                                                                             <a class="drop__item"><span  style="word-wrap:break-word">Sandy</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-                                                                            
-                                                                            <a class="drop__item"><span style="word-wrap:break-word">Sandysadsadsdsdddsadsadsadsadsadsadsadsadsadsadsasd</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a> 
+
+                                                                            <a class="drop__item"><span style="word-wrap:break-word">Sandysadsadsdsdddsadsadsadsadsadsadsadsadsadsadsasd</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
                                                                         </div>
                                                                       </div>
                                                                   </div>
@@ -923,7 +950,7 @@
                                                 <p class="form-control-plaintext">Expiry Date</p>
                                             </div>
                                             <div class="col-lg-4 badge-editable">
-                                                <input placeholder="dd/MM/yyyy" id="ember2030" class="form-control"
+                                                <input placeholder="dd/MM/yyyy" id="ember2030" name="expiry_date" class="form-control"
                                                     type="date" />
                                                 <div class="text-danger d-none" style="clear: both">
                                                     Choose a due date on or after the invoice date.
@@ -937,7 +964,7 @@
                                             <label for="item-units" class="col-sm-2 col-form-label">Sales person</label>
 
                                             <div class="input-group col-sm-3 mb-3">
-                                                <select class="custom-select" id="units">
+                                                <select class="custom-select" name="salesperson" id="units">
                                                     <option value="null"></option>
                                                     <option value="box">Sales Person 1</option>
                                                     <option value="cm">Sales Person 2</option>
@@ -960,7 +987,7 @@
                                             <label for="item-units" class="col-sm-2 col-form-label">Project Name</label>
 
                                             <div class="input-group col-sm-3 mb-3">
-                                                <select class="custom-select" id="units">
+                                                <select class="custom-select" name="projectname" id="units">
                                                     <option value="null"></option>
                                                     <option value="box">Project Name 1</option>
                                                     <option value="cm">Project Name 2</option>
@@ -1032,7 +1059,7 @@
                                                 <div class="pt-7 mt-auto">
                                                     <div class="mb-2">Customer Notes:</div>
                                                     <div>
-                                                        <textarea name="" id="" cols="50" rows="2" style="
+                                                        <textarea name="customernotes" id="" cols="50" rows="2" style="
                           margin-top: 0px;
                           margin-bottom: 0px;
                           height: 100px;
@@ -1047,18 +1074,18 @@
                                                 <div class="form-group row">
                                                     <label for="sub-total" class="col-lg-9 col-form-label">Sub
                                                         Total</label>
-                                                    <div id="subtotal" class="col-lg-3 total-amt">0.00</div>
+                                                    <input id="subtotal" class="col-lg-3 total-amt dynamic_table" type="number" name="subtotal" value="0.00" readonly>
                                                 </div>
 
                                                 <div class="form-group row">
                                                     <label for="CGST" class="col-lg-9 col-form-label">CGST9[9%]</label>
-                                                    <div id="cgst" class="col-lg-3 total-amt">0.00</div>
+                                                    <input id="cgst" class="col-lg-3 total-amt dynamic_table" type="number" name="cgst" value="0.00" readonly>
                                                 </div>
 
 
                                                 <div class="form-group row">
                                                     <label for="SGST" class="col-lg-9 col-form-label">SGST9[9%]</label>
-                                                    <div id="sgst" class="col-lg-3 total-amt">0.00</div>
+                                                    <input id="sgst" class="col-lg-3 total-amt dynamic_table" type="number" name="sgst" value="0.00" readonly>
                                                 </div>
 
 
@@ -1078,7 +1105,7 @@
                                                             <span class="input-group-text">₹</span>
                                                         </div>
                                                     </div>
-                                                    <div id="showdiscount" class="col-lg-4 total-amt">-0.00</div>
+                                                    <input id="showdiscount" class="col-lg-4 total-amt dynamic_table" name="showdiscount" type="text" value="-0.00" readonly>
                                                 </div>
 
                                                 <div class="form-group row">
@@ -1102,7 +1129,7 @@
                                                             </svg>
                                                         </div>
                                                     </div>
-                                                    <div id="showadjustment" class="col-lg-4 total-amt">0.00</div>
+                                                    <input id="showadjustment" class="col-lg-4 total-amt dynamic_table" name="showadjustment" type="text" value="0.00" readonly>
                                                 </div>
 
                                                 <!-- <div class="form-group row">
@@ -1113,10 +1140,9 @@
                                                 <div class="form-group row ">
                                                     <label for="total" class="col-lg-9 col-form-label bold">Total
                                                         (₹)</label>
-                                                    <div id="total" class="col-lg-3 total">0.00</div>
+                                                     <input id="total" class="col-lg-3 total dynamic_table" name="total" type="number" value="0.00" readonly>
                                                 </div>
-                                                <input id="grandtotal" class="d-none" name="total" type="text"
-                                                    value="0.00">
+                                                 <input id="grandtotal" class="d-none" type="text" name="totalamount" value="0.00" readonly>
                                             </div>
 
 
@@ -1129,7 +1155,7 @@
                                                 <div class="col-lg-12 col-sm-12 txn-line-seperator">
                                                     <div class="mb-2">Terms &amp; Conditions</div>
                                                     <div>
-                                                        <textarea name="termsbx" id="termsbx" class="form-control"
+                                                        <textarea name="terms" id="termsbx" class="form-control"
                                                             cols="20" rows="4"
                                                             placeholder="Enter the terms and conditions of your business to be displayed in your transaction"></textarea>
                                                     </div>
@@ -1222,158 +1248,6 @@
             </div>
 
 
-            <!-- change modal Billing address -->
-
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">BILLING ADDRESS</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                     <label for="Attention">Attention</label>
-                    <input id="Attention" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="country">Country / Region</label>
-                    <div class="dropdown">
-                       <select id="country" class="Country form-control" name="billCountry" style="width: 100%">
-                          <option  class="dropdown-item" value="ind">India</option>
-                          <option  class="dropdown-item" value="ame">America</option>
-                          <option  class="dropdown-item" value="brazil">Brazil</option>
-                          <option  class="dropdown-item" value="egy">Egypt</option>
-                          <option  class="dropdown-item" value="france">France</option>
-                          <option  class="dropdown-item"  value="usa">USA</option>
-                          <option  class="dropdown-item" value="uae">USA</option>
-                        </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="address">Address</label>
-                    <textarea id="address" name="billaddress" class="Street1 form-control" placeholder="Street1"></textarea>
-                    <textarea id="address" name="billaddress" class="Street2 form-control" placeholder="Street2" style="margin-top: 3%"></textarea>
-                  </div>
-
-                  <div class="form-group">
-                     <label for="City">City</label>
-                    <input id="City" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="State">State</label>
-                    <input id="State" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Zip-code">Zip Code</label>
-                    <input id="Zip-code" type="number" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Phone">Phone</label>
-                    <input id="Phone" type="number" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Fax">Fax</label>
-                    <input id="Fax" type="number" class="form-control">
-                  </div>
-
-                </form>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Update Address</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- change modal BShipping address -->
-
-     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">SHIPPING ADDRESS</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                     <label for="Attention">Attention</label>
-                    <input id="Attention" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="country">Country / Region</label>
-                    <div class="dropdown">
-                       <select id="country" class="Country form-control" name="billCountry" style="width: 100%">
-                          <option  class="dropdown-item" value="ind">India</option>
-                          <option  class="dropdown-item" value="ame">America</option>
-                          <option  class="dropdown-item" value="brazil">Brazil</option>
-                          <option  class="dropdown-item" value="egy">Egypt</option>
-                          <option  class="dropdown-item" value="france">France</option>
-                          <option  class="dropdown-item"  value="usa">USA</option>
-                          <option  class="dropdown-item" value="uae">USA</option>
-                        </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="address">Address</label>
-                    <textarea id="address" name="billaddress" class="Street1 form-control" placeholder="Street1"></textarea>
-                    <textarea id="address" name="billaddress" class="Street2 form-control" placeholder="Street2" style="margin-top: 3%"></textarea>
-                  </div>
-
-                  <div class="form-group">
-                     <label for="City">City</label>
-                    <input id="City" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="State">State</label>
-                    <input id="State" type="text" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Zip-code">Zip Code</label>
-                    <input id="Zip-code" type="number" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Phone">Phone</label>
-                    <input id="Phone" type="number" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                     <label for="Fax">Fax</label>
-                    <input id="Fax" type="number" class="form-control">
-                  </div>
-
-                </form>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Update Address</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
     <!-- invoice # modal-->
       <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -1462,11 +1336,11 @@
         $("#invoiceEstimateSave").click(() => {
           if($("#NextNumber1").val())
           {
-            var combinevalue = inputCurrentYear + "-" + $("#NextNumber1").val(); 
+            var combinevalue = inputCurrentYear + "-" + $("#NextNumber1").val();
           }
           else
           {
-            var combinevalue = inputCurrentYear ; 
+            var combinevalue = inputCurrentYear ;
           }
           $("#inv-no").val(combinevalue)
         })
@@ -1495,8 +1369,26 @@
                         },
                         success: function (returnedData) {
                             data = returnedData.data;
-                            BillingAdd.innerHTML = data.billing_address + "<br>";
-                            ShippingAdd.innerHTML = data.shipping_address + "<br>";
+                            var billing__address = data.billing_address.split("<br>");
+                            var shipping__address = data.shipping_address.split("<br>");
+                            BillingAdd.innerHTML = `
+                                        <input class="dynamic_table" type="text" name="billing0" value="${billing__address[0]}">
+                                        <input class="dynamic_table" type="text" name="billing1" value="${billing__address[1]}">
+                                        <input class="dynamic_table" type="text" name="billing2" value="${billing__address[2]}">
+                                        <input class="dynamic_table" type="text" name="billing3" value="${billing__address[3]}">
+                                        <br>
+                                        <small>You can edit this feilds </small>
+                                        <br>
+                                      `
+                            ShippingAdd.innerHTML = `
+                                        <input class="dynamic_table" type="text" name="shipping0" value="${shipping__address[0]}">
+                                        <input class="dynamic_table" type="text" name="shipping1" value="${shipping__address[1]}">
+                                        <input class="dynamic_table" type="text" name="shipping2" value="${shipping__address[2]}">
+                                        <input class="dynamic_table" type="text" name="shipping3" value="${shipping__address[3]}">
+                                        <br>
+                                        <small>You can edit this feilds </small>
+                                        <br>
+                                      `
                             gst.innerHTML = data.gst;
                         }
                     });
@@ -1544,11 +1436,11 @@
                         console.log("for");
                         data = item_data[id];
                         itemtable.innerHTML += `<tr>
-                                        <th  child="name${i}" scope="row">${data.name}</th>
-                                        <td><input id="quantity-${id}" type="text" name="quantity${i}" class="form-control" value="${data.quantity}" onchange="updatequantity('${id}','quantity-${id}')"></td>
-                                        <td child="rate${i}" >${data.rate}</td>
-                                        <td child="gst${i}" >${data.gst}</td>
-                                        <td child="amount${i}" >${data.amount}</td>
+                                        <th scope="row"><input class="dynamic_table" id="th" type="text" name="name${i}" value="${data.name}" readonly="readonly"></th>
+                                        <td><input class="dynamic_table" id="quantity-${id}" type="number" name="quantity${i}" class="form-control" value="${data.quantity}" onchange="updatequantity('${id}','quantity-${id}')"></td>
+                                        <td><input class="dynamic_table" type="number" name="rate${i}" value="${data.rate}" readonly="readonly"></td>
+                                        <td><input class="dynamic_table" type="text" name="gst${i}" value="${data.gst}" readonly="readonly"></td>
+                                        <td><input class="dynamic_table" type="number" name="amount${i}" value="${data.amount}" readonly="readonly"></td>
                                     </tr>`;
                     }
                     calculatesubtotal_and_tax();
@@ -1576,12 +1468,12 @@ s
                     for (const id in item_data) {
                         temp_subtotal += parseInt(item_data[id].amount);
                     }
-                    document.getElementById("subtotal").innerHTML = temp_subtotal;
+                    document.getElementById("subtotal").value = temp_subtotal;
                     sub_total = temp_subtotal;
                     temp_cgst = (temp_subtotal * 9) / 100;
                     cgst = sgst = temp_cgst;
-                    document.getElementById("sgst").innerHTML = temp_cgst;
-                    document.getElementById("cgst").innerHTML = temp_cgst;
+                    document.getElementById("sgst").value = temp_cgst;
+                    document.getElementById("cgst").value = temp_cgst;
                     calc_grandtotal();
                 }
                 discount = 0.0;
@@ -1589,7 +1481,7 @@ s
 
                 function getdiscount() {
                     temp_discount = document.getElementById("discount").value;
-                    document.getElementById("showdiscount").innerHTML = "-" + temp_discount;
+                    document.getElementById("showdiscount").value = "-" + temp_discount;
                     discount = temp_discount
                     calc_grandtotal();
                 }
@@ -1599,11 +1491,11 @@ s
                     temp_adj = document.getElementById("adjustment").value;
                     console.log(temp_adj);
                     if (temp_adj[0] == "-") {
-                        document.getElementById("showadjustment").innerHTML = temp_adj;
+                        document.getElementById("showadjustment").value = temp_adj;
                     } else if (temp_adj[0] == "+") {
-                        document.getElementById("showadjustment").innerHTML = temp_adj
+                        document.getElementById("showadjustment").value = temp_adj
                     } else {
-                        document.getElementById("showadjustment").innerHTML = "+" + temp_adj;
+                        document.getElementById("showadjustment").value = "+" + temp_adj;
                     }
                     adjustment = parseFloat(temp_adj);
                     calc_grandtotal()
@@ -1612,7 +1504,7 @@ s
                 function calc_grandtotal() {
                     var total = sub_total + sgst + cgst - discount + adjustment
                     console.log("total", total);
-                    document.getElementById("total").innerHTML = total;
+                    document.getElementById("total").value = total;
                     document.getElementById("grandtotal").value = total;
                 }
             </script>

@@ -4,14 +4,18 @@ from django.http import HttpResponse,JsonResponse
 from itemform.models import Item
 from invoice.models import Invoice
 from .models import Sales
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def index(request):
-    details = Sales.objects.all()
+    details = Sales.objects.filter(user=request.user)
     return render(request, "sales/sales_tbl.html",{"details":details})
+
+@login_required
 def upload(request):
-    alldetails = Customer.objects.all()
-    allitems = Item.objects.all()
+    alldetails = Customer.objects.filter(user=request.user)
+    allitems = Item.objects.filter(user=request.user)
     context = {"alldetails":alldetails,'items':allitems}
 
     if request.method == 'POST':
@@ -22,7 +26,7 @@ def upload(request):
         shipment_date = request.POST['shipment_date']
         amount = request.POST['totalamount']
 
-        user = Sales(sales_date = sales_date,sales_order = sales_order, reference = reference, customer_name = customer_name, shipment_date=shipment_date,amount=amount)
+        user = Sales(sales_date = sales_date,sales_order = sales_order, reference = reference, customer_name = customer_name, shipment_date=shipment_date,amount=amount,user=request.user)
         user.save()
         return redirect(index)
     else:
@@ -37,6 +41,7 @@ def upload(request):
     
     return render(request,'sales/sales_form.html',context)
 
+@login_required
 def getdata(request,id):
     print("id :",id)
     current_user_data = Customer.objects.get(id=id)
