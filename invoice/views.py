@@ -9,13 +9,13 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def index(request):
-    details = Invoice.objects.filter(user=request.user)
+    details = Invoice.objects.filter(organisation=request.user.profile.organisation)
     return render(request, "invoice/invoice_tbl.html",{"details":details})
 
 @login_required
 def upload(request):
-    alldetails = Customer.objects.filter(user=request.user)
-    allitems = Item.objects.filter(user=request.user)
+    alldetails = Customer.objects.filter(organisation=request.user.profile.organisation)
+    allitems = Item.objects.filter(organisation=request.user.profile.organisation)
     
 
     if request.method == 'POST':
@@ -46,7 +46,7 @@ def upload(request):
 
         user = Invoice(invoice_date = invoice_date,invoice = invoice, order_no = order_no, customer_name = customer_name, due_date=due_date,billingStreet=billingStreet,billingCity=billingCity,billingState=billingState,billingZipcode=billingZipcode,
                        shippingStreet=shippingStreet,shippingCity=shippingCity,shippingState=shippingState,shippingZipcode=shippingZipcode,place_of_supply=placeofsupply,sales_person=salesperson,sub_total=subtotal,cgst=cgst,sgst=sgst,igst=igst,
-                       discount=discount,adjustments=adjustment,total=total,customer_notes=customernotes,terms_condition=terms,user=request.user)
+                       discount=discount,adjustments=adjustment,total=total,customer_notes=customernotes,terms_condition=terms,organisation=request.user.profile.organisation)
         user.save()
 
         for obj in range(1,3):

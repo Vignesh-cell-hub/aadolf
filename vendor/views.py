@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    alldetails = Vendor.objects.filter(user=request.user)
+    alldetails = Vendor.objects.filter(organisation=request.user.profile.organisation)
     context = {"alldetails":alldetails}
     return render(request,'vendor/vendor_tbl.html',context)
 @login_required
@@ -85,7 +85,7 @@ def upload(request):
                     shipping_zipcode =shipping_zipcode,
                     shipping_phone =shipping_phone,
                     shipping_fax =shipping_fax,
-                    user=request.user,
+                    organisation=request.user.profile.organisation,
                     )
         user.save()
         return redirect(index)

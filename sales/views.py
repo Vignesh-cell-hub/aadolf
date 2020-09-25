@@ -9,13 +9,13 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def index(request):
-    details = Sales.objects.filter(user=request.user)
+    details = Sales.objects.filter(organisation=request.user.profile.organisation)
     return render(request, "sales/sales_tbl.html",{"details":details})
 
 @login_required
 def upload(request):
-    alldetails = Customer.objects.filter(user=request.user)
-    allitems = Item.objects.filter(user=request.user)
+    alldetails = Customer.objects.filter(organisation=request.user.profile.organisation)
+    allitems = Item.objects.filter(organisation=request.user.profile.organisation)
     context = {"alldetails":alldetails,'items':allitems}
 
     if request.method == 'POST':
@@ -26,7 +26,7 @@ def upload(request):
         shipment_date = request.POST['shipment_date']
         amount = request.POST['totalamount']
 
-        user = Sales(sales_date = sales_date,sales_order = sales_order, reference = reference, customer_name = customer_name, shipment_date=shipment_date,amount=amount,user=request.user)
+        user = Sales(sales_date = sales_date,sales_order = sales_order, reference = reference, customer_name = customer_name, shipment_date=shipment_date,amount=amount,organisation=request.user.profile.organisation)
         user.save()
         return redirect(index)
     else:

@@ -17,4 +17,4 @@ class Expenses(models.Model):
     expense_notes = models.TextField()
     customer_name = models.CharField(max_length=250)
     expense_file = models.FileField(upload_to="file/")
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    organisation = models.CharField(max_length=200, default=" ")

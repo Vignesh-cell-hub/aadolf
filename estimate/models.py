@@ -32,7 +32,7 @@ class Estimate(models.Model):
 
     customer_notes = models.TextField(default="")
     terms_condition = models.TextField(default="")
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    organisation = models.CharField(max_length=200, default=" ")
 
     def __str__(self):
         return self.estimate

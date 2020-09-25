@@ -15,5 +15,5 @@ class Item(models.Model):
     purchasedes = models.CharField(max_length=200,null=True) 
     intrastate = models.CharField(max_length=200,null=True)
     interstate = models.CharField(max_length=200,null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    organisation = models.CharField(max_length=200, default=" ")
     

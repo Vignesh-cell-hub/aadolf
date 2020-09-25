@@ -33,4 +33,4 @@ class Sales(models.Model):
     customer_notes = models.TextField(default=0.00)
     terms_condition = models.TextField(default=0.00)
     attach_file = models.FileField(upload_to='file',default='')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    organisation = models.CharField(max_length=200, default=" ")

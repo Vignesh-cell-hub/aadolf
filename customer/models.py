@@ -45,7 +45,7 @@ class Customer(models.Model):
     shipping_phone =models.CharField(max_length=15,default="")
     shipping_fax =models.CharField(max_length=15,default="")
 
-    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    organisation=models.CharField(max_length=200,default=" ")
 
     def __str__(self):
      return self.company_name

@@ -31,7 +31,7 @@ class Invoice(models.Model):
 
     customer_notes = models.TextField(default=0.00)
     terms_condition = models.TextField(default=0.00)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    organisation = models.CharField(max_length=200, default=" ")
 
 
     def __str__(self):
