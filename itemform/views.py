@@ -1,14 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Item
-from django.contrib.auth.decorators import login_required
-
-@login_required
 def index(request):
-    alldetails = Item.objects.filter(organisation=request.user.profile.organisation)
+    alldetails = Item.objects.all()
     context = {"alldetails":alldetails}
     return render(request,'tables.html',context)
 
-@login_required
 def upload(request):
     if request.method=='POST':
         item_type = request.POST['type']
@@ -38,7 +34,7 @@ def upload(request):
                     purchaseacc = purchaseacc, 
                     purchasedes = purchasedes,
                     intrastate = intrastate,
-                    interstate = interstate,organisation=request.user.profile.organisation)
+                    interstate = interstate)
         user.save()
         return redirect(index)
         
@@ -46,7 +42,6 @@ def upload(request):
         pass
     return render(request,'items_form.html')
 
-@login_required
 def editItem(request,item_id):
     if request.method == 'POST':
         item_type = request.POST['type']

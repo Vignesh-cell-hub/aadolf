@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+
 # Create your models here.
 class Expenses(models.Model):
     expense_date = models.CharField(max_length=20)
@@ -17,4 +17,3 @@ class Expenses(models.Model):
     expense_notes = models.TextField()
     customer_name = models.CharField(max_length=250)
     expense_file = models.FileField(upload_to="file/")
-    organisation = models.CharField(max_length=200, default=" ")

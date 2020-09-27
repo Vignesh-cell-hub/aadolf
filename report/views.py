@@ -3,17 +3,13 @@ from customer.models import Customer
 from itemform.models import Item
 from invoice.models import Invoice
 from sales.models import Sales
-from django.contrib.auth.decorators import login_required
+
 from vendor.models import Vendor
 from expenses.models import Expenses
-
-
-
-@login_required
+# Create your views here.
 def index(request):
     return render(request,"report/index.html")
 
-@login_required
 def purchases_by_vendor(request):
     all_vendor = Vendor.objects.all() 
     vendor_data = []
@@ -40,11 +36,9 @@ def purchases_by_vendor(request):
 
     return render(request,"report/purchases_by_vendor.html",{'vendor_data':vendor_data,'final':final_calc})
 
-@login_required
 def purchases_by_item(request):
     return render(request,"report/purchases_by_item.html")
 
-@login_required
 def expenses_details(request):
     all_expense = Invoice.objects.all()
     final_calc = {
@@ -57,15 +51,12 @@ def expenses_details(request):
 
     return render(request,"report/expense_details.html",{'all_expense':all_expense,'final':final_calc})
 
-@login_required
 def purchases_order_details(request):
     return render(request,"report/purchaseorderdetails.html")
 
-@login_required
 def payment_made(request):
     return render(request,"report/payment_made.html")
 
-@login_required
 def sales_order_details(request):
     all_sales = Sales.objects.all()
     final_calc = {
@@ -78,14 +69,12 @@ def sales_order_details(request):
 
     return render(request,"report/sales_order_details.html",{'all_sales':all_sales,'final':final_calc})
 
-@login_required
 def vendor_balances(request):
     return render(request,"report/vendor_balances.html")
-@login_required
+
 def payment_received(request):
     return render(request,"report/payment_received.html")
-
-@login_required
+ 
 def sales_by_items(request):
     all_items = Item.objects.all() 
     invoice_data_item = []
@@ -101,7 +90,6 @@ def sales_by_items(request):
 
     return render(request,"report/sales_by_item.html",{'invoice_data_item':invoice_data_item})
 
-@login_required
 def table(request):
     all_customers = Customer.objects.all() 
     invoice_data = []

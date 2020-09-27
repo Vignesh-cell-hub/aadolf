@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+
 # Create your models here.
 class Sales(models.Model):
     customer_name = models.CharField(max_length=200)
@@ -33,4 +33,3 @@ class Sales(models.Model):
     customer_notes = models.TextField(default=0.00)
     terms_condition = models.TextField(default=0.00)
     attach_file = models.FileField(upload_to='file',default='')
-    organisation = models.CharField(max_length=200, default=" ")

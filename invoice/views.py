@@ -2,62 +2,28 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,JsonResponse
 from customer.models import Customer
 from itemform.models import Item
-from .models import Invoice,Invoice_transaction
+from .models import Invoice
 from django.core import serializers
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required
 def index(request):
-    details = Invoice.objects.filter(organisation=request.user.profile.organisation)
+    details = Invoice.objects.all()
     return render(request, "invoice/invoice_tbl.html",{"details":details})
-
-@login_required
 def upload(request):
-    alldetails = Customer.objects.filter(organisation=request.user.profile.organisation)
-    allitems = Item.objects.filter(organisation=request.user.profile.organisation)
+    alldetails = Customer.objects.all()
+    allitems = Item.objects.all()
     
 
     if request.method == 'POST':
+        invoice_date = request.POST['invoicedate']
+        invoice = request.POST['invoice']
+        order_no = request.POST['order_no']
         customer_name = Customer.objects.get(pk = request.POST['customer_name']).company_name
-        billingStreet=request.POST['billing0']
-        billingCity=request.POST['billing1']
-        billingState=request.POST['billing2']
-        billingZipcode=request.POST['billing3']
-        shippingStreet =request.POST['shipping0']
-        shippingCity =request.POST['shipping1']
-        shippingState =request.POST['shipping2']
-        shippingZipcode =request.POST['shipping3']
-        placeofsupply=request.POST['placeofsupply']
-        salesperson=request.POST['salesperson']
-        subtotal=request.POST['subtotal']
-        cgst=request.POST['cgst']
-        sgst=request.POST['sgst']
-        igst=request.POST['igst']
-        discount=request.POST['showdiscount']
-        adjustment=request.POST['showadjustment']
-        total=request.POST['total']
-        customernotes=request.POST['customernotes']
-        terms=request.POST['terms']
-        invoice=request.POST['invoice']
-        order_no=request.POST['order_no']
-        invoice_date=request.POST['invoicedate']
-        due_date=request.POST['due_date']
-
-        user = Invoice(invoice_date = invoice_date,invoice = invoice, order_no = order_no, customer_name = customer_name, due_date=due_date,billingStreet=billingStreet,billingCity=billingCity,billingState=billingState,billingZipcode=billingZipcode,
-                       shippingStreet=shippingStreet,shippingCity=shippingCity,shippingState=shippingState,shippingZipcode=shippingZipcode,place_of_supply=placeofsupply,sales_person=salesperson,sub_total=subtotal,cgst=cgst,sgst=sgst,igst=igst,
-                       discount=discount,adjustments=adjustment,total=total,customer_notes=customernotes,terms_condition=terms,organisation=request.user.profile.organisation)
+        due_date = request.POST['due_date']
+        amount = request.POST['totalamount']
+        sub_total = request.POST['sub_totalamount']
+        user = Invoice(invoice_date = invoice_date,invoice = invoice, order_no = order_no, customer_name = customer_name, due_date=due_date,amount=amount, sub_total = sub_total,total = amount)
         user.save()
-
-        for obj in range(1,3):
-            item_details = request.POST['name' + str(obj)]
-            quantity = request.POST['quantity' + str(obj)]
-            rate = request.POST['rate' + str(obj)]
-            tax = request.POST['gst' + str(obj)]
-            amount = request.POST['amount' + str(obj)]
-            final = Invoice_transaction(item_details=item_details, quantity=quantity, rate=rate, tax=tax, amount=amount,invoice=user)
-            final.save()
-
         return redirect(index)
     else:
         count = len(Invoice.objects.all())
@@ -67,10 +33,9 @@ def upload(request):
         else:
             next_num = 1
         print("next",next_num)   
-        context = {"alldetails":alldetails,'items':allitems,'next_number':next_num}
+        context = {"alldetails":alldetails,'items':allitems,'next_number':1}
     return render(request, "invoice/invoice_form.html",context)
 
-@login_required
 def getdata(request,id):
     print("id :",id)
     current_user_data = Customer.objects.get(id=id)
