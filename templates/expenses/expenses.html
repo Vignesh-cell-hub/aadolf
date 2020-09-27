@@ -451,7 +451,7 @@
               <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
                 <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
                 <div class="vl"></div>
-                <a href="#" style="color: rgb(226, 32, 32);">Sign Out</a>
+                <a href="{%url 'logoutuser' %}" style="color: rgb(226, 32, 32);">Sign Out</a>
               </div>
             </div>
 
@@ -657,9 +657,9 @@
                   </button>
                 </div>
                 <div>
-                  <button class="btn btn-secondary btn-lg sab-btn" type="reset">
+                  <a href="{%url 'expense_index'%}"><button class="btn btn-secondary btn-lg sab-btn" type="button">
                     Cancel
-                  </button>
+                  </button></a>
                 </div>
               </div>
             </div>
