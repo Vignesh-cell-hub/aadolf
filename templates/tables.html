@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>Items | Aadolf Ledger</title>
 
   <!-- Custom fonts for this template -->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -31,18 +31,29 @@
 
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
 
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 15px;
+
+}
 
 #SideProfileBar{
-    /* width: 40% !important; */
-    box-shadow:0.1rem 0.1rem 0.9rem 0.35rem black;
+    top: 70px;
+    box-shadow:0.1rem 0.1rem 0.9rem 0.15rem black;
     right : 0 ;
-    /* display: none; */
     border-radius: 10px;
     z-index: 1000 ;
     position: fixed;
     height: 90vh;
-    overflow-y: scroll ;
+    overflow-y: hidden ;
     transition: all .5s ;
     background-color: #f9f9f9 !important;
   }
@@ -53,7 +64,7 @@
   }
 
  .SideProfileBarClass{
-  width: 24% !important;
+  width: 27% !important;
   transition: all .5s ;
  }
 
@@ -116,17 +127,17 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-cubes"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Aadolf Solutions</div>
+        <div class="sidebar-brand-text mx-2">Aadolf ledger <br> books</div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="../">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -134,7 +145,7 @@
 
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="../itemform/">
           <i class="fas fa-fw fa-sitemap"></i>
           <span>Items</span>
@@ -154,10 +165,10 @@
 
             <a class="collapse-item" href="../customer/">Customer</a>
             <a class="collapse-item" href="../estimate/">Quotation</a>
-            <a class="collapse-item" href="#">Sales Order</a>
-            <a class="collapse-item" href="#">Delivery Challans</a>
+            <a class="collapse-item" href="../sales/">Sales Order</a>
+            <a class="collapse-item" href="../delivery_challan/">Delivery Challans</a>
             <a class="collapse-item" href="../invoice/">Invoices</a>
-            <a class="collapse-item" href="#">Payments Received</a>
+            <a class="collapse-item" href="../paymentreceived/">Payments Received</a>
           </div>
         </div>
       </li>
@@ -177,8 +188,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="../vendor/">Vendors</a>
             <a class="collapse-item" href="../expenses/">Expenses</a>
-            <a class="collapse-item" href="#">Purchase Orders</a>
-            <a class="collapse-item" href="#">Payment made</a>
+            <a class="collapse-item" href="../purchase_order/">Purchase Orders</a>
+            <a class="collapse-item" href="../paymentmade/">Payment made</a>
           </div>
         </div>
       </li>
@@ -282,51 +293,7 @@
             </li>
             
             
-            <!--settings-->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-cogs fa-fw"></i>
-
-              </a>
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Settings
-                </h6>
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                      aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-
-                      </button>
-                    </div>
-                  </div>
-                </form>
-
-                <a class="dropdown-item d-flex align-items-center" href="#">
-
-                  <div>
-
-                    <span class="font-weight-bold">demo</span>
-                  </div>
-
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-
-                  <div>
-
-                    <span class="font-weight-bold">demo</span>
-                  </div>
-                </a>
-
-
-              </div>
-
-
-            </li>
+        
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
@@ -446,7 +413,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200">
               </a>
               <!-- Dropdown - User Information -->
              
@@ -468,10 +435,10 @@
 
             <!-- Sidebar - Brand -->
             <div class="card" style="align-items: center;" >
-              <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="Card image cap">
+              <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">AADOLFGROUPS</h5>
-                <p class="card-text">User ID: 60002359514</p>
+                <p class="card-text" style="margin: 0px;">User ID: 60002359514</p>
                 <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
               </div>
               <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
@@ -531,7 +498,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3" style="display: flex; justify-content: space-between; align-items: center;">
-              <h5 class="m-0 font-weight-bold text-primary" id="table__title">ITEM TABLE</h5>
+              <h5 class="m-0 font-weight-bold text-primary" id="table__title">ITEMS</h5>
               <a class="nav-item dropdown no-arrow mx-1" href="upload/" style="float: right;"><button class="btn btn-primary">New</button></a>
               
             </div>
@@ -541,7 +508,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th><input type="checkbox" /></th>
                       <th>NAME</th>
                       <th>SKU</th>
                       <th>DESCRIPTION</th>

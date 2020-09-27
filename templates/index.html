@@ -16,6 +16,7 @@
   <!-- Custom fonts for this template-->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+ 
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" type="text/css"/>
 
@@ -23,16 +24,19 @@
 
 <style>
 
+*{
+  font-family: 'Roboto Slab', serif;
+  font-size: 15px;
+}
   #SideProfileBar{
-      /* width: 40% !important; */
-      box-shadow:0.1rem 0.1rem 0.9rem 0.35rem black;
+    top: 70px;
+      box-shadow:0.1rem 0.1rem 0.9rem 0.15rem black;
       right : 0 ;
-      /* display: none; */
-      border-radius: 10px;
+      border-radius: 5px;
       z-index: 1000 ;
       position: fixed;
       height: 90vh;
-      overflow-y: scroll ;
+      overflow-y: hidden ;
       transition: all .5s ;
       background-color: #f9f9f9 !important;
     }
@@ -104,10 +108,10 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-cubes"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Aadolf Solutions</div>
+        <div class="sidebar-brand-text mx-2">Aadolf ledger <br> books</div>
       </a>
 
       <!-- Divider -->
@@ -262,48 +266,7 @@
                 </form>
               </div>
             </li>
-            <!--settings--> 
-            <li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-cogs fa-fw"></i>
-                 
-                </a>
-                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                  <h6 class="dropdown-header">
-                    Settings
-                  </h6>
-                  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                      <div class="input-group-append">
-                        <button class="btn btn-primary" type="button">
-                          
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-
-                 <a class="dropdown-item d-flex align-items-center" href="#">
-                 
-                  <div>
-                    
-                    <span class="font-weight-bold">demo</span>
-                  </div>
-                  
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                 
-                  <div>
-                    
-                    <span class="font-weight-bold">demo</span>
-                  </div>
-                  </a>
-                  
-    
-                </div>    
-                  
-
-            </li>
+            
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -414,7 +377,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200">
               </a>
             
             </li>
@@ -424,18 +387,17 @@
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+        
 
             <!-- profile side bar -->
             <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
 
               <!-- Sidebar - Brand -->
               <div class="card" style="align-items: center;" >
-                <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="Card image cap">
+                <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">AADOLFGROUPS</h5>
-                  <p class="card-text">User ID: 60002359514</p>
+                  <h5 class="card-title">AADOLFGROUPS <br>   </h5>
+                  <p class="card-text" style="margin: 0px;">User ID: 60002359514</p>
                   <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
                 </div>
                 <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
@@ -467,7 +429,6 @@
                   <div class="col col-sm-12" style="margin-bottom: 4%;">
                     <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
                     <h6>organisation id : 123455</h6>
-                    <h6>GSTN FREE</h6>
                   </div>
                 </div>
               </div>
@@ -479,7 +440,6 @@
                   <div class="col col-sm-12" style="margin-bottom: 4%;">
                     <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
                     <h6>organisation id : 123455</h6>
-                    <h6>GSTN FREE</h6>
                   </div>
                 </div>
               </div>
@@ -489,7 +449,8 @@
   
               </ul>
             <!-- ENd of profile side bar -->
-
+<!-- Begin Page Content -->
+<div class="container-fluid">
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800" id="table__title">Dashboard</h1>
