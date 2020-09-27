@@ -2,31 +2,78 @@ from django.shortcuts import render,redirect
 from customer.models import Customer
 from itemform.models import Item
 from django.http import HttpResponse,JsonResponse
-from .models import Estimate
-from invoice.models import Invoice
+from .models import Estimate,Estimate_transaction
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
+@login_required
 def index(request):
-    details = Estimate.objects.all()
+    details = Estimate.objects.filter(organisation=request.user.profile.organisation)
     return render(request, "estimates/estimate_tbl.html",{"details":details})
+
+@login_required
 def upload(request):
-    alldetails = Customer.objects.all()
-    allitems = Item.objects.all()
-    context = {"alldetails":alldetails,'items':allitems}
-
+    alldetails = Customer.objects.filter(organisation=request.user.profile.organisation)
+    allitems = Item.objects.filter(organisation=request.user.profile.organisation)
     if request.method == 'POST':
+        customer_name = Customer.objects.get(pk=request.POST['customer_name']).company_name
+        billingStreet = request.POST['billing0']
+        billingCity = request.POST['billing1']
+        billingState = request.POST['billing2']
+        billingZipcode = request.POST['billing3']
+        shippingStreet = request.POST['shipping0']
+        shippingCity = request.POST['shipping1']
+        shippingState = request.POST['shipping2']
+        shippingZipcode = request.POST['shipping3']
+        projectname = request.POST['projectname']
+        salesperson = request.POST['salesperson']
+        subtotal = request.POST['subtotal']
+        cgst = request.POST['cgst']
+        sgst = request.POST['sgst']
+        discount = request.POST['showdiscount']
+        adjustment = request.POST['showadjustment']
+        #total = request.POST['total']
+        customernotes = request.POST['customernotes']
+        terms = request.POST['terms']
+        estimate = request.POST['estimate']
+        reference = request.POST['reference']
         estimate_date = request.POST['estimate_date']
-        estimate_number = request.POST['estimate']
-        ref_number = request.POST['reference']
-        customer_name = Customer.objects.get(pk = request.POST['customer_name']).company_name
-        estimate_amount = request.POST['total']
+        expiry_date = request.POST['expiry_date']
 
-        user = Estimate(estimate_date = estimate_date,estimate_number = estimate_number, ref_number = ref_number, customer_name = customer_name, estimate_amount=estimate_amount)
+        user = Estimate(estimate_date=estimate_date, estimate=estimate, reference=reference, customer_name=customer_name,
+                        expiry_date=expiry_date, billingStreet=billingStreet, billingCity=billingCity,
+                       billingState=billingState, billingZipcode=billingZipcode,
+                       shippingStreet=shippingStreet, shippingCity=shippingCity, shippingState=shippingState,
+                       shippingZipcode=shippingZipcode, project_name=projectname, sales_person=salesperson,
+                       sub_total=subtotal, cgst=cgst, sgst=sgst,organisation=request.user.profile.organisation,
+                       discount=discount, adjustments=adjustment, customer_notes=customernotes,
+                       terms_condition=terms)
         user.save()
+
+        for obj in range(1, 3):
+            item_details = request.POST['name' + str(obj)]
+            quantity = request.POST['quantity' + str(obj)]
+            rate = request.POST['rate' + str(obj)]
+            tax = request.POST['gst' + str(obj)]
+            amount = request.POST['amount' + str(obj)]
+            final = Estimate_transaction(item_details=item_details, quantity=quantity, rate=rate, tax=tax, amount=amount,
+                                        invoice=user)
+            final.save()
+
         return redirect(index)
-    return render(request, "estimates/estimate_form.html",context)
+    else:
+        count = len(Estimate.objects.all())
+        if count > 0:
+            last_record = Estimate.objects.last()
+            next_num = last_record.id + 1
+        else:
+            next_num = 1
+        print("next", next_num)
+        context = {"alldetails": alldetails, 'items': allitems, 'next_number': next_num}
+    return render(request, "estimates/estimate_form.html", context)
 
-
+@login_required
 def getdata(request,id):
     print("id :",id)
     current_user_data = Customer.objects.get(id=id)
