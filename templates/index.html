@@ -11,17 +11,88 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>Dashboard | Aadolf Ledger</title>
 
   <!-- Custom fonts for this template-->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" type="text/css"/>
 
 </head>
 
+<style>
+
+  #SideProfileBar{
+      /* width: 40% !important; */
+      box-shadow:0.1rem 0.1rem 0.9rem 0.35rem black;
+      right : 0 ;
+      /* display: none; */
+      border-radius: 10px;
+      z-index: 1000 ;
+      position: fixed;
+      height: 90vh;
+      overflow-y: scroll ;
+      transition: all .5s ;
+      background-color: #f9f9f9 !important;
+    }
+  
+    .summaclass{
+      width: 0% !important;
+      transition: all .5s ;
+    }
+  
+   .SideProfileBarClass{
+    width: 27% !important;
+    transition: all .5s ;
+   }
+  
+    @media (max-width: 673px)
+    {
+      .SideProfileBarClass
+      {
+        width: 70% !important;
+      } 
+    }
+  
+    @media (max-width: 400px)
+    {
+      .SideProfileBarClass
+      {
+        width: 90% !important;
+      } 
+    }
+  
+    @media (min-height : 1034px)
+    {
+      #SideProfileBar
+      {
+        height: auto;
+      } 
+    }
+  
+  
+    #Profile__image{
+      height: 100px;
+      width: 100px; 
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3%;
+    }
+  
+    #MyAccount{ 
+      color: hsl(249, 73%, 43%);
+    }
+  
+    .vl{
+      border-left: 1px solid #0f0f0f; 
+      margin-right: 10px; 
+      height: 15px; 
+      align-self: center;
+    }
+  
+  </style>
 
 <body id="page-top">
 
