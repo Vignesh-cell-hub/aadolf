@@ -25,3 +25,6 @@ def loginuser(request):
 def logoutuser(request):
     auth.logout(request)
     return render(request, 'accounts/loginpage.html')
+
+def manage(request):
+    return render(request, 'organisation_profile.html')

@@ -68,7 +68,7 @@ def upload(request):
             next_num = 1
         print("next",next_num)   
         context = {"alldetails":alldetails,'items':allitems,'next_number':next_num}
-    return render(request, "invoice/invoice_form.html",context)
+    return render(request, "invoice/delivery_form.html",context)
 
 @login_required
 def getdata(request,id):
