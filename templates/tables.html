@@ -522,9 +522,6 @@
                   <tbody>
                     {% for i in alldetails %}
                     <tr role="button" data-href="#">
-
-                      <td style="text-align:center">
-                        <input type="checkbox" /></td>
                       <td style="text-align:center">
                         <a href="#">{{i.name}}</a></td>
                       <td style="text-align:center">
@@ -538,7 +535,7 @@
                       <td style="text-align:center">
                         {{i.units}}</td>
 
-                      <td><a class="btn btn-primary" href="{% url 'editItem' i.id %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></td>
+                      <td><a class="btn btn-primary" href="{% url 'editItem' i.id %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
 
 
                     </tr>
@@ -614,7 +611,7 @@
 
   <!-- Page level custom scripts -->
   <script src="{% static 'js/demo/datatables-demo.js' %}"></script>
-
+  <script src="{% static 'js/bootstable.min.js' %}"></script>
   <script>
     $("#img__Trigger").click(function(){
       $("#SideProfileBar").toggleClass("SideProfileBarClass");
@@ -622,6 +619,10 @@
       // console.log("dsadasdas")
     });
   </script>
+
+<script>
+  $('#makeEditable').SetEditable({ $addButton: $('#but_add')});
+ </script>
 
 </body>
 

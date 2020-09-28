@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,44 +10,20 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Blank</title>
+  <title>Organization Profile | Aadolf Ledger</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+ 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" type="text/css"/>
 
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css" integrity="sha512-0nkKORjFgcyxv3HbE4rzFUlENUMNqic/EzDIeYCgsKa/nwqr2B91Vu/tNAu4Q0cBuG4Xe/D1f/freEci/7GDRA==" crossorigin="anonymous" />
 
 </head>
-
-
-<style type="text/css">
-
-  @import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
- 
-
-*{
-  font-size: 13px;
-}
-
-.form__lable{
-  color: black;
-}
-
-
-
-hr.style-one {
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
-}
-</style>
 
 
 
@@ -61,76 +38,76 @@ hr.style-one {
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-cubes"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Aadolf Solutions</div>
+        <div class="sidebar-brand-text mx-2">Aadolf ledger <br> books</div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
+     <!-- Nav Item - Dashboard -->
+     <li class="nav-item active">
+      <a class="nav-link" href="#">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+    </li>
 
+    
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="itemform/">
+        <i class="fas fa-fw fa-sitemap"></i>
+        <span>Items</span>
+      </a>
       
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="itemform/">
-          <i class="fas fa-fw fa-sitemap"></i>
-          <span>Items</span>
-        </a>
-        
-      </li>
+    </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-salesforce"></i>
-          <span>Sales</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            
-            <a class="collapse-item" href="customer/">Customer</a>
-            <a class="collapse-item" href="estimate/">Quotation</a>
-            <a class="collapse-item" href="sales/">Sales Order</a>
-            <a class="collapse-item" href="#">Delivery Challans</a>
-            <a class="collapse-item" href="invoice/">Invoices</a>
-            <a class="collapse-item" href="#">Payments Received</a>
-          </div>
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <span>Sales</span>
+      </a>
+      <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          
+          <a class="collapse-item" href="../customer/">Customer</a>
+          <a class="collapse-item" href="../estimate/">Quotation</a>
+          <a class="collapse-item" href="../sales/">Sales Order</a>
+          <a class="collapse-item" href="../delivery_challan/">Delivery Challans</a>
+          <a class="collapse-item" href="../invoice/">Invoices</a>
+          <a class="collapse-item" href="../paymentreceived/">Payments Received</a>
         </div>
-      </li>
+      </div>
+    </li>
 
-     
 
-      
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-shopping-basket"></i>
-          <span>Purchase</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            
-            <a class="collapse-item" href="vendor/">Vendors</a>
-            <a class="collapse-item" href="expenses/">Expenses</a>
-            <a class="collapse-item" href="#">Purchase Orders</a>
-            <a class="collapse-item" href="#">Bills</a>
-            <a class="collapse-item" href="#">Payment made</a>
-          </div>
+
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+        aria-controls="collapsePages">
+        <i class="fas fa-fw fa-shopping-basket"></i>
+        <span>Purchase</span>
+      </a>
+      <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="../vendor/">Vendors</a>
+          <a class="collapse-item" href="../expenses/">Expenses</a>
+          <a class="collapse-item" href="../purchase_order/">Purchase Orders</a>
+          <a class="collapse-item" href="../paymentmade/">Payment made</a>
         </div>
-      </li>
+      </div>
+    </li>
+
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="report/">
           <i class="fas fa-fw fa-book"></i>
           <span>Reports</span></a>
       </li>
@@ -220,48 +197,7 @@ hr.style-one {
                 </form>
               </div>
             </li>
-            <!--settings--> 
-            <li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-cogs fa-fw"></i>
-                 
-                </a>
-                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                  <h6 class="dropdown-header">
-                    Settings
-                  </h6>
-                  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                      <div class="input-group-append">
-                        <button class="btn btn-primary" type="button">
-                          
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-
-                 <a class="dropdown-item d-flex align-items-center" href="#">
-                 
-                  <div>
-                    
-                    <span class="font-weight-bold">demo</span>
-                  </div>
-                  
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                 
-                  <div>
-                    
-                    <span class="font-weight-bold">demo</span>
-                  </div>
-                  </a>
-                  
     
-                </div>    
-                  
-
-            </li>
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -311,89 +247,16 @@ hr.style-one {
               </div>
             </li>
 
-            <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li>
+            
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200">
               </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
+            
             </li>
 
           </ul>
@@ -401,9 +264,70 @@ hr.style-one {
         </nav>
         <!-- End of Topbar -->
 
+         <!-- profile side bar -->
+         <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
+
+          <!-- Sidebar - Brand -->
+          <div class="card" style="align-items: center;" >
+            <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">AADOLFGROUPS <br>   </h5>
+              <p class="card-text" style="margin: 0px;">User ID: 60002359514</p>
+              <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
+            </div>
+            <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
+              <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
+              <div class="vl"></div>
+              <a href="{%url 'logoutuser' %}" style="color: rgb(226, 32, 32);">Sign Out</a>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider my-0">
+
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col col-sm-12" style="margin-top: 30px ;">
+                <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
+                  <h6>MY ORGANISATION</h6>
+                  <a class="nav-item dropdown" style="float: right;" href="{% url 'manage' %}"><i class="fa fa-cog" aria-hidden="true"></i> Manage</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr style="width: 100%;">
+          
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col col-sm-12" style="margin-bottom: 4%;">
+                <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
+                <h6>organisation id : 123455</h6>
+              </div>
+            </div>
+          </div>
+
+          <hr style="width: 100%;">
+        
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col col-sm-12" style="margin-bottom: 4%;">
+                <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
+                <h6>organisation id : 123455</h6>
+              </div>
+            </div>
+          </div>
+
+          <hr style="width: 100%;">
+                    
+
+          </ul>
+        <!-- ENd of profile side bar -->
+
         <!-- Begin Page Content -->
         <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand" href="#"><span style="font-size: 20px">Organization Profile ID:</span> 60002358758</a>
+          <a class="navbar-brand" href="#"><span style="font-size: 20px">Organization Profile</span></a>
         </nav>
         <hr>
 
@@ -411,19 +335,17 @@ hr.style-one {
                   
 
 
-    <div class="container-fluid">
-            <div class="alert alert-primary" role="alert">
-              You have the same organization in Zoho Inventory. Altering any information on this page will alter it there.
-        </div>
-
-
+    <div class="container-fluid">   
         <form id="form"> 
 
 
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label form__lable">Logo</label>
+            <label class="col-sm-2 col-form-label form__lable">Organisation Logo</label>
             <div class="col-sm-2">
-              <label class="btn btn-primary" for="img"><i class="fa fa-picture-o" aria-hidden="true"></i> Update Your Logo</label>
+              <div class="profile-images">
+                <img src="images/profile.png" id="upload-img">
+              </div>
+              <label class="btn btn-primary" for="img" style="font-size: 13px;"><i class="fa fa-picture-o" aria-hidden="true"></i> Update Your Logo</label>
               <input type="file" id="img" name="img" accept="image/*" class="form-control" style="display: none;">
             </div>
              <div class="col-sm-6">
@@ -497,103 +419,14 @@ hr.style-one {
                 </div>
               </div>
               <br>
-              <div class="form-group row">
-                  <div class="col-sm-10">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck1">
-                      <label class="form-check-label" for="gridCheck1">
-                        Would you like to add a separate address for receiving payments?
-                      </label>
-                    </div>
-                  </div>
-              </div>
             </div>
           </div>
+  
 
-
-          <div class="form-group row">
-            <label for="yourlogo" class="col-sm-2 col-form-label form__lable">PrimarY Contact</label>
-           <!--  <div class="col-sm-4">
-              <input type="text" class="form-control" id="inputPassword">
-            </div> -->
-            <div class="col-sm-6">
-              <div class="row">
-                <div class="col">
-                  <p>Sender</p>
-                  <h5 class="form__lable">aadlofgroups</h5>
-                  <small>(aadolfgroups@gmail.com)</small>
-                </div>
-                <div class="col">
-                  <p>Email are sent through</p>
-                  <h5 class="form__lable">Zoho book's email address</h5>
-                  <small>(message-service@sender.zoho-books.in)</small>
-                </div>
-              </div>
-              <br>
-
-              <div class="alert alert-info" role="alert" style="padding: 15px">
-                Your primary contact's email address belongs to a public domain. So, emails will be sent from message-service@sender.zoho-books.in to prevent them from landing in the Spam folder. If you still want to send emails using the public domain, <a href="#">change setting</a>
-              </div>
-              <div class="col">
-                <a href="#">Configure Email Preference  <span style="font-size: 20px">&#8594;</span></a>
-              </div>
-            </div>
-            
-          </div>
-
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label form__lable">Fiscal Year</label>
-            <div class="col-sm-4">
-              <select class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="Report_Basis" class="col-sm-2 col-form-label form__lable">Report Basis</label>
-            <!-- <div class="col-sm-4">
-              
-            </div> -->
-            <div class="col-sm-4">
-                <div class="form-check col-sm-12">
-                  <input class="form-check-input" type="radio" name="Report_Basis_value" id="exampleRadios2" value="option2">
-                  <label class="form-check-label form__lable" for="exampleRadios2">
-                    Accrual (you owe tax as of invoice date)
-                  </label>
-                </div>
-                <p></p>
-                <div class="form-check col-sm-12">
-                  <input class="form-check-input" type="radio" name="Report_Basis_value" id="exampleRadios3" value="option3">
-                  <label class="form-check-label form__lable" for="exampleRadios3">
-                    Cash (you owe tax upon payment receipt)
-                  </label>
-                </div>
-            </div>
-          </div>
+         
 
 
 
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label form__lable">Time Zone</label>
-            <div class="col-sm-4">
-              <select class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-              </select>
-            </div>
-          </div>
-
-           <div class="form-group row">
-            <label class="col-sm-2 col-form-label form__lable">Date Format</label>
-            <div class="col-sm-4">
-              <select class="form-control">
-                    <option selected>Date Format</option>
-                    <option>...</option>
-              </select>
-            </div>
-          </div>
 
           <br>
           <br>
@@ -604,12 +437,12 @@ hr.style-one {
               <label for="inputPassword" class="col-sm-4 col-form-label form__lable">Company ID</label>
               <div class="col-xs-12 col-sm-8 col-md-8">
                 <div class="row">
-                  <div class="col">
+                  <!-- <div class="col">
                     <select class="form-control">
                       <option selected>Company ID : </option>
                       <option>...</option>
                     </select>
-                  </div>
+                  </div> -->
                   <div class="col">
                      <input type="password" class="form-control" id="inputPassword">
                   </div>
@@ -621,12 +454,12 @@ hr.style-one {
               <label for="inputPassword" class="col-sm-4 col-form-label form__lable">Tax ID</label>
               <div class="col-xs-12 col-sm-8 col-md-8">
                 <div class="row">
-                  <div class="col">
+                  <!-- <div class="col">
                      <select class="form-control">
                       <option selected>Tax ID : </option>
                       <option>...</option>
                     </select>
-                  </div>
+                  </div> -->
                   <div class="col">
                      <input type="password" class="form-control" id="inputPassword">
                   </div>
@@ -635,24 +468,24 @@ hr.style-one {
             </div>
           </div>
 
-          <div class="col-sm-12 col-md-4">
+          <!-- <div class="col-sm-12 col-md-4">
             <div class="col-sm-12">
                 <div class="alert alert-info" role="alert" style="padding: 15px">
                  You can have Company ID, Tax ID and Additional Fields show up on your PDF by inserting the required placeholders in your 'Address Format' under <a href="#">Settings</a> -> <a href="#">Preferences</a> -> <a href="#">General</a>
                 </div>
             </div>
-          </div>
+          </div> -->
 
         </div>  
 
         </form>
               
-        <div class="form-group row" id="aaa">
+        <!-- <div class="form-group row" id="aaa">
           <label for="yourlogo" class="col-sm-2 col-form-label form__lable"></label>
           <div class="col-sm-4">
             <a  href="#aaa" onclick="addfeild()">Add Additional Feild</a>
           </div>
-        </div>
+        </div> -->
         <hr>
 
 
@@ -660,9 +493,6 @@ hr.style-one {
           <label for="yourlogo" class="col-sm-2 col-form-label form__lable"></label>
           <div class="col-sm-12 col-md-6 mb-4">
             <a  href="#aaa" class="btn btn-success">Save</a>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <a  href="#aaa">Privacy Policy</a>
           </div>
         </div>
 
@@ -718,14 +548,14 @@ hr.style-one {
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous"></script>
 
@@ -753,6 +583,23 @@ hr.style-one {
           </div>`
     }
   </script>
+<script>
+  $("#img__Trigger").click(function(){
+    $("#SideProfileBar").toggleClass("SideProfileBarClass");
+    $("#SideProfileBar").toggleClass("summaclass");
+    // console.log("dsadasdas")
+  });
+</script>
+
+<script>
+  $(function(){
+    $("#img").change(function(event) {
+      var x = URL.createObjectURL(event.target.files[0]);
+      $("#upload-img").attr("src",x);
+      console.log(event);
+    });
+  })
+</script>
 
 
 
