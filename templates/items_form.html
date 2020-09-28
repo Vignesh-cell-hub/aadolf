@@ -17,6 +17,7 @@
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     font-family: "Roboto Slab", sans-serif;
     
+  font-size: 15px;
 }
 
 div {
@@ -27,9 +28,9 @@ div {
     box-sizing: border-box;
 }
 
+/* Items form CSS*/
 
-
-.fill-header {
+ .fill-header {
     width: 100%;
     padding: 0 25px;
     margin: 0 0 10px;
@@ -64,7 +65,7 @@ div {
 }
 .button {
 
-background-color:#4CAF50;/*gn */
+background-color:#4CAF50;
 border: none;
 color: white;
 padding: 10px 10px;
@@ -74,7 +75,7 @@ display: inline-block;
 font-size: 16px;
 }
 .button1 {
-background-color: #552155; /*gy */
+background-color: #552155; 
 border: none;
 color: white;
 padding: 15px 10px;
@@ -84,7 +85,7 @@ display: inline-block;
 font-size: 16px;
 }
 .button2 {
-background-color: #f44336; /*Rd */
+background-color: #f44336;
 border: none;
 color: white;
 padding: 10px 10px;
@@ -108,7 +109,7 @@ text-align: center;
 padding: 14px 16px;
 text-decoration: none;
 }
-
+/* 
 .dropdown {
 float: left;
 overflow: hidden;
@@ -128,9 +129,6 @@ margin: 25px;
 }
 
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-background-color:  blue;
-}
 
 .dropdown-content {
 display: none;
@@ -152,7 +150,7 @@ text-align: left;
 
 .dropdown:hover .dropdown-content {
 display: block;
-}
+} */
 
 
 
@@ -162,7 +160,8 @@ display: block;
     background-color:  #e3e6f0;
     padding: 26px;
     border-radius: 5px;
-  }
+  } 
+
 
 </style>
 
@@ -240,8 +239,8 @@ display: block;
                 <div class="row">
                     <div class="header">
                       <h2 class="float-left text-primary" id="table__title">New Item</h2>
-                      <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true" style="font-size: 42px;">&times;</span>
+                      <!-- <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 42px;">&times;</span> -->
                       </button>
                     </div>
                 </div>
@@ -395,7 +394,7 @@ display: block;
                                 </div>
                             </div>
 
-                            <div class="form-group row required">
+                            <div class="form-group row">
                                 <label for="cost-price" class="col-sm-3 col-form-label">Cost Price*</label>
                                 <div class="col-sm-6">
                                     <div class="input-group mb-3">
@@ -408,9 +407,9 @@ display: block;
                             </div>
 
                             <div class="form-group row">
-                                <label for="purchase-acc" class="col-sm-3 col-form-label required">Account*</label>
+                                <label for="purchase-acc" class="col-sm-3 col-form-label">Account*</label>
 
-                                <div class="input-group col-sm-6 mb-3" required>
+                                <div class="input-group col-sm-6 mb-3">
                                     <select class="custom-select" id="purchase-acc" name="purchaseacc" disabled="disabled">
                                         <option value="null"></option>
                                         <option value="box">box</option>
@@ -455,18 +454,6 @@ display: block;
                             <select class="custom-select" id="sales-acc" name="intrastate">
                                 <option value="null"></option>
                                 <option value="GST18">GST18[18%]</option>
-                                <!--option value="cm">cm</option>
-                                <option value="dz">dz</option>
-                                <option value="ft">ft</option>
-                                <option value="g">g</option>
-                                <option value="in">in</option>
-                                <option value="kg">kg</option>
-                                <option value="km">km</option>
-                                <option value="lb">lb</option>
-                                <option value="mg">mg</option>
-                                <option value="m">m</option>
-                                <option value="pcs">pcs</option>
-                                <option value="1">1</option-->
                             </select>
                         </div>
                     </div>
@@ -482,14 +469,6 @@ display: block;
                                 <option value="GST12">GST12[12%]</option>
                                 <option value="GST18">GST18[18%]</option>
                                 <option value="GST28">GST28[28%]</option>
-                                <!--option value="in">in</option>
-                                <option value="kg">kg</option>
-                                <option value="km">km</option>
-                                <option value="lb">lb</option>
-                                <option value="mg">mg</option>
-                                <option value="m">m</option>
-                                <option value="pcs">pcs</option>
-                                <option value="1">1</option-->
                             </select>
                         </div>
                     </div>
@@ -497,18 +476,14 @@ display: block;
 
                 </div>
                 <hr>
-                <br>
-                <p>Do you want to keep track of this item? Enable Inventory to view its stock based on the sales and purchase transactions you record for it. Go to Settings > Preferences > Items and enable inventory.</p>
-                <br><br><br><br>
+               <br><br><br><br>
                 <div class="row">
                 <div >
                     <button class="btn btn-lg btn-primary btn-block">Save <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                 </div>
                 <div class="padding-left-20">
-                    <button class="btn btn-dark btn-lg" type="reset">Cancel</button>
-                    <!-- <a class="btn btn-lg btn-dark btn-block" id="cancel" href="#">Cancel</a> -->
-                    <!-- <input class="btn btn-lg btn-dark btn-block " type="submit" id="cancel" value="Cancel"> -->
-                </div>
+                    <a href="{% url 'itemform_index'%}"> <button class="btn btn-dark btn-lg" type="button">Cancel</button></a>
+               </div>
                 </div>
             </form>
         </div>

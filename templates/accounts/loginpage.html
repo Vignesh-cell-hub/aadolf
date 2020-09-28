@@ -77,7 +77,7 @@
 				<input name="next" value="{{request.GET.next}}" type="hidden">
 				{% endif %}
 				{% if invalid %}
-				<p>Given credientials are invalids</p>
+				<p>Given credientials are invalids. Retry or contact admin.</p>
 				{% endif %}
 			  <div class="form-group">
 			    <label for="Username">Username</label><br>
@@ -87,14 +87,10 @@
 			    <label for="exampleInputPassword1">Password</label><br>
 			    <input type="password" class="col-md-12 custom__input" name="password" id="exampleInputPassword1" placeholder="Password"><br>
 			  </div>	
-			  <div class="float-right"><a href="#">Forget Password?</a></div><br><br>
 			  <div class="mx-auto" style="width: 100px;">
 				  <button type="submit" class="btn btn-primary" id="custom__login">Login</button>
 			  </div>	  
 			</form>
-			<div class="col-sm-10 mt-5">
-				<p>Doesn't have an account? <a href="#">Register</a></p>
-			</div>
 		</div>
 	</div>
 	</div>
