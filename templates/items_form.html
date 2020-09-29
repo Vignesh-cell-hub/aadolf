@@ -1,32 +1,13 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block content %}
-
+<head>
+<title>Items Form | Aadolf Ledger</title>
+</head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
-
-
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-    font-family: "Roboto Slab", sans-serif;
-    font-size: 15px;
-}
-
-div {
-    display: block;
-    position: relative;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
+ 
 /* Items form CSS*/
 
  .fill-header {
@@ -108,50 +89,6 @@ text-align: center;
 padding: 14px 16px;
 text-decoration: none;
 }
-/* 
-.dropdown {
-float: left;
-overflow: hidden;
- margin: 25px;
-}
-
-
-.dropdown .dropbtn {
-font-size: 16px;  
-border: none;
-outline: none;
-color: white;
-padding: 14px 16px;
-background-color: inherit;
-font-family: inherit;
-margin: 25px;
-}
-
-
-
-.dropdown-content {
-display: none;
-position: absolute;
-background-color: #f9f9f9;
-min-width: 160px;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-z-index: 1;
-}
-.dropdown-content a {
-float: none;
-color: black;
-padding: 12px 16px;
-text-decoration: none;
-display: block;
-text-align: left;
-}
-
-
-.dropdown:hover .dropdown-content {
-display: block;
-} */
-
-
 
 .header {
     width: 100%;
@@ -166,68 +103,7 @@ display: block;
 
     <div class="row">
 
-           <!-- profile side bar -->
-           <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
-
-            <!-- Sidebar - Brand -->
-            <div class="card" style="align-items: center;" >
-              <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">AADOLFGROUPS</h5>
-                <p class="card-text">User ID: 60002359514</p>
-                <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
-              </div>
-              <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
-                <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
-                <div class="vl"></div>
-                <a href="{%url 'logoutuser' %}" style="color: rgb(226, 32, 32);">Sign Out</a>
-              </div>
-            </div>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col col-sm-12" style="margin-top: 30px ;">
-                  <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
-                    <h6>MY ORGANISATION</h6>
-                    <a class="nav-item dropdown" style="float: right;" href="#"><i class="fa fa-cog" aria-hidden="true"></i> Manage</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <hr style="width: 100%;">
-            
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col col-sm-12" style="margin-bottom: 4%;">
-                  <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
-                  <h6>organisation id : 123455</h6>
-                  <h6>GSTN FREE</h6>
-                </div>
-              </div>
-            </div>
-
-            <hr style="width: 100%;">
           
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col col-sm-12" style="margin-bottom: 4%;">
-                  <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
-                  <h6>organisation id : 123455</h6>
-                  <h6>GSTN FREE</h6>
-                </div>
-              </div>
-            </div>
-
-            <hr style="width: 100%;">
-                      
-
-            </ul>
-
 
 
 
@@ -538,5 +414,29 @@ display: block;
             Purchase_acc.disabled           = ckeck.checked ? false : true;
         }
     </script>
+
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("myDropdown");
+      a = div.getElementsByTagName("a");
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        }
+      }
+    }
+  </script>
 
 {% endblock %}

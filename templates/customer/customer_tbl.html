@@ -21,84 +21,8 @@
 
   <!-- Custom styles for this page -->
   <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
-<style>
-
-  *{
-    font-family: 'Roboto Slab', serif;
-    font-size: 15px;
-  }
-    #SideProfileBar{
-      top: 70px;
-        box-shadow:0.1rem 0.1rem 0.9rem 0.15rem black;
-        right : 0 ;
-        border-radius: 5px;
-        z-index: 1000 ;
-        position: fixed;
-        height: 90vh;
-        overflow-y: hidden ;
-        transition: all .5s ;
-        background-color: #f9f9f9 !important;
-      }
-    
-      .summaclass{
-        width: 0% !important;
-        transition: all .5s ;
-      }
-    
-     .SideProfileBarClass{
-      width: 27% !important;
-      transition: all .5s ;
-     }
-    
-      @media (max-width: 673px)
-      {
-        .SideProfileBarClass
-        {
-          width: 70% !important;
-        } 
-      }
-    
-      @media (max-width: 400px)
-      {
-        .SideProfileBarClass
-        {
-          width: 90% !important;
-        } 
-      }
-    
-      @media (min-height : 1034px)
-      {
-        #SideProfileBar
-        {
-          height: auto;
-        } 
-      }
-    
-    
-      #Profile__image{
-        height: 100px;
-        width: 100px; 
-        border-radius: 50%;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3%;
-      }
-    
-      #MyAccount{ 
-        color: hsl(249, 73%, 43%);
-      }
-    
-      .vl{
-        border-left: 1px solid #0f0f0f; 
-        margin-right: 10px; 
-        height: 15px; 
-        align-self: center;
-      }
-    
-    </style>
 
 <body id="page-top">
 
@@ -492,35 +416,33 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th></th>
                       <th>NAME</th>
                       <th>COMPANY NAME</th>
                       <th>EMAIL</th>
                       <th>WORK PHONE</th>
                       <th>GST TREATMENT</TH>
                       <th>RECEIVABLES</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     {% for i in alldetails %}
                     <tr role="button" data-href="#">
+                      <td style="text-align:center">
+                        <a href="#">{{i.company_name}}</a></td>
+                      <td style="text-align:center">
+                        <a>{{i.company_name}}</a></td>
+                      <td style="text-align:center">
+                         {{i.email}} </td>
+                      <td style="text-align:center">
+                        {{i.work_phone_no}}</td>
+                      <td style="text-align:center">
+                        {{i.gst_treatment}}</td>
+                      <td style="text-align:center">
+                        {{i.tax_prefrence}}</td>
 
-                      <td style="text-align:center">
-                        <hr><input type="checkbox" /></td>
-                      <td style="text-align:center">
-                        <hr><a href="#">{{i.company_name}}</a></td>
-                      <td style="text-align:center">
-                        <hr><a>{{i.company_name}}</a></td>
-                      <td style="text-align:center">
-                        <hr> {{i.email}} </td>
-                      <td style="text-align:center">
-                        <hr>{{i.work_phone_no}}</td>
-                      <td style="text-align:center">
-                        <hr>{{i.gst_treatment}}</td>
-                      <td style="text-align:center">
-                        <hr>{{i.tax_prefrence}}</td>
-                       <td style="text-align:center">
-                         <a class="btn" href="{% url 'edit_customer' i.id %}"> <button>Edit</button></a> </td>
+                        <td><a class="btn btn-primary" href="{% url 'edit_customer' i.id %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                       
 
                     </tr>
                     {% endfor %}
