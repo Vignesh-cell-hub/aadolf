@@ -1,16 +1,28 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Expenses
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from accounts.models import Organisation
+
+
 # Create your views here.
 
 @login_required
 def index(request):
     alldetails = Expenses.objects.filter(organisation=request.user.profile.organisation.organisation_name)
-    context = {"alldetails":alldetails}
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context = {"alldetails":alldetails,'organisation': organisation[0],'media_url': settings.MEDIA_URL,}
     return render(request,'expenses/expense_tbl.html',context)
 
 @login_required
 def upload(request):
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
     if request.method == 'POST':
         expense_date = request.POST['date']
         expense_account = request.POST['Exp_Account']
@@ -48,7 +60,7 @@ def upload(request):
 
         expense.save()
         return redirect(index)
-    return render(request,'expenses/expenses.html')
+    return render(request,'expenses/expenses.html', context)
 
 @login_required
 def editexpense(request,id):

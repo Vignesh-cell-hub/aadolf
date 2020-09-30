@@ -6,15 +6,24 @@ from sales.models import Sales
 from django.contrib.auth.decorators import login_required
 from vendor.models import Vendor
 from expenses.models import Expenses
+from django.conf import settings
+from accounts.models import Organisation
 
 
 
 @login_required
 def index(request):
-    return render(request,"report/index.html")
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
+    return render(request,"report/index.html", context)
 
 @login_required
 def purchases_by_vendor(request):
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
     all_vendor = Vendor.objects.all() 
     vendor_data = []
     final_calc = {
@@ -38,14 +47,30 @@ def purchases_by_vendor(request):
         final_calc['total'] +=temp_total
         vendor_data.append(temp_customer)
 
-    return render(request,"report/purchases_by_vendor.html",{'vendor_data':vendor_data,'final':final_calc})
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
+    return render(request,"report/purchases_by_vendor.html",{'vendor_data':vendor_data,'final':final_calc}, context)
 
 @login_required
 def purchases_by_item(request):
-    return render(request,"report/purchases_by_item.html")
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
+    return render(request,"report/purchases_by_item.html", context)
 
 @login_required
 def expenses_details(request):
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
     all_expense = Invoice.objects.all()
     final_calc = {
         'total':0
@@ -55,18 +80,36 @@ def expenses_details(request):
         temp_total += i.total
     final_calc['total'] = temp_total
 
-    return render(request,"report/expense_details.html",{'all_expense':all_expense,'final':final_calc})
+    return render(request,"report/expense_details.html",{'all_expense':all_expense,'final':final_calc}, context)
 
 @login_required
 def purchases_order_details(request):
-    return render(request,"report/purchaseorderdetails.html")
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
+    return render(request,"report/purchaseorderdetails.html", context)
 
 @login_required
 def payment_made(request):
-    return render(request,"report/payment_made.html")
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
+    return render(request,"report/payment_made.html", context)
 
 @login_required
 def sales_order_details(request):
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
     all_sales = Sales.objects.all()
     final_calc = {
         'total':0
@@ -76,17 +119,35 @@ def sales_order_details(request):
         temp_total += i.total
     final_calc['total'] = temp_total
 
-    return render(request,"report/sales_order_details.html",{'all_sales':all_sales,'final':final_calc})
+    return render(request,"report/sales_order_details.html",{'all_sales':all_sales,'final':final_calc}, context)
 
 @login_required
 def vendor_balances(request):
-    return render(request,"report/vendor_balances.html")
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
+    return render(request,"report/vendor_balances.html", context)
 @login_required
 def payment_received(request):
-    return render(request,"report/payment_received.html")
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
+    return render(request,"report/payment_received.html", context)
 
 @login_required
 def sales_by_items(request):
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
     all_items = Item.objects.all() 
     invoice_data_item = []
     for item in all_items:
@@ -99,10 +160,16 @@ def sales_by_items(request):
         #invoice_list = Invoice.objects.filter(item_details = name)
         invoice_data_item.append(temp_item)
 
-    return render(request,"report/sales_by_item.html",{'invoice_data_item':invoice_data_item})
+    return render(request,"report/sales_by_item.html", {'invoice_data_item':invoice_data_item}, context)
 
 @login_required
 def table(request):
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
     all_customers = Customer.objects.all() 
     invoice_data = []
     final_calc = {
@@ -128,4 +195,4 @@ def table(request):
         temp_customer['total'] = temp_total 
         invoice_data.append(temp_customer)
 
-    return render(request,'report/form.html',{'invoice_data':invoice_data,'final':final_calc})
+    return render(request,'report/form.html',{'invoice_data':invoice_data,'final':final_calc}, context)

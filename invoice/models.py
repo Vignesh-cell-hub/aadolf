@@ -44,4 +44,4 @@ class Invoice_transaction(models.Model):
     rate = models.FloatField(default=0.00)
     tax = models.CharField(max_length=100, default='')
     amount = models.FloatField(default=0.00)
-    invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
+    invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE) 

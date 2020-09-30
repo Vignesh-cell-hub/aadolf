@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Customer | Aadolf Ledger</title>
+  <title>Delivery Challan | Aadolf Ledger</title>
 
   <!-- Custom fonts for this template -->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -79,7 +79,7 @@
             <a class="collapse-item" href="{%url 'customer_index' %}">Customer</a>
             <a class="collapse-item" href="{%url 'estimate_index' %}">Quotation</a>
             <a class="collapse-item" href="{%url 'sales_index' %}">Sales Order</a>
-            <!-- <a class="collapse-item" href="{%url 'delivery_index' %}">Delivery Challans</a> -->
+            <a class="collapse-item" href="{%url 'delivery_index' %}">Delivery Challans</a>
             <a class="collapse-item" href="{%url 'invoice_index' %}">Invoices</a>
             <!-- <a class="collapse-item" href="{%url 'paymentrec_index' %}">Payments Received</a> -->
           </div>
@@ -282,50 +282,56 @@
 
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">        
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+         
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3" style="display: flex; justify-content: space-between; align-items: center;">
-              <h5 class="m-0 font-weight-bold text-primary" id="table__title">CUSTOMERS</h5>
-              <a class="nav-item dropdown no-arrow mx-1" href="{% url 'customer_upload' %}" style="float: right;"><button class="btn btn-primary">New</button></a>
+              <h5 class="m-0 font-weight-bold text-primary" id="table__title">DELIVERY CHALLAN</h5>
+              <a class="nav-item dropdown no-arrow mx-1" style="float: right;" href="upload/"><button class="btn btn-primary">New</button></a>
             </div>
-
-
-
 
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
                   <thead>
                     <tr>
-                      <th>NAME</th>
-                      <th>COMPANY NAME</th>
-                      <th>EMAIL</th>
-                      <th>WORK PHONE</th>
-                      <th>GST TREATMENT</TH>
-                      <th>RECEIVABLES</th>
-                      <th></th>
+                     
+                      <th>DATE</th>
+                      <th>DELIVERY CHALLAN#</th>
+                      <th>REFERENCE NUMBER</th>
+                      <th>CUSTOMER NAME</th>
+                      <th>INVOICE STATUS</TH>
+                      <th>AMOUNT</th>
+<th></th>
                     </tr>
                   </thead>
                   <tbody>
-                    {% for i in alldetails %}
+                    {% for i in details %}
                     <tr role="button" data-href="#">
-                      <td style="text-align:center">
-                        <a href="#">{{i.company_name}}</a></td>
-                      <td style="text-align:center">
-                        <a>{{i.company_name}}</a></td>
-                      <td style="text-align:center">
-                         {{i.email}} </td>
-                      <td style="text-align:center">
-                        {{i.work_phone_no}}</td>
-                      <td style="text-align:center">
-                        {{i.gst_treatment}}</td>
-                      <td style="text-align:center">
-                        {{i.tax_prefrence}}</td>
 
-                        <td><a class="btn btn-primary" href="{% url 'edit_customer' i.id %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                       
+                      
+                      <td style="text-align:center">
+                        <a href="#">{{i.sales_date}}</a></td>
+                      <td style="text-align:center">
+                        {{i.sales_order}}</td>
+                      <td style="text-align:center">
+                        {{i.reference}}</td>
+                      <td style="text-align:center">
+                        {{i.customer_name}}</td>
+                      <td style="text-align:center">
+                        PAID</td>
+                      <td style="text-align:center">
+                        {{i.shipment_date}}</td>
+                      <td style="text-align:center">
+                        {{i.amount}}</td>
+                      <td style="text-align:center">
+                        0.00</td>
+
+
 
                     </tr>
                     {% endfor %}
@@ -337,7 +343,6 @@
 
         </div>
         <!-- /.container-fluid -->
-
 
       </div>
       <!-- End of Main Content -->

@@ -14,99 +14,23 @@
 
   <!-- Custom fonts for this template -->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
- 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- Custom styles for this template -->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet">
+
   <!-- Custom styles for this page -->
   <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
- 
+
 </head>
 
 
-<style>
-
-  *{
-    font-family: 'Roboto Slab', serif;
-    font-size: 15px;
-  }
-    #SideProfileBar{
-      top: 70px;
-        box-shadow:0.1rem 0.1rem 0.9rem 0.15rem black;
-        right : 0 ;
-        border-radius: 5px;
-        z-index: 1000 ;
-        position: fixed;
-        height: 90vh;
-        overflow-y: hidden ;
-        transition: all .5s ;
-        background-color: #f9f9f9 !important;
-      }
-    
-      .summaclass{
-        width: 0% !important;
-        transition: all .5s ;
-      }
-    
-     .SideProfileBarClass{
-      width: 27% !important;
-      transition: all .5s ;
-     }
-    
-      @media (max-width: 673px)
-      {
-        .SideProfileBarClass
-        {
-          width: 70% !important;
-        } 
-      }
-    
-      @media (max-width: 400px)
-      {
-        .SideProfileBarClass
-        {
-          width: 90% !important;
-        } 
-      }
-    
-      @media (min-height : 1034px)
-      {
-        #SideProfileBar
-        {
-          height: auto;
-        } 
-      }
-    
-    
-      #Profile__image{
-        height: 100px;
-        width: 100px; 
-        border-radius: 50%;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3%;
-      }
-    
-      #MyAccount{ 
-        color: hsl(249, 73%, 43%);
-      }
-    
-      .vl{
-        border-left: 1px solid #0f0f0f; 
-        margin-right: 10px; 
-        height: 15px; 
-        align-self: center;
-      }
-
-      th.sorting{
-        padding-right: 10px!important;
-      }
-    </style>
-
 <body id="page-top">
-
-
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -126,8 +50,8 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="../">
+      <li class="nav-item active">
+        <a class="nav-link" href="{%url 'dashboard_index' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -135,7 +59,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../itemform/">
+        <a class="nav-link collapsed" href="{%url 'itemform_index' %}">
           <i class="fas fa-fw fa-sitemap"></i>
           <span>Items</span>
         </a>
@@ -143,7 +67,7 @@
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
           aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -152,12 +76,12 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="../customer/">Customer</a>
-            <a class="collapse-item" href="../estimate/">Quotation</a>
-            <a class="collapse-item active" href="#">Sales Order</a>
-            <a class="collapse-item" href="../delivery_challan/">Delivery Challans</a>
-            <a class="collapse-item" href="../invoice/">Invoices</a>
-            <a class="collapse-item" href="../paymentreceived/">Payments Received</a>
+            <a class="collapse-item" href="{%url 'customer_index' %}">Customer</a>
+            <a class="collapse-item" href="{%url 'estimate_index' %}">Quotation</a>
+            <a class="collapse-item" href="{%url 'sales_index' %}">Sales Order</a>
+            <a class="collapse-item" href="{%url 'delivery_index' %}">Delivery Challans</a>
+            <a class="collapse-item" href="{%url 'invoice_index' %}">Invoices</a>
+            <!-- <a class="collapse-item" href="{%url 'paymentrec_index' %}">Payments Received</a> -->
           </div>
         </div>
       </li>
@@ -175,27 +99,28 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="../vendor/">Vendors</a>
-            <a class="collapse-item" href="../expenses/">Expenses</a>
-            <a class="collapse-item" href="../purchase_order/">Purchase Orders</a>
-            <a class="collapse-item" href="../paymentmade/">Payment made</a>
+            <a class="collapse-item" href="{%url 'vendor_index' %}">Vendors</a>
+            <a class="collapse-item" href="{%url 'expense_index' %}">Expenses</a>
+            <a class="collapse-item" href="{%url 'purchase_index' %}">Purchase Orders</a>
+            <!-- <a class="collapse-item" href="{%url 'bills_index' %}">Purchase Orders</a>
+            <a class="collapse-item" href="{%url 'paymentrec_index' %}">Payment made</a> -->
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="../report/">
+        <a class="nav-link" href="report/">
           <i class="fas fa-fw fa-book"></i>
           <span>Reports</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-passport"></i>
           <span>Documents</span></a>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -281,128 +206,16 @@
               </div>
             </li>
 
-      
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alerts Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    ₹290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-              </div>
-            </li>
 
-            <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been
-                      having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them
-                      sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so
-                      far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people
-                      say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li>
-
-            <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img class="img-profile rounded-circle" id="img__Trigger"
+                  src="{{media_url}}{{organisation.organisation_logo}}">
               </a>
-            
+
             </li>
 
           </ul>
@@ -410,69 +223,62 @@
         </nav>
         <!-- End of Topbar -->
 
-        
 
-            <!-- profile side bar -->
-            <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
+        <!-- profile side bar -->
+        <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
 
-              <!-- Sidebar - Brand -->
-              <div class="card" style="align-items: center;" >
-                <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">AADOLFGROUPS <br>   </h5>
-                  <p class="card-text" style="margin: 0px;">User ID: 60002359514</p>
-                  <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
-                </div>
-                <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
-                  <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
-                  <div class="vl"></div>
-                  <a href="{%url 'logoutuser' %}" style="color: rgb(226, 32, 32);">Sign Out</a>
-                </div>
-              </div>
-  
-              <!-- Divider -->
-              <hr class="sidebar-divider my-0">
-  
-  
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col col-sm-12" style="margin-top: 30px ;">
-                    <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
-                      <h6>MY ORGANISATION</h6>
-                      <a class="nav-item dropdown" style="float: right;" href="#"><i class="fa fa-cog" aria-hidden="true"></i> Manage</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-  
-              <hr style="width: 100%;">
-              
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col col-sm-12" style="margin-bottom: 4%;">
-                    <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
-                    <h6>organisation id : 123455</h6>
-                  </div>
-                </div>
-              </div>
-  
-              <hr style="width: 100%;">
-            
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col col-sm-12" style="margin-bottom: 4%;">
-                    <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
-                    <h6>organisation id : 123455</h6>
-                  </div>
-                </div>
-              </div>
-  
-              <hr style="width: 100%;">
-                        
-  
-              </ul>
-            <!-- ENd of profile side bar -->
+          <!-- Sidebar - Brand -->
+          <div class="card" style="align-items: center;">
+            <img class="card-img-top" id="Profile__image" src="{{media_url}}{{organisation.organisation_logo}}"
+              alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{organisation.organisation_name}}<br> </h5>
+              <p class="card-text" style="margin: 0px;">Company ID: {{organisation.Company_ID}}</p>
+              <p class="card-text"><small class="text-muted">{{organisation.website}}</small></p>
+            </div>
+            <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
+              <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
+              <div class="vl"></div>
+              <a href="#" data-toggle="modal" data-target="#logoutModal" style="color: rgb(226, 32, 32);">Sign Out</a>
+            </div>
+          </div>
 
+          <!-- Divider -->
+          <hr class="sidebar-divider my-0">
+
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col col-sm-12" style="margin-top: 30px ;">
+                <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
+                  <h6>MY ORGANISATIONS</h6>
+                  <a class="nav-item dropdown" style="float: right;" href="{% url 'manage' %}"><i class="fa fa-cog"
+                      aria-hidden="true"></i> Manage</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr style="width: 100%;">
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col col-sm-12" style="margin-bottom: 4%;">
+                <div style="display: flex; justify-content: space-between;">
+                  <h6>{{organisation.organisation_name}}</h6> <a class="nav-item dropdown"
+                    style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a>
+                </div>
+                <h6>GSTIN : {{organisation.Tax_ID}}</h6>
+              </div>
+            </div>
+          </div>
+
+          <hr style="width: 100%;">
+
+
+
+        </ul>
+        <!-- ENd of profile side bar -->
 
 
         <!-- Begin Page Content -->
@@ -493,7 +299,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
                   <thead>
                     <tr>
-                      <th></th>
                       <th>DATE</th>
                       <th>SALES ORDER#</th>
                       <th>REFERENCE</th>
@@ -502,15 +307,14 @@
                       <th>SHIPPING DATE</th>
                       <th>AMOUNT</th>
                       <th>BALANCE DUE</th>
-
+<th></th>
                     </tr>
                   </thead>
                   <tbody>
                     {% for i in details %}
                     <tr role="button" data-href="#">
 
-                      <td style="text-align:center">
-                        <input type="checkbox" /></td>
+                     
                       <td style="text-align:center">
                         <a href="#">{{i.sales_date}}</a></td>
                       <td style="text-align:center">
@@ -527,7 +331,7 @@
                         {{i.amount}}</td>
                       <td style="text-align:center">
                         0.00</td>
-
+<td></td>
 
 
                     </tr>
@@ -552,6 +356,8 @@
           </div>
         </div>
       </footer>
+
+
       <!-- End of Footer -->
 
     </div>
@@ -604,7 +410,7 @@
   <script src="{% static 'js/demo/datatables-demo.js' %}"></script>
 
   <script>
-    $("#img__Trigger").click(function(){
+    $("#img__Trigger").click(function () {
       $("#SideProfileBar").toggleClass("SideProfileBarClass");
       $("#SideProfileBar").toggleClass("summaclass");
       // console.log("dsadasdas")

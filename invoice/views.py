@@ -6,18 +6,27 @@ from .models import Invoice,Invoice_transaction
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from accounts.models import Organisation
 
+ 
 # Create your views here.
 @login_required
 def index(request):
-    details = Invoice.objects.filter(organisation=request.user.profile.organisation.organisation_name)
-    return render(request, "invoice/invoice_tbl.html",{"details":details})
+    # details = Invoice.objects.filter(organisation=request.user.profile.organisation.organisation_name)
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
+    return render(request, "invoice/invoice_tbl.html",context)
 
 @login_required
 def upload(request):
     alldetails = Customer.objects.filter(organisation=request.user.profile.organisation.organisation_name)
     allitems = Item.objects.filter(organisation=request.user.profile.organisation.organisation_name)
-    
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
 
     if request.method == 'POST':
         customer_name = Customer.objects.get(pk = request.POST['customer_name']).company_name
@@ -65,6 +74,7 @@ def upload(request):
                 'organisation':request.user.profile.organisation,
                 'invoice':user,
                 'invoice_transaction':Invoice_transaction.objects.filter(invoice=user),
+                'organisation': organisation[0],
                 'media_url': settings.MEDIA_URL,
 
             }
@@ -81,7 +91,7 @@ def upload(request):
         else:
             next_num = 1
         print("next",next_num)   
-        context = {"alldetails":alldetails,'items':allitems,'next_number':next_num}
+        context = {"alldetails":alldetails,'items':allitems,'next_number':next_num,'organisation': organisation[0],'media_url': settings.MEDIA_URL,}
     return render(request, "invoice/invoice_form.html",context)
 
 

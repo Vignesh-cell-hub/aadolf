@@ -1,91 +1,36 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
+
+
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
 
-    <title>Estimate Form</title>
+    <title>Quotation | Aadolf Ledger</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css"
+        integrity="sha512-0nkKORjFgcyxv3HbE4rzFUlENUMNqic/EzDIeYCgsKa/nwqr2B91Vu/tNAu4Q0cBuG4Xe/D1f/freEci/7GDRA=="
+        crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css" integrity="sha512-0nkKORjFgcyxv3HbE4rzFUlENUMNqic/EzDIeYCgsKa/nwqr2B91Vu/tNAu4Q0cBuG4Xe/D1f/freEci/7GDRA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" />
-
-    <link rel="stylesheet" type="text/css" href="invoice_form.css" />
     <!-- Custom fonts for this template-->
-    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- Custom styles for this template-->
-    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+    <script type="text/javascript"
+        src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=sr0RaBuA8KTZocvGoaDMmiJ-dekfttIhuY7d32Jm-7hSna6xtUNJuf39uX3Q99_r5TjD-1-FHSf45TfW9WzYQlr_V40lbcfDMuKBDeJJlJc"
+        charset="UTF-8"></script>
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="http://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL2FhZG9sZi1sZWRnZXIuaGVyb2t1YXBwLmNvbS9pbnZvaWNlL3VwbG9hZC8" />
 </head>
+
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap");
-
-    * {
-        margin: 0;
-        padding: 0;
-        -webkit-font-smoothing: antialiased;
-        -webkit-text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
-        text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
-        font-family: "Roboto Slab", sans-serif;
-    }
-
-    div {
-        display: block;
-        position: relative;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-
-    .row {
-        flex-wrap: nowrap;
-    }
-
-    .float-left {
-        padding: 25px;
-        margin-left: 10px;
-    }
-
-    button.close {
-        padding: 25px;
-        font-size: 2.5rem;
-        margin-right: 1.2rem;
-        align-content: center;
-    }
-
-   
-
-    .inv-frm-bdy {
-        display: block;
-        width: 100%;
-        height: auto;
-        padding: 0 25px;
-        margin: 0 20px;
-        font-size: 14px;
-    }
-
-    .cust-btn {
-        width: 350px;
-    }
-
-    .required {
-        color: red;
-    }
-
     .font-xs {
         font-size: 12.5px;
     }
@@ -220,756 +165,236 @@
 
     /*dropdown style*/
 
-  .dropbtn1 {
-  /* background-color:  ; */
-  color: black;
-  border-radius: 5px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  width: 10rem;
-  padding: .25rem;
-}
+    .dropbtn1 {
+        /* background-color:  ; */
+        color: black;
+        border-radius: 5px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        width: 10rem;
+        padding: .25rem;
+    }
 
-#myInput1 {
-  background-repeat: no-repeat;
-  font-size: 10px;
-  width: 100%;
-  border: none;
-  padding: .5rem .5rem .5rem .5rem;
-  border-radius: 5px;
-}
+    #myInput1 {
+        background-repeat: no-repeat;
+        font-size: 10px;
+        width: 100%;
+        border: none;
+        padding: .5rem .5rem .5rem .5rem;
+        border-radius: 5px;
+    }
 
-#myInput1:focus {outline: 3px solid #ddd;}
+    #myInput1:focus {
+        outline: 3px solid #ddd;
+    }
 
-.dropdown1 {
-  position: relative;
-  display: inline-block;
-}
+    .dropdown1 {
+        position: relative;
+        display: inline-block;
+    }
 
-.dropdown-content1 {
-  display: none;
-  position: absolute;
-  background-color: #f6f6f6;
-  max-width: 100%;
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
-}
+    .dropdown-content1 {
+        display: none;
+        position: absolute;
+        background-color: #f6f6f6;
+        max-width: 100%;
+        overflow: auto;
+        border: 1px solid #ddd;
+        z-index: 1;
+    }
 
-.search__span{
-  font-size: .7rem;
-}
+    .search__span {
+        font-size: .7rem;
+    }
 
-.dropdown-content1 a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+    .dropdown-content1 a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
 
-.dropdown1 a:hover {background-color: #ddd;}
+    .dropdown1 a:hover {
+        background-color: #ddd;
+    }
 
-.show1 {display: block;}
-
-
-/*end*/
-
-#ckeck-conform{
-  font-size: .65rem;
-}
-
-#makeit{
-  font-size: .76rem
-}
-
-#dropdownSelectedName{
-  font-weight: 350;
-}
-
-.form__title
-{
-  background-color: #e3e6f0; 
-  padding: 16px;
-  border-radius: 5px;
-}
+    .show1 {
+        display: block;
+    }
 
 
-.header {
-    width: 100%;
-    margin-bottom: 30px;
-    background-color:  #e3e6f0;
-    border-radius: 5px;
-  }
+    /*end*/
 
-  .dynamic_table{
-    background-color: transparent;
-    color: inherit;
-    border:none;
-  }
+    #ckeck-conform {
+        font-size: .65rem;
+    }
 
-  .dynamic_table:focus{
-    background-color: transparent;
-    color: inherit;
-    border:none;
-    outline: none;
-  }
+    #makeit {
+        font-size: .76rem
+    }
 
-  #th{
-    font-weight: bold;
-  }
+    #dropdownSelectedName {
+        font-weight: 350;
+    }
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    .form__title {
+        background-color: #e3e6f0;
+        padding: 16px;
+        border-radius: 5px;
+        width: 100% !important;
+    }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
+    .dynamic_table {
+        background-color: transparent;
+        color: inherit;
+        border: none;
+    }
 
+    .dynamic_table:focus {
+        background-color: transparent;
+        color: inherit;
+        border: none;
+        outline: none;
+    }
 
+    #th {
+        font-weight: bold;
+    }
 </style>
 
-<body>
-
-    <body id="page-top">
 
 
 
-        <!-- Page Wrapper -->
-        <div id="wrapper">
+<div class="container-fluid">
+    <div class="row">
+        <div class="header">
+            <h2 class="float-left text-primary" id="table__title">New Quotation</h2>
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true" style="font-size: 40px">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>
 
-            <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<div class="container-fluid">
+    <div class="row">
+        <form class="inv-frm" action="#" method="POST">
+            {%csrf_token%}
+            <div class="inv-frm-bdy">
+                <div class="form-group row required">
+                    <label for="item-name" class="col-sm-2 col-form-label">Customer
+                        Name*</label>
 
-                <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-laugh-wink"></i>
+                    <div class="input-group col-sm-6 cust-btn">
+                        <select class="custom-select" name="customer_name" id="company_name" onchange="getdata()"
+                            aria-label="Example select with button addon">
+
+                            <option selected></option>
+                            {% for i in alldetails%}
+                            <option value="{{i.id}}">{{i.company_name}}</option>
+                            {% endfor %}
+
+                        </select>
+
+
                     </div>
-                    <div class="sidebar-brand-text mx-3">Aadolf Solutions</div>
-                </a>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
-
-                <!-- Nav Item - Dashboard -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="../../">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard</span></a>
-                </li>
-
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="../../itemform/">
-                        <i class="fas fa-fw fa-sitemap"></i>
-                        <span>Items</span>
-                    </a>
-
-                </li>
-
-                <!-- Nav Item - Utilities Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="blank.html" data-toggle="collapse"
-                        data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <span>Sales</span>
-                    </a>
-                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-
-                            <a class="collapse-item" href="../../customer/">Customer</a>
-                            <a class="collapse-item" href="../../estimates/">Quotation</a>
-                            <a class="collapse-item" href="../../sales/">Sales Order</a>
-                            <a class="collapse-item" href="#">Delivery Challans</a>
-                            <a class="collapse-item" href="#">Invoices</a>
-                            <a class="collapse-item" href="#">Payments Received</a>
+                </div>
+                <div class="form-group placeholder-container row">
+                    <div class="col-lg-6 offset-lg-2">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div id="" class="popovercontainer address-group">
+                                    <div class="text-uppercase text-muted">Billing Address &nbsp;&nbsp;</div>
+                                    <p id="BillingAdd">
+                                        <span id="BillingAdd"></span>
+                                        <a class="font-xs" href="#" data-action="">Add new address</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div id="" class="popovercontainer address-group">
+                                    <div class="text-uppercase text-muted">Shipping Address &nbsp;&nbsp;</div>
+                                    <p id="ShippingAdd">
+                                        <span id="ShippingAdd"></span>
+                                        <a class="font-xs" href="#" data-action="">Add new address</a>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </li>
+                </div>
 
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                        aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-fw fa-shopping-basket"></i>
-                        <span>Purchase</span>
-                    </a>
-                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
+                <div class="row form-group">
+                    <div class="col-lg-5 offset-lg-2">
+                        <div class="info-item txn-salestax">
+                            <div id="ember871" class="popover-container ember-view"><span
+                                    class="text-muted text-uppercase font-small">GST
+                                    Treatment</span>
 
-                            <ul class="collapse-item" href="../../vendor/">Vendors</ul>
-                            <ul class="collapse-item" href="../../expenses/">Expenses</ul>
-                            <ul class="collapse-item" href="#">Purchase Orders</ul>
-                            <ul class="collapse-item" href="#">Payment made</ul>
+                                <br>
+                                <input type="text" name="" readonly style="border: none;display: none;"
+                                    id="dropdownSelectedName">
+                                <div id="gst" class="mb-3"></div>
+
+                            </div>
                         </div>
                     </div>
-                </li>
-
-                <!-- Nav Item - Charts -->
-                <li class="nav-item">
-                    <a class="nav-link" href="../../report/">
-                        <i class="fas fa-fw fa-book"></i>
-                        <span>Reports</span></a>
-                </li>
-
-                <!-- Nav Item - Tables -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-passport"></i>
-                        <span>Documents</span></a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
-
-                <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
 
 
-                <div class="toggle" onclick="toggleMenu()">
+                <div class="form-group row required">
+                    <label for="inv-no" class="col-sm-2 col-form-label">Estimate#*</label>
+                    <div class="col-sm-4" style="display: flex;">
+                        <input type="text" class="form-control" id="inv-no" name="estimate" required />
+                        <a data-toggle="modal" data-target="#invoiceModal" style="margin-left: 3%;"><i id="Invoive11"
+                                class="fa fa-cog" style="color: black ; cursor: pointer;" aria-hidden="true"></i></a>
+                    </div>
                 </div>
-                <script type="text/javascript">
-                    function toggleMenu() {
-                        let navigation = document.querySelector('.navigation');
-                        let toggle = document.querySelector('.toggle');
-                        navigation.classList.toggle('active');
-                        toggle.classList.toggle('active');
-                    }
-                </script>
 
+                <div class="form-group row">
+                    <label for="ref-no" class="col-sm-2 col-form-label">Reference#</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="ref-no" name="reference" required />
+                    </div>
+                </div>
 
+                <div class="form-group row">
+                    <label class="col-form-label col-lg-2 required">Estimate Date*</label>
+                    <div class="col-lg-4">
+                        <input placeholder="" id="" class="form-control" name="estimate_date" type="date" />
 
-
-
-
-
-
-
-            </ul>
-            <!-- End of Sidebar -->
-
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
-
-                <!-- Main Content -->
-                <div id="content">
-
-                    <!-- Topbar -->
-                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                        <!-- Sidebar Toggle (Topbar) -->
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-
-                        <!-- Topbar Search -->
-                        <form
-                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small"
-                                    placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-
-                        <!-- Topbar Navbar -->
-                        <ul class="navbar-nav ml-auto">
-
-                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                            <li class="nav-item dropdown no-arrow d-sm-none">
-                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-search fa-fw"></i>
-                                </a>
-                                <!-- Dropdown - Messages -->
-                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                    aria-labelledby="searchDropdown">
-                                    <form class="form-inline mr-auto w-100 navbar-search">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control bg-light border-0 small"
-                                                placeholder="Search for..." aria-label="Search"
-                                                aria-describedby="basic-addon2">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="button">
-                                                    <i class="fas fa-search fa-sm"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                            <!--settings-->
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-cogs fa-fw"></i>
-
-                                </a>
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                    aria-labelledby="alertsDropdown">
-                                    <h6 class="dropdown-header">
-                                        Settings
-                                    </h6>
-                                    <form
-                                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control bg-light border-0 small"
-                                                placeholder="Search for..." aria-label="Search"
-                                                aria-describedby="basic-addon2">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="button">
-
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-
-                                        <div>
-
-                                            <span class="font-weight-bold">demo</span>
-                                        </div>
-
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-
-                                        <div>
-
-                                            <span class="font-weight-bold">demo</span>
-                                        </div>
-                                    </a>
-
-
-                                </div>
-
-
-                            </li>
-                            <!-- Nav Item - Alerts -->
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-bell fa-fw"></i>
-                                    <!-- Counter - Alerts -->
-                                    <span class="badge badge-danger badge-counter">3+</span>
-                                </a>
-                                <!-- Dropdown - Alerts -->
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                    aria-labelledby="alertsDropdown">
-                                    <h6 class="dropdown-header">
-                                        Alerts Center
-                                    </h6>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-primary">
-                                                <i class="fas fa-file-alt text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">December 12, 2019</div>
-                                            <span class="font-weight-bold">A new monthly report is ready to
-                                                download!</span>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-success">
-                                                <i class="fas fa-donate text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">December 7, 2019</div>
-                                            ₹290.29 has been deposited into your account!
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-warning">
-                                                <i class="fas fa-exclamation-triangle text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">December 2, 2019</div>
-                                            Spending Alert: We've noticed unusually high spending for your account.
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All
-                                        Alerts</a>
-                                </div>
-                            </li>
-
-                            <!-- Nav Item - Messages -->
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-envelope fa-fw"></i>
-                                    <!-- Counter - Messages -->
-                                    <span class="badge badge-danger badge-counter">7</span>
-                                </a>
-                                <!-- Dropdown - Messages -->
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                    aria-labelledby="messagesDropdown">
-                                    <h6 class="dropdown-header">
-                                        Message Center
-                                    </h6>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" id="img__Trigger"
-                                                src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                                            <div class="status-indicator bg-success"></div>
-                                        </div>
-                                        <div class="font-weight-bold">
-                                            <div class="text-truncate">Hi there! I am wondering if you can help me with
-                                                a problem I've been having.</div>
-                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle"
-                                                src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                                            <div class="status-indicator"></div>
-                                        </div>
-                                        <div>
-                                            <div class="text-truncate">I have the photos that you ordered last month,
-                                                how would you like them sent to you?</div>
-                                            <div class="small text-gray-500">Jae Chun · 1d</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle"
-                                                src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                                            <div class="status-indicator bg-warning"></div>
-                                        </div>
-                                        <div>
-                                            <div class="text-truncate">Last month's report looks great, I am very happy
-                                                with the progress so far, keep up the good work!</div>
-                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle"
-                                                src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                                            <div class="status-indicator bg-success"></div>
-                                        </div>
-                                        <div>
-                                            <div class="text-truncate">Am I a good boy? The reason I ask is because
-                                                someone told me that people say this to all dogs, even if they aren't
-                                                good...</div>
-                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More
-                                        Messages</a>
-                                </div>
-                            </li>
-
-                            <div class="topbar-divider d-none d-sm-block"></div>
-
-                            <!-- Nav Item - User Information -->
-                            <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="img-profile rounded-circle" id="img__Trigger1"
-                                        src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </nav>
-                    <!-- End of Topbar -->
-                    <div id="scroll-container">
-
-
-                         <!-- profile side bar -->
-                        <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
-
-                            <!-- Sidebar - Brand -->
-                            <div class="card" style="align-items: center;" >
-                            <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">AADOLFGROUPS</h5>
-                                <p class="card-text">User ID: 60002359514</p>
-                                <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
-                            </div>
-                            <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
-                                <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
-                                <div class="vl"></div>
-                                <a href="{%url 'logoutuser' %}" style="color: rgb(226, 32, 32);">Sign Out</a>
-                            </div>
-                            </div>
-
-                            <!-- Divider -->
-                            <hr class="sidebar-divider my-0">
-
-
-                            <div class="container-fluid">
-                            <div class="row">
-                                <div class="col col-sm-12" style="margin-top: 30px ;">
-                                <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
-                                    <h6>MY ORGANISATION</h6>
-                                    <a class="nav-item dropdown" style="float: right;" href="#"><i class="fa fa-cog" aria-hidden="true"></i> Manage</a>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-
-                            <hr style="width: 100%;">
-
-                            <div class="container-fluid">
-                            <div class="row">
-                                <div class="col col-sm-12" style="margin-bottom: 4%;">
-                                <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
-                                <h6>organisation id : 123455</h6>
-                                <h6>GSTN FREE</h6>
-                                </div>
-                            </div>
-                            </div>
-
-                            <hr style="width: 100%;">
-
-                            <div class="container-fluid">
-                            <div class="row">
-                                <div class="col col-sm-12" style="margin-bottom: 4%;">
-                                <div style="display: flex; justify-content: space-between;"><h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div>
-                                <h6>organisation id : 123455</h6>
-                                <h6>GSTN FREE</h6>
-                                </div>
-                            </div>
-                            </div>
-
-                            <hr style="width: 100%;">
-
-
-                        </ul>
-
-
-                        <div class="container-fluid mb-4">
-                            <div class="row">
-                                <div class="header">
-                                    <h2 class="float-left text-primary" id="table__title">New Estimates</h2>
-                                    <button type="button" class="close" aria-label="Close">
-                                        <span aria-hidden="true" style="font-size: 40px">&times;</span>
-                                    </button>
-                                </div>
-                            </div>
+                        <div style="padding-top: 2px" class="font-xs">
+                            To create transaction dated before 01/07/2017,
+                            <a href="#">click here</a>
                         </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <form class="inv-frm" action="#" method="POST">
-                                    {%csrf_token%}
-                                    <div class="inv-frm-bdy">
-                                        <div class="form-group row required">
-                                            <label for="item-name" class="col-sm-2 col-form-label">Customer
-                                                Name*</label>
-
-                                            <div class="input-group col-sm-6 cust-btn">
-                                                <select class="custom-select" name="customer_name" id="company_name"
-                                                    onchange="getdata()" aria-label="Example select with button addon">
-
-                                                    <option selected></option>
-                                                    {% for i in alldetails%}
-                                                    <option value="{{i.id}}">{{i.company_name}}</option>
-                                                    {% endfor %}
-
-                                                </select>
-
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary" type="button">
-                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                                            class="bi bi-search" fill="currentColor"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd"
-                                                                d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
-                                                            <path fill-rule="evenodd"
-                                                                d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group placeholder-container row">
-                                            <div class="col-lg-6 offset-lg-2">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div id="" class="popovercontainer address-group">
-                                                            <div class="text-uppercase text-muted">Billing Address
-                                                                &nbsp;&nbsp;
-                                                            </div>
-                                                            <p>
-                                                        <span id="BillingAdd"></span>
-                            <a class="font-xs" href="#" data-ember-action="" data-ember-action-863="863">Add newaddress</a>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div id="" class="popovercontainer address-group">
-                                                            <div class="text-uppercase text-muted">Shipping Address
-                                                                &nbsp;&nbsp;
-                                                            </div>
-
-                                                            <p id="ShippingAdd">
-                                                                <span id="ShippingAdd"></span>
-                                                                <a class="font-xs" href="#" data-action="">Add new address</a>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="col-lg-5 offset-lg-2">
-                                                <div class="info-item txn-salestax">
-                                                    <div id="ember871" class="popover-container ember-view"><span
-                                                            class="text-muted text-uppercase font-small">GST
-                                                            Treatment</span>
-                                                    <div class="btn-group">
-                                                        <buttton id="ember872"
-                                                            class="btn btn-link text-uppercase font-xxs pl-0 ember-view dropdown-toggle-split" data-toggle="dropdown">
-                                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                                                class="bi bi-pencil-fill" fill="currentColor"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-                                                            </svg>
-                                                        </buttton>
-                                                        <div class="dropdown-menu" style="border: 0px">
-                                                            <div class="modal-content" style="z-index: 100">
-                                                                <div class="modal-header" style="padding: .25rem .25rem">
-                                                                  <p class="modal-title" id="exampleModalLabel" style="margin-top: 4%; margin-left: 5%">GST Treatment</p>
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true"  style="margin-right: 10;">&times;</span>
-                                                                  </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                  <div class="dropdown1">
-                                                                      <button class="dropbtn1" id="Drop-search" style="width: 15rem">Unregistered Business</button>
-                                                                      <div id="myDropdown1" class="dropdown-content1">
-                                                                       <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction1()">
-                                                                        <div style="max-height: 200px; border-radius: 10px;cursor: pointer; width: 100%;">
-
-                                                                            <a class="drop__item"><span>Unregistered Business</span><hr></a>
-
-                                                                            <a  class="drop__item"><span style="word-wrap:break-word">About</span><br><span class="search__span" >Use these settings for all future transactions of this customer</span><hr></a>
-
-                                                                            <a class="drop__item"><span style="word-wrap:break-word">Base</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-
-                                                                            <a class="drop__item"><span style="word-wrap:break-word">Blog</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-
-                                                                            <a class="drop__item"><span style="word-wrap:break-word">Xavier</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-
-                                                                            <a class="drop__item"><span style="word-wrap:break-word">Zoo</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-
-                                                                            <a class="drop__item"><span style="word-wrap:break-word">Fillup</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-
-                                                                            <a class="drop__item"><span  style="word-wrap:break-word">Sandy</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-
-                                                                            <a class="drop__item"><span style="word-wrap:break-word">Sandysadsadsdsdddsadsadsadsadsadsadsadsadsadsadsasd</span><br><span class="search__span">Use these settings for all future transactions of this customer</span><hr></a>
-                                                                        </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="form-group" id="Gst-shower" style="margin-top: 5%; color: red ; display: none;" >
-                                                                      <label for = "GSTin">GSTIN*</label>
-                                                                      <input id= "GSTin" type="text" class="form-control" onkeyup="buttoDisable()">
-                                                                  </div>
-                                                                  <div class="form-group form-check">
-                                                                  <label class="form-check-label" for="exampleCheck1" id="makeit" style="margin-top: 5%">Make it permanent?</label>
-                                                                  <br>
-                                                                      <input type="checkbox" class="form-check-input" for="ckeck-conform" style="background-color: transparent;">
-                                                                      <label class="form-check-label" for="exampleCheck1" id="ckeck-conform">Use these settings for all future transactions of this customer</label>
-                                                                  </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                  <button type="button" id="updateAddress" class="btn btn-primary" data-dismiss="modal">Update</button>
-                                                                </div>
-                                                              </div>
-                                                          </div>
-                                                        </div>
-                                                        <br>
-                                                        <input type="text" name="" readonly style="border: none;display: none;" id="dropdownSelectedName">
-                                                        <div id="gst" class="mb-3"></div>
-                                                        <div id="ember873"
-                                                            class="pop-over-div d-none popover bs-popover-bottom ember-view">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    </div>
 
 
-                                        <div class="form-group row required">
-                                            <label for="inv-no" class="col-sm-2 col-form-label">Estimate#*</label>
-                                            <div class="col-sm-4" style="display: flex;">
-                                                <input type="text" class="form-control" id="inv-no" name="estimate"
-                                                    required />
-                                                <a data-toggle="modal" data-target="#invoiceModal" style="margin-left: 3%;"><i id="Invoive11" class="fa fa-cog" style="color: black ; cursor: pointer;" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
+                    <div class="col-lg-2">
+                        <p class="form-control-plaintext">Expiry Date</p>
+                    </div>
+                    <div class="col-lg-4 badge-editable">
+                        <input placeholder="dd/MM/yyyy" id="ember2030" name="expiry_date" class="form-control"
+                            type="date" />
+                        <div class="text-danger d-none" style="clear: both">
+                            Choose a due date on or after the invoice date.
+                        </div>
+                    </div>
+                </div>
 
-                                        <div class="form-group row">
-                                            <label for="ord-no" class="col-sm-2 col-form-label">Reference#</label>
-                                            <div class="col-sm-4">
-                                                <input type="text" class="form-control" id="ord-no" name="reference"
-                                                    required />
-                                            </div>
-                                        </div>
+                <hr />
 
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2 required">Estimate Date*</label>
-                                            <div class="col-lg-4">
-                                                <input placeholder="" id="" class="form-control" name="estimate_date"
-                                                    type="date" />
+                <div class="form-group row">
+                    <label for="item-units" class="col-sm-2 col-form-label">Sales person</label>
 
-                                                <div style="padding-top: 2px" class="font-xs">
-                                                    To create transaction dated before 01/07/2017,
-                                                    <a href="#">click here</a>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-lg-2">
-                                                <p class="form-control-plaintext">Expiry Date</p>
-                                            </div>
-                                            <div class="col-lg-4 badge-editable">
-                                                <input placeholder="dd/MM/yyyy" id="ember2030" name="expiry_date" class="form-control"
-                                                    type="date" />
-                                                <div class="text-danger d-none" style="clear: both">
-                                                    Choose a due date on or after the invoice date.
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <hr />
-
-                                        <div class="form-group row">
-                                            <label for="item-units" class="col-sm-2 col-form-label">Sales person</label>
-
-                                            <div class="input-group col-sm-3 mb-3">
-                                                <select class="custom-select" name="salesperson" id="units">
-                                                    <option value="null"></option>
-                                                    <option value="box">Sales Person 1</option>
-                                                    <option value="cm">Sales Person 2</option>
-                                                    <option value="dz">Sales Person 3</option>
-                                                    <!--option value="ft">ft</option>
+                    <div class="input-group col-sm-3 mb-3">
+                        <select class="custom-select" name="salesperson" id="units">
+                            <option value="null"></option>
+                            <option value="box">Sales Person 1</option>
+                            <option value="cm">Sales Person 2</option>
+                            <option value="dz">Sales Person 3</option>
+                            <!--option value="ft">ft</option>
                                                     <option value="g">g</option>
                                                     <option value="in">in</option>
                                                     <option value="kg">kg</option>
@@ -979,20 +404,20 @@ input[type=number] {
                                                     <option value="m">m</option>
                                                     <option value="pcs">pcs</option>
                                                     <option value="1">1</option-->
-                                                </select>
-                                            </div>
-                                        </div>
+                        </select>
+                    </div>
+                </div>
 
-                                        <div class="form-group row">
-                                            <label for="item-units" class="col-sm-2 col-form-label">Project Name</label>
+                <div class="form-group row">
+                    <label for="item-units" class="col-sm-2 col-form-label">Project Name</label>
 
-                                            <div class="input-group col-sm-3 mb-3">
-                                                <select class="custom-select" name="projectname" id="units">
-                                                    <option value="null"></option>
-                                                    <option value="box">Project Name 1</option>
-                                                    <option value="cm">Project Name 2</option>
-                                                    <option value="dz">Project Name 3</option>
-                                                    <!--option value="ft">ft</option>
+                    <div class="input-group col-sm-3 mb-3">
+                        <select class="custom-select" name="projectname" id="units">
+                            <option value="null"></option>
+                            <option value="box">Project Name 1</option>
+                            <option value="cm">Project Name 2</option>
+                            <option value="dz">Project Name 3</option>
+                            <!--option value="ft">ft</option>
                                                     <option value="g">g</option>
                                                     <option value="in">in</option>
                                                     <option value="kg">kg</option>
@@ -1002,537 +427,524 @@ input[type=number] {
                                                     <option value="m">m</option>
                                                     <option value="pcs">pcs</option>
                                                     <option value="1">1</option-->
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <br />
-                                        <br />
-                                        <div>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Item Details</th>
-                                                        <th scope="col">Quantity</th>
-                                                        <th scope="col">Rate</th>
-                                                        <th scope="col">
-                                                            Tax
-                                                            <svg width="2rem" height="1em" viewBox="0 0 16 16"
-                                                                class="tx-imp bi bi-exclamation-circle-fill ml-2"
-                                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                                                            </svg>
-                                                        </th>
-                                                        <th scope="col">Amount</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="itemtable">
-                                                    <tr>
+                        </select>
+                    </div>
+                </div>
+                <hr />
+                <br />
+                <br />
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Item Details</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Rate</th>
+                                <th scope="col">
+                                    Tax
+                                    <svg width="2rem" height="1em" viewBox="0 0 16 16"
+                                        class="tx-imp bi bi-exclamation-circle-fill ml-2" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                    </svg>
+                                </th>
+                                <th scope="col">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemtable">
+                            <tr>
 
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                                        <div class="row">
-                                            <div class="col-lg-6 d-flex flex-column">
-                                                <div id=""
-                                                    class="btn-group line-seperator align-self-start add-line-item-btn dropdown">
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-outline-primary dropdown-toggle"
-                                                            type="button" style="width: 130px;" id="dropdownMenuButton"
-                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                            Add Item
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                            {% for item in items %}
-                                                            <div class="dropdown-item"
-                                                                onclick="addItemRow('{{item.id}}','{{item.name}}','{{item.sellamount}}','{{item.intrastate}}')">
-                                                                {{item.name}}</div>
-                                                            {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="pt-7 mt-auto">
-                                                    <div class="mb-2">Customer Notes:</div>
-                                                    <div>
-                                                        <textarea name="customernotes" id="" cols="50" rows="2" style="
-                          margin-top: 0px;
-                          margin-bottom: 0px;
-                          height: 100px;
-                        "></textarea>
-                                                    </div>
-                                                    <span class="span-txt">Will be displayed on the invoice</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6 total-frm"
-                                                style="background-color: #eee; border-radius: 10px">
-                                                <div class="form-group row">
-                                                    <label for="sub-total" class="col-lg-9 col-form-label">Sub
-                                                        Total</label>
-                                                    <input id="subtotal" class="col-lg-3 total-amt dynamic_table" type="number" name="subtotal" value="0.00" readonly>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label for="CGST" class="col-lg-9 col-form-label">CGST9[9%]</label>
-                                                    <input id="cgst" class="col-lg-3 total-amt dynamic_table" type="number" name="cgst" value="0.00" readonly>
-                                                </div>
-
-
-                                                <div class="form-group row">
-                                                    <label for="SGST" class="col-lg-9 col-form-label">SGST9[9%]</label>
-                                                    <input id="sgst" class="col-lg-3 total-amt dynamic_table" type="number" name="sgst" value="0.00" readonly>
-                                                </div>
-
-
-                                                <!-- <div class="form-group row">
-                                    <label for="IGST" class="col-lg-9 col-form-label">IGST18[18%]</label>
-                                    <div class="col-lg-3 total-amt">0.00</div>
-                                </div> -->
-
-
-                                                <div class="form-group row">
-                                                    <label class="col-form-label col-lg-4">Discount</label>
-                                                    <div class="input-group col-lg-4">
-                                                        <input id="discount" value="0.00" type="text"
-                                                            onchange="getdiscount()" class="form-control"
-                                                            aria-label="Rupees amount">
-                                                        <div class="input-group-append">
-                                                            <span class="input-group-text">₹</span>
-                                                        </div>
-                                                    </div>
-                                                    <input id="showdiscount" class="col-lg-4 total-amt dynamic_table" name="showdiscount" type="text" value="-0.00" readonly>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <div class="col-lg-4 col-sm-4 col-4">
-                                                        <input type="text" class="form-control" placeholder="Adjustment"
-                                                            readonly>
-                                                    </div>
-
-                                                    <div class="input-group col-lg-4">
-                                                        <input id="adjustment" type="text" value="0.00"
-                                                            onchange="adjustment_calc()" class="form-control"
-                                                            aria-label="Rupees amount">
-                                                        <div class="adjustment-exp">
-                                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                                                class="bi bi-question-circle mt-2 ml-1"
-                                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                                <path
-                                                                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <input id="showadjustment" class="col-lg-4 total-amt dynamic_table" name="showadjustment" type="text" value="0.00" readonly>
-                                                </div>
-
-                                                <!-- <div class="form-group row">
-                                    <label for="sub-total" class="col-lg-9 col-form-label">Round Off</label>
-                                    <div class="col-lg-3 total-amt">0.00</div>
-                                </div> -->
-
-                                                <div class="form-group row ">
-                                                    <label for="total" class="col-lg-9 col-form-label bold">Total
-                                                        (₹)</label>
-                                                     <input id="total" class="col-lg-3 total dynamic_table" name="total" type="number" value="0.00" readonly>
-                                                </div>
-                                                 <input id="grandtotal" class="d-none" type="text" name="totalamount" value="0.00" readonly>
-                                            </div>
-
-
-
-                                        </div>
-
-                                        <hr>
-                                        <div class="fill-container grey-btm-bg">
-                                            <div class="row ">
-                                                <div class="col-lg-12 col-sm-12 txn-line-seperator">
-                                                    <div class="mb-2">Terms &amp; Conditions</div>
-                                                    <div>
-                                                        <textarea name="terms" id="termsbx" class="form-control"
-                                                            cols="20" rows="4"
-                                                            placeholder="Enter the terms and conditions of your business to be displayed in your transaction"></textarea>
-                                                    </div>
-
-                                                </div>
-
-                                                <!-- <div class="col-lg-4">
-                                                    <div class="form-group">
-
-                                                        <div class="form-control-plaintext">
-                                                            <span class="font-xs">Attach File(s) to Invoice</span>
-                                                        </div>
-                                                        <div class="input-group mb-3">
-                                                            <div class="custom-file">
-                                                                <input type="file" class="custom-file-input"
-                                                                    id="inputGroupFile02">
-                                                                <label class="custom-file-label" for="inputGroupFile02"
-                                                                    aria-describedby="inputGroupFileAddon02">Choose
-                                                                    file</label>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div> -->
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <br><br>
-                                        <div class="row padding-20">
-                                            <div>
-                                                <button class="btn btn-lg btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save as Draft</button>
-                                            </div>
-                                            <div class="padding-left-20">
-                                                <button class="btn btn-lg btn-primary" type="submit"><i class="fa fa-print" aria-hidden="true"></i> Save and
-                                                    Print</button>
-                                            </div>
-                                            <div class="padding-left-20">
-                                                <button class="btn btn-lg btn-dark"
-                                                    type="clear">cancel</button>
-                                            </div>
-                                        </div>
+                <div class="row">
+                    <div class="col-lg-6 d-flex flex-column">
+                        <div id="" class="btn-group line-seperator align-self-start add-line-item-btn dropdown">
+                            <div class="dropdown mb-4">
+                                <button class="btn btn-primary dropdown-toggle" type="button" style="width: 130px;"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Add Item
+                                    <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                        {% for item in items %}
+                                        <div class="dropdown-item"
+                                            onclick="addItemRow('{{item.id}}','{{item.name}}','{{item.sellamount}}','{{item.intrastate}}')">
+                                            {{item.name}}</div>
+                                        {% endfor %}
                                     </div>
-
-
-                                </form>
                             </div>
+                            <!--check
+                                                                          <div class="dropdown mb-4">
+                                                                              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                Dropdown
+                                                                              </button>
+                                                                              <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                                                                <a class="dropdown-item" href="#">Action</a>
+                                                                                <a class="dropdown-item" href="#">Another action</a>
+                                                                                <a class="dropdown-item" href="#">Something else here</a>
+                                                                              </div>
+                                                                            </div>
+                                      
+                                                                            <!--check-->
+                        </div>
+
+                        <div class="pt-7 mt-auto">
+                            <div class="mb-2">Customer Notes:</div>
+                            <div>
+                                <textarea name="customernotes" id="" cols="50" rows="2" style="
+                                                                margin-top: 0px;
+                                                                margin-bottom: 0px;
+                                                                height: 100px;
+                                                              "></textarea>
+                            </div>
+                            <span class="span-txt">Will be displayed on the invoice</span>
                         </div>
                     </div>
 
-                    <!-- Footer -->
-                    <footer class="sticky-footer bg-white">
-                        <div class="container my-auto">
-                            <div class="copyright text-center my-auto">
-                                <span>Copyright &copy; Aadolf Solutions 2020</span>
+                    <div class="col-lg-6 total-frm" style="background-color: #eee; border-radius: 10px">
+                        <div class="form-group row">
+                            <label for="sub-total" class="col-lg-9 col-form-label">Sub Total</label>
+                            <input id="subtotal" class="col-lg-3 total-amt dynamic_table" type="number" name="subtotal"
+                                value="0.00" readonly>
+                        </div>
+
+                        <div class="form-group row only__TN">
+                            <label for="CGST" class="col-lg-9 col-form-label">CGST9[9%]</label>
+                            <input id="cgst" class="col-lg-3 total-amt dynamic_table" type="number" name="cgst"
+                                value="0.00" readonly>
+                        </div>
+
+
+                        <div class="form-group row only__TN">
+                            <label for="SGST" class="col-lg-9 col-form-label">SGST9[9%]</label>
+                            <input id="sgst" class="col-lg-3 total-amt dynamic_table" type="number" name="sgst"
+                                value="0.00" readonly>
+                        </div>
+
+
+                        <div class="form-group row not__TN">
+                            <label for="IGST" class="col-lg-9 col-form-label">IGST18[18%]</label>
+                            <input class="col-lg-3 total-amt dynamic_table" id="igst" type="number" name="igst"
+                                value="0.00" readonly>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-4">Discount</label>
+                            <div class="input-group col-lg-4">
+                                <input id="discount" value="0.00" type="text" onchange="getdiscount()"
+                                    class="form-control" aria-label="Rupees amount">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">₹</span>
+                                </div>
+                            </div>
+                            <input id="showdiscount" class="col-lg-4 total-amt dynamic_table" name="showdiscount"
+                                type="text" value="-0.00" readonly>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-lg-4 col-sm-4 col-4">
+                                <input type="text" class="form-control" placeholder="Adjustment" readonly>
+                            </div>
+
+                            <div class="input-group col-lg-4">
+                                <input id="adjustment" type="text" value="0.00" onchange="adjustment_calc()"
+                                    class="form-control" aria-label="Rupees amount">
+                                <div class="adjustment-exp">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                        class="bi bi-question-circle mt-2 ml-1" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <input id="showadjustment" class="col-lg-4 total-amt dynamic_table" name="showadjustment"
+                                type="text" value="0.00" readonly>
+                        </div>
+
+                        <!-- <div class="form-group row">
+                                                                          <label for="sub-total" class="col-lg-9 col-form-label">Round Off</label>
+                                                                          <div class="col-lg-3 total-amt">0.00</div>
+                                                                      </div> -->
+
+                        <div class="form-group row ">
+                            <label for="total" class="col-lg-9 col-form-label bold">Total (₹)</label>
+                            <input id="total" class="col-lg-3 total dynamic_table" name="total" type="number"
+                                value="0.00">
+                        </div>
+                        <input id="grandtotal" class="d-none" type="text" name="totalamount" value="0.00" readonly>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="fill-container grey-btm-bg">
+                    <div class="row ">
+                        <div class="col-lg-12 txn-line-seperator">
+                            <div class="mb-2">Terms &amp; Conditions</div>
+                            <div>
+                                <textarea name="terms" id="termsbx" class="form-control" cols="20" rows="4"
+                                    placeholder="Enter the terms and conditions of your business to be displayed in your transaction"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4" style="display: none;">
+                            <div class="form-group">
+
+                                <div class="form-control-plaintext">
+                                    <span class="font-xs">Attach File(s) to Invoice</span>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                        <label class="custom-file-label" for="inputGroupFile02"
+                                            aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                    </footer>
-                    <!-- End of Footer -->
 
+                    </div>
                 </div>
-                <!-- End of Content Wrapper -->
-
-            </div>
-            <!-- End of Page Wrapper -->
-
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
-
-            <!-- Logout Modal-->
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="login.html">Logout</a>
-                        </div>
+                <hr>
+                <br><br>
+                <div class="row padding-20">
+                    <div>
+                        <button class="btn btn-primary btn-lg" name="save" type="submit"><i class="fa fa-floppy-o"
+                                aria-hidden="true"></i> Save
+                            as Draft</button>
+                    </div>
+                    <div class="padding-left-20">
+                        <button class="btn btn-primary btn-lg" name="saveaspdf" type="submit"><i class="fa fa-print"
+                                aria-hidden="true"></i> Save and Print</button>
+                    </div>
+                    <div class="padding-left-20">
+                        <a href="{% url 'estimate_index'%}"> <button class="btn btn-dark btn-lg"
+                                type="button">Cancel</button></a>
                     </div>
                 </div>
             </div>
+        </form>
+    </div>
+</div>
+<!-- </div> -->
 
 
-    <!-- invoice # modal-->
-      <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+
+<!-- invoice # modal-->
+<div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Estimate</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <h5 class="modal-title" id="exampleModalLabel">Invoice Estimate</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-              <p style="font-size: .75rem">Your estimate numbers are set on auto-generate mode to save your time. Are you sure about changing this setting?</p>
-              <br>
-              <div style="display: flex;">
-                <p style="font-size: .75rem">Auto-generating estimate numbers</p>
+                <p style="font-size: .75rem">Your estimate numbers are set on auto-generate mode to save your time. Are
+                    you sure
+                    about changing this setting?</p>
+                <br>
+                <div style="display: flex;">
+                    <p style="font-size: .75rem">Auto-generating estimate numbers</p>
 
-                <div class="form-group" style="margin-left: 5%">
-                    <label for="Prefix1">Prefix</label>
-                    <input style="width: 50% ; font-size: .75rem " id="Prefix1" type="text" class="form-control">
-                </div>
+                    <div class="form-group" style="margin-left: 5%">
+                        <label for="Prefix1">Prefix</label>
+                        <input style="width: 50% ; font-size: .75rem " id="Prefix1" type="text" class="form-control">
+                    </div>
 
-                <div class="form-group">
-                    <label for="NextNumber1">Next Number</label>
-                    <input id="NextNumber1" style="width: 50% ; font-size: .75rem" type="number" class="form-control" value="{{next_number}}">
+                    <div class="form-group">
+                        <label for="NextNumber1">Next Number</label>
+                        <input id="NextNumber1" style="width: 50% ; font-size: .75rem" type="number"
+                            class="form-control" value="2">
+                    </div>
                 </div>
-              </div>
 
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" id="invoiceEstimateSave" class="btn btn-primary" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="invoiceEstimateSave" class="btn btn-primary"
+                    data-dismiss="modal">Save</button>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
 
 
 
-            <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-            <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-            <!-- Core plugin JavaScript-->
-            <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-            <!-- Custom scripts for all pages-->
-            <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+    integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+    crossorigin="anonymous"></script>
 
-            <!-- Page level plugins -->
-            <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
 
-            <!-- Page level custom scripts -->
-            <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
-            <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
-
-        <!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous">
-            </script-->
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-                crossorigin="anonymous">
-            </script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-                crossorigin="anonymous">
-            </script>
-            <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-                integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
-            </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"
+    integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g=="
+    crossorigin="anonymous"></script>
 
 
 
-    <script type="text/javascript">
-        var Currentyear = "";
-        var CYLength    = "";
-        var inputCurrentYear = "";
 
-        $("#Invoive11").click(() => {
-          Currentyear      = new Date().getFullYear() + "";
-          CYLength         = Currentyear.length - 1;
-          inputCurrentYear = "EST-" + Currentyear[CYLength- 1] + Currentyear[CYLength] + "/" + (Number(Currentyear[CYLength- 1] + Currentyear[CYLength]) + 1)
-          $("#Prefix1").val(inputCurrentYear)
-        })
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"
+    integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g=="
+    crossorigin="anonymous"></script>
 
-        $("#invoiceEstimateSave").click(() => {
-          if($("#NextNumber1").val())
-          {
+
+
+<script type="text/javascript">
+    var Currentyear = "";
+    var CYLength = "";
+    var inputCurrentYear = "";
+
+    $("#Invoive11").click(() => {
+        Currentyear = new Date().getFullYear() + "";
+        CYLength = Currentyear.length - 1;
+        inputCurrentYear = "EST-" + Currentyear[CYLength - 1] + Currentyear[CYLength] + "/" + (Number(
+            Currentyear[
+                CYLength - 1] + Currentyear[CYLength]) + 1)
+        $("#Prefix1").val(inputCurrentYear)
+    })
+
+    $("#invoiceEstimateSave").click(() => {
+        if ($("#NextNumber1").val()) {
             var combinevalue = inputCurrentYear + "-" + $("#NextNumber1").val();
-          }
-          else
-          {
-            var combinevalue = inputCurrentYear ;
-          }
-          $("#inv-no").val(combinevalue)
-        })
-
-      </script>
+        } else {
+            var combinevalue = inputCurrentYear;
+        }
+        $("#inv-no").val(combinevalue)
+    })
+</script>
 
 
 
 
-            <script>
-                BillingAdd = document.getElementById("BillingAdd");
-                ShippingAdd = document.getElementById("ShippingAdd");
-                gst = document.getElementById("gst");
+<script>
+    BillingAdd = document.getElementById("BillingAdd");
+    ShippingAdd = document.getElementById("ShippingAdd");
+    gst = document.getElementById("gst");
 
-                function getdata() {
-                    var selected_company_dropdown = document.getElementById("company_name");
-                    var selected_company_name = selected_company_dropdown.options[selected_company_dropdown
-                            .selectedIndex]
-                        .value;
-                    console.log("getdata" + selected_company_name);
-                    $.ajax({
-                        type: "POST",
-                        url: `../getdata/${selected_company_name}/`,
-                        data: {
-                            csrfmiddlewaretoken: getCSRFToken()
-                        },
-                        success: function (returnedData) {
-                            data = returnedData.data;
-                            var billing__address = data.billing_address.split("<br>");
-                            var shipping__address = data.shipping_address.split("<br>");
-                            BillingAdd.innerHTML = `
-                                        <input class="dynamic_table" type="text" name="billing0" value="${billing__address[0]}">
-                                        <input class="dynamic_table" type="text" name="billing1" value="${billing__address[1]}">
-                                        <input class="dynamic_table" type="text" name="billing2" value="${billing__address[2]}">
-                                        <input class="dynamic_table" type="text" name="billing3" value="${billing__address[3]}">
-                                        <br>
-                                        <small>You can edit this feilds </small>
-                                        <br>
-                                      `
-                            ShippingAdd.innerHTML = `
-                                        <input class="dynamic_table" type="text" name="shipping0" value="${shipping__address[0]}">
-                                        <input class="dynamic_table" type="text" name="shipping1" value="${shipping__address[1]}">
-                                        <input class="dynamic_table" type="text" name="shipping2" value="${shipping__address[2]}">
-                                        <input class="dynamic_table" type="text" name="shipping3" value="${shipping__address[3]}">
-                                        <br>
-                                        <small>You can edit this feilds </small>
-                                        <br>
-                                      `
-                            gst.innerHTML = data.gst;
-                        }
-                    });
+    function getdata() {
+        var selected_company_dropdown = document.getElementById("company_name");
+        var selected_company_name = selected_company_dropdown.options[selected_company_dropdown.selectedIndex].value;
+        // console.log("getdata" + selected_company_name);
+        $.ajax({
+            type: "POST",
+            url: `../getdata/${selected_company_name}/`,
+            data: {
+                csrfmiddlewaretoken: getCSRFToken()
+            },
+            success: function (returnedData) {
+                data = returnedData.data;
+                var billing__address = data.billing_address.split("<br>");
+                var shipping__address = data.shipping_address.split("<br>");
+                console.log(shipping__address)
+                BillingAdd.innerHTML = `
+                                              <input class="dynamic_table" type="text" name="billing0" value="${billing__address[0]}">
+                                              <input class="dynamic_table" type="text" name="billing1" value="${billing__address[1]}">
+                                              <input class="dynamic_table" type="text" name="billing2" value="${billing__address[2]}">
+                                              <input class="dynamic_table" type="text" name="billing3" value="${billing__address[3]}">
+                                              <br>
+                                              
+                                              <br>
+                                            `
+                ShippingAdd.innerHTML = `
+                                              <input class="dynamic_table" type="text" name="shipping0" value="${shipping__address[0]}">
+                                              <input class="dynamic_table" type="text" name="shipping1" value="${shipping__address[1]}">
+                                              <input class="dynamic_table" type="text" name="shipping2" value="${shipping__address[2]}">
+                                              <input class="dynamic_table" type="text" name="shipping3" value="${shipping__address[3]}">
+                                              <br>
+                                             
+                                              <br>
+                                            `
+                gst.innerHTML = data.gst;
+            }
+        });
+    }
+
+    function getCSRFToken() {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != "") {
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, 10) == "csrftoken" + "=") {
+                    cookieValue = decodeURIComponent(cookie.substring(10));
+                    break;
                 }
+            }
+        }
+        return cookieValue;
+    }
+    // item table work
+    item_data = {}
 
-                function getCSRFToken() {
-                    var cookieValue = null;
-                    if (document.cookie && document.cookie != "") {
-                        var cookies = document.cookie.split(";");
-                        for (var i = 0; i < cookies.length; i++) {
-                            var cookie = jQuery.trim(cookies[i]);
-                            if (cookie.substring(0, 10) == "csrftoken" + "=") {
-                                cookieValue = decodeURIComponent(cookie.substring(10));
-                                break;
-                            }
-                        }
-                    }
-                    return cookieValue;
-                }
-                // item table work
-                item_data = {}
+    function addItemRow(id, name, rate, gst) {
+        console.log(name, rate, gst);
+        if (!(id in item_data)) {
+            item_data[id] = {
+                'name': name,
+                'rate': rate,
+                'gst': gst,
+                'quantity': 1,
+                'amount': rate
+            }
+            generateTable();
+        }
+    }
 
-                function addItemRow(id, name, rate, gst) {
-                    console.log(name, rate, gst);
-                    if (!(id in item_data)) {
-                        item_data[id] = {
-                            'name': name,
-                            'rate': rate,
-                            'gst': gst,
-                            'quantity': 1,
-                            'amount': rate
-                        }
-                        generateTable();
-                    }
-                }
+    itemtable = document.getElementById("itemtable");
+    // .dynamic_table
+    function generateTable() {
+        itemtable.innerHTML = "";
+        console.log("inside");
+        var i = 0;
+        for (const id in item_data) {
+            i = i + 1;
+            console.log("for");
+            data = item_data[id];
+            itemtable.innerHTML += `<tr>
+      
+                                              <th scope="row"><input class="dynamic_table" id="th" type="text" name="name${i}" value="${data.name}" readonly="readonly"></th>
+                                              <td><input class="dynamic_table" id="quantity-${id}" type="number" name="quantity${i}" class="form-control" value="${data.quantity}" onchange="updatequantity('${id}','quantity-${id}')"></td>
+                                              <td><input class="dynamic_table" type="number" name="rate${i}" value="${data.rate}" readonly="readonly"></td>
+                                              <td><input class="dynamic_table" type="text" name="gst${i}" value="${data.gst}" readonly="readonly"></td>
+                                              <td><input class="dynamic_table" type="number" name="amount${i}" value="${data.amount}" readonly="readonly"></td>
+                                          </tr>`;
+        }
+        calculatesubtotal_and_tax();
+    }
 
-                itemtable = document.getElementById("itemtable");
+    function updatequantity(id, quantityid) {
+        console.log(id, quantityid);
+        that_particular_quantity = document.getElementById(quantityid);
+        if (!(that_particular_quantity.value == '')) {
+            updated_quantity = parseInt(that_particular_quantity.value);
+            item_data[id].quantity = updated_quantity;
+            item_data[id].amount = updated_quantity * item_data[id].rate;
+        } else {
+            item_data[id].quantity = 1;
+            item_data[id].amount = item_data[id].rate;
+        }
+        generateTable();
+    }
+    sub_total = 0.0;
+    cgst = 0.0;
+    sgst = 0.0;
 
-                function generateTable() {
-                    itemtable.innerHTML = "";
-                    console.log("inside");
-                    var i = 0;
-                    for (const id in item_data) {
-                        i = i+1;
-                        console.log("for");
-                        data = item_data[id];
-                        itemtable.innerHTML += `<tr>
-                                        <th scope="row"><input class="dynamic_table" id="th" type="text" name="name${i}" value="${data.name}" readonly="readonly"></th>
-                                        <td><input class="dynamic_table" id="quantity-${id}" type="number" name="quantity${i}" class="form-control" value="${data.quantity}" onchange="updatequantity('${id}','quantity-${id}')"></td>
-                                        <td><input class="dynamic_table" type="number" name="rate${i}" value="${data.rate}" readonly="readonly"></td>
-                                        <td><input class="dynamic_table" type="text" name="gst${i}" value="${data.gst}" readonly="readonly"></td>
-                                        <td><input class="dynamic_table" type="number" name="amount${i}" value="${data.amount}" readonly="readonly"></td>
-                                    </tr>`;
-                    }
-                    calculatesubtotal_and_tax();
-                }
-s
-                function updatequantity(id, quantityid) {
-                    console.log(id, quantityid);
-                    that_particular_quantity = document.getElementById(quantityid);
-                    if (!(that_particular_quantity.value == '')) {
-                        updated_quantity = parseInt(that_particular_quantity.value);
-                        item_data[id].quantity = updated_quantity;
-                        item_data[id].amount = updated_quantity * item_data[id].rate;
-                    } else {
-                        item_data[id].quantity = 1;
-                        item_data[id].amount = item_data[id].rate;
-                    }
-                    generateTable();
-                }
-                sub_total = 0.0;
-                cgst = 0.0;
-                sgst = 0.0;
+    function calculatesubtotal_and_tax() {
+        temp_subtotal = 0.0;
+        for (const id in item_data) {
+            temp_subtotal += parseInt(item_data[id].amount);
+        }
+        document.getElementById("subtotal").value = temp_subtotal;
+        sub_total = temp_subtotal;
+        temp_cgst = (temp_subtotal * 9) / 100;
+        cgst = sgst = temp_cgst;
+        document.getElementById("sgst").value = temp_cgst;
+        document.getElementById("cgst").value = temp_cgst;
+        document.getElementById("igst").value = temp_cgst * 2;
+        calc_grandtotal();
+    }
+    discount = 0.0;
+    adjustment = 0.0;
 
-                function calculatesubtotal_and_tax() {
-                    temp_subtotal = 0.0;
-                    for (const id in item_data) {
-                        temp_subtotal += parseInt(item_data[id].amount);
-                    }
-                    document.getElementById("subtotal").value = temp_subtotal;
-                    sub_total = temp_subtotal;
-                    temp_cgst = (temp_subtotal * 9) / 100;
-                    cgst = sgst = temp_cgst;
-                    document.getElementById("sgst").value = temp_cgst;
-                    document.getElementById("cgst").value = temp_cgst;
-                    calc_grandtotal();
-                }
-                discount = 0.0;
-                adjustment = 0.0;
+    function getdiscount() {
+        temp_discount = document.getElementById("discount").value;
+        document.getElementById("showdiscount").value = "-" + temp_discount;
+        discount = temp_discount
+        calc_grandtotal();
+    }
 
-                function getdiscount() {
-                    temp_discount = document.getElementById("discount").value;
-                    document.getElementById("showdiscount").value = "-" + temp_discount;
-                    discount = temp_discount
-                    calc_grandtotal();
-                }
+    function adjustment_calc() {
 
-                function adjustment_calc() {
+        temp_adj = document.getElementById("adjustment").value;
+        console.log(temp_adj);
+        if (temp_adj[0] == "-") {
+            document.getElementById("showadjustment").innerHTML = temp_adj;
+        } else if (temp_adj[0] == "+") {
+            document.getElementById("showadjustment").innerHTML = temp_adj
+        } else {
+            document.getElementById("showadjustment").innerHTML = "+" + temp_adj;
+        }
+        adjustment = parseFloat(temp_adj);
+        calc_grandtotal()
+    }
 
-                    temp_adj = document.getElementById("adjustment").value;
-                    console.log(temp_adj);
-                    if (temp_adj[0] == "-") {
-                        document.getElementById("showadjustment").value = temp_adj;
-                    } else if (temp_adj[0] == "+") {
-                        document.getElementById("showadjustment").value = temp_adj
-                    } else {
-                        document.getElementById("showadjustment").value = "+" + temp_adj;
-                    }
-                    adjustment = parseFloat(temp_adj);
-                    calc_grandtotal()
-                }
+    function calc_grandtotal() {
+        var total = sub_total + sgst + cgst - discount + adjustment
+        console.log("total", total);
+        document.getElementById("total").value = total;
+        document.getElementById("grandtotal").value = total;
+    }
+</script>
 
-                function calc_grandtotal() {
-                    var total = sub_total + sgst + cgst - discount + adjustment
-                    console.log("total", total);
-                    document.getElementById("total").value = total;
-                    document.getElementById("grandtotal").value = total;
-                }
-            </script>
 
-            <script>
-                $("#img__Trigger1").click(function(){
-                    $("#SideProfileBar").toggleClass("SideProfileBarClass");
-                    $("#SideProfileBar").toggleClass("summaclass");
-                // console.log("dsadasdas")
-                });
-            </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".choose").chosen()
+        if ($("#GSTin").val() == "") {
+            document.getElementById("updateAddress").disabled = true;
+        } else {
+            document.getElementById("updateAddress").disabled = false;
+        }
+    });
 
-            <script type="text/javascript">
-                /* When the user clicks on the button,
-            toggle between hiding and showing the dropdown content */
-            var drop_search = document.getElementById("Drop-search");
-            drop_search.addEventListener("click", () => {
-            document.getElementById("myDropdown1").classList.toggle("show1");
-            }) 
-            var div = document.getElementById("myDropdown1");
-            var this_content = "";
-            var dropdownSelectedName = "";
-            var a = div.getElementsByTagName("a");
-            var array = document.querySelectorAll(".drop__item");
-            for(i=0 ; i < array.length ; i++){
-            document.querySelectorAll(".drop__item")[i].addEventListener("click",function(){
+    function buttoDisable() {
+        if ($("#GSTin").val() == "") {
+            document.getElementById("updateAddress").disabled = true;
+            document.getElementById("dropdownSelectedName").style.display = "none";
+            $("#dropdownSelectedName").val("")
+        } else {
+            document.getElementById("updateAddress").disabled = false;
+        }
+    }
+</script>
 
-            drop_search.textContent = this.firstElementChild.textContent.substring(0,21);
+
+
+<script type="text/javascript">
+    /* When the user clicks on the button,
+                  toggle between hiding and showing the dropdown content */
+    var drop_search = document.getElementById("Drop-search");
+    drop_search.addEventListener("click", () => {
+        document.getElementById("myDropdown1").classList.toggle("show1");
+    })
+    var div = document.getElementById("myDropdown1");
+    var this_content = "";
+    var dropdownSelectedName = "";
+    var a = div.getElementsByTagName("a");
+    var array = document.querySelectorAll(".drop__item");
+    for (i = 0; i < array.length; i++) {
+        document.querySelectorAll(".drop__item")[i].addEventListener("click", function () {
+
+            drop_search.textContent = this.firstElementChild.textContent.substring(0, 21);
 
             dropdownSelectedName = this.firstElementChild.textContent;
 
@@ -1543,64 +955,83 @@ s
             $("#dropdownSelectedName").val(this.firstElementChild.textContent);
 
             var Gst_shower = document.getElementById("Gst-shower");
-            if(drop_search.textContent == "Unregistered Business"){
-            drop_search.textContent = "Unregistered Business";
-            Gst_shower.style.display = "none";
-            }else{
-            Gst_shower.style.display = "block";
+            if (drop_search.textContent == "Unregistered Business") {
+                drop_search.textContent = "Unregistered Business";
+                Gst_shower.style.display = "none";
+            } else {
+                Gst_shower.style.display = "block";
             }
             document.getElementById("myDropdown1").classList.toggle("show1");
-            })
-            }
+        })
+    }
 
 
-            $(document).ready(function() {
-            if($("#GSTin").val() == ""){
+    $(document).ready(function () {
+        if ($("#GSTin").val() == "") {
             document.getElementById("updateAddress").disabled = true;
             Gst_shower.style.display = "none";
-            }else{
+        } else {
             document.getElementById("updateAddress").disabled = false;
-            }
-            });
+        }
+    });
 
-            function buttoDisable() {
-            if($("#GSTin").val() == ""){
+    function buttoDisable() {
+        if ($("#GSTin").val() == "") {
             document.getElementById("updateAddress").disabled = true;
             document.getElementById("dropdownSelectedName").style.display = "none";
             $("#dropdownSelectedName").val("")
-            }else{
+        } else {
             document.getElementById("updateAddress").disabled = false;
             document.getElementById("dropdownSelectedName").style.display = "block";
             $("#dropdownSelectedName").val(dropdownSelectedName)
-            }
-            }
+        }
+    }
 
-            function filterFunction1() {
-            var input, filter, ul, li, i;
-            input = document.getElementById("myInput1");
-            filter = input.value.toUpperCase();
-            for (i = 0; i < a.length; i++) {
+    function filterFunction1() {
+        var input, filter, ul, li, i;
+        input = document.getElementById("myInput1");
+        filter = input.value.toUpperCase();
+        for (i = 0; i < a.length; i++) {
             txtValue = a[i].textContent || a[i].innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
+                a[i].style.display = "";
             } else {
-            a[i].style.display = "none";
+                a[i].style.display = "none";
             }
-            }
-            }
-
-            </script>
-
-            <script type="text/javascript">
-            $(".modal-body").on("click", ".dropdown1", function(event){
-            event.stopPropagation();
-            })
-            $(".modal-body").on("click", ".Sele", function(event){
-            event.stopPropagation();
-            })
-            </script>
+        }
+    }
+</script>
 
 
-    </body>
+<script type="text/javascript">
+    $(".modal-body").on("click", ".dropdown1", function (event) {
+        event.stopPropagation();
+    })
+    $(".modal-body").on("click", ".Sele", function (event) {
+        event.stopPropagation();
+    })
+</script>
 
-</html>
+<!-- sidebar toogle  -->
+
+
+<script>
+    // only__TN
+    $(document).ready(function () {
+        $(".only__TN").css("display", "block")
+        $(".not__TN").css("display", "none")
+    });
+
+    function sgst_cgst_change() {
+        if ($("#indian__states").val() !== "Tamil Nadu") {
+            $(".only__TN").css("display", "none")
+            $(".not__TN").css("display", "block")
+        } else {
+            $(".only__TN").css("display", "block")
+            $(".not__TN").css("display", "none")
+        }
+    }
+</script>
+
+
+{% endblock %}

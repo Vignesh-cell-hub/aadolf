@@ -5,18 +5,27 @@ from itemform.models import Item
 from invoice.models import Invoice
 from .models import Sales
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from accounts.models import Organisation
 
 # Create your views here.
 @login_required
 def index(request):
-    details = Sales.objects.filter(organisation=request.user.profile.organisation.organisation_name)
-    return render(request, "sales/sales_tbl.html",{"details":details})
+    # details = Sales.objects.filter(organisation=request.user.profile.organisation.organisation_name)
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
+    return render(request, "sales/sales_tbl.html",context)
 
 @login_required
 def upload(request):
     alldetails = Customer.objects.filter(organisation=request.user.profile.organisation.organisation_name)
     allitems = Item.objects.filter(organisation=request.user.profile.organisation.organisation_name)
-    context = {"alldetails":alldetails,'items':allitems}
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context = {"alldetails":alldetails,'items':allitems,'organisation': organisation[0],'media_url': settings.MEDIA_URL,}
 
     if request.method == 'POST':
         sales_date = request.POST['sales_date']
@@ -37,7 +46,7 @@ def upload(request):
         else:
             next_num = 1
         print("next",next_num)   
-        context = {"alldetails":alldetails,'items':allitems,'next_number':1}
+        context = {"alldetails":alldetails,'items':allitems,'next_number':1,'organisation': organisation[0],'media_url': settings.MEDIA_URL,}
     
     return render(request,'sales/sales_form.html',context)
 

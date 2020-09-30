@@ -1,16 +1,27 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Vendor
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from accounts.models import Organisation
+
 #from django.http import HttpResponse
 # Create your views here.
 
 @login_required
 def index(request):
     alldetails = Vendor.objects.filter(organisation=request.user.profile.organisation.organisation_name)
-    context = {"alldetails":alldetails}
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context = {"alldetails":alldetails,'organisation': organisation[0], 'media_url': settings.MEDIA_URL,}
     return render(request,'vendor/vendor_tbl.html',context)
 @login_required
 def upload(request):
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
     if request.method == 'POST':
         primarycontact = request.POST['primarycontact']
         first_name = request.POST['firstname']
@@ -90,7 +101,7 @@ def upload(request):
         user.save()
         return redirect(index)
     else:print('get request')
-    return render(request,'vendor/vendor_form.html')
+    return render(request,'vendor/vendor_form.html', context)
 
 @login_required
 def editvendor(request,id):

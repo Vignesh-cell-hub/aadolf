@@ -34,3 +34,15 @@ class Sales(models.Model):
     terms_condition = models.TextField(default=0.00)
     attach_file = models.FileField(upload_to='file',default='')
     organisation = models.CharField(max_length=200, default=" ")
+
+    def __str__(self):
+        return self.invoice
+
+
+class Sales_transaction(models.Model):
+    item_details = models.CharField(max_length=250, default='')
+    quantity = models.IntegerField(default=1.00)
+    rate = models.FloatField(default=0.00)
+    tax = models.CharField(max_length=100, default='')
+    amount = models.FloatField(default=0.00)
+    sales = models.ForeignKey(Sales, on_delete=models.CASCADE) 

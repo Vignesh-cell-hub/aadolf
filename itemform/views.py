@@ -1,15 +1,28 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Item
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from accounts.models import Organisation
 
 @login_required
 def index(request):
     alldetails = Item.objects.filter(organisation=request.user.profile.organisation.organisation_name)
-    context = {"alldetails":alldetails}
-    return render(request,'tables.html',context)
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
 
+    context = {"alldetails":alldetails,
+    'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+    }
+    return render(request,'tables.html',context)
+ 
 @login_required
 def upload(request):
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
+
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
     if request.method=='POST':
         item_type = request.POST['type']
         name = request.POST['name']
@@ -44,7 +57,7 @@ def upload(request):
         
     else:
         pass
-    return render(request,'items_form.html')
+    return render(request,'items_form.html', context)
 
 @login_required
 def editItem(request,item_id):

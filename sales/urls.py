@@ -6,3 +6,4 @@ urlpatterns = [
     path('getdata/<int:id>/',views.getdata,name="getdata"),
     path('upload/',views.upload,name="upload")
 ]
+ 

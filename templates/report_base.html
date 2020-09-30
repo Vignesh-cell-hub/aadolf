@@ -1,6 +1,6 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -11,46 +11,67 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Blank</title>
+ 
 
   <!-- Custom fonts for this template-->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+  <!-- Custom styles for this page -->
+  <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" type="text/css" />
 
-  <link rel="stylesheet" type="text/css"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css"
-    integrity="sha512-0nkKORjFgcyxv3HbE4rzFUlENUMNqic/EzDIeYCgsKa/nwqr2B91Vu/tNAu4Q0cBuG4Xe/D1f/freEci/7GDRA=="
-    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css" integrity="sha512-0nkKORjFgcyxv3HbE4rzFUlENUMNqic/EzDIeYCgsKa/nwqr2B91Vu/tNAu4Q0cBuG4Xe/D1f/freEci/7GDRA==" crossorigin="anonymous" />
 
-</head>
+
+
 
 <style type="text/css">
+
+
+ 
   .dropbtn {
-    background-color: #ffffff;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+    cursor: pointer !important;
+    color: #0f0f0f;
     cursor: pointer;
   }
 
-  #drop__btn {
-    margin-right: 25px;
-    font-size: 13px;
-    cursor: pointer;
+
+  .heading__report {
+    color: #0f0f0f;
+    font-weight: 300;
+    font-family: 'Heebo', sans-serif;
+    padding-left: 10%;
   }
 
-  #drop__btn:hover {
-    background-color: transparent;
+  .list-group-item {
+    background-color: #f8f9fc !important;
+    text-decoration: none !important;
+    border: none !important;
+  }
+
+  .fa-star-o {
+    color: #0f0f0f !important;
+    /*background-color: yellow;*/
+  }
+
+  .fa-star {
+    color: yellow !important;
+  }
+
+
+  .dropbtn:hover,
+  .dropbtn:focus {
+    /*background-color: transparent;*/
+    border-bottom: 1px solid black;
+    background-color: transparent !important;
   }
 
   #myInput {
@@ -90,53 +111,29 @@
     display: block;
   }
 
-  .fa-search {
-    cursor: pointer !important;
-  }
-
-  .dropdown a:hover {
-    background-color: #ddd;
-  }
-
+  
   .show {
     display: block;
   }
 
-  .b__tn {
-    background-color: #d3d3d3;
+  .margin__bottom {
+    margin-bottom: 5% !important;
   }
 
-  #tb__head {
-    font-size: 14px !important;
-    font-weight: bold !important;
 
-  }
-
-  .table__heading {
-    white-space: nowrap !important;
-  }
-
-  #date {
-    height: 0;
-    width: 0;
-    opacity: 0;
-  }
-
-  .btn___custom {
-    border-radius: 3px;
-    height: 1.6rem;
-    width: 9.4em;
-    text-align: center;
-    background-color: #d3d3d3;
-    color: #1f91ff;
+  hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
   }
 </style>
 
-
-
+</head>
 
 <body id="page-top">
 
+  <!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
@@ -144,10 +141,10 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-cubes"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Aadolf Solutions</div>
+        <div class="sidebar-brand-text mx-2">Aadolf ledger <br> books</div>
       </a>
 
       <!-- Divider -->
@@ -155,7 +152,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="/">
+        <a class="nav-link" href="{%url 'dashboard_index' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -163,7 +160,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../itemform/">
+        <a class="nav-link collapsed" href="{%url 'itemform_index' %}">
           <i class="fas fa-fw fa-sitemap"></i>
           <span>Items</span>
         </a>
@@ -180,12 +177,12 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="../../customer/">Customer</a>
-            <a class="collapse-item" href="../../estimate/">Quotation</a>
-            <a class="collapse-item" href="../../sales/">Sales Order</a>
-            <a class="collapse-item" href="#">Delivery Challans</a>
-            <a class="collapse-item" href="../../invoice/">Invoices</a>
-            <a class="collapse-item" href="#">Payments Received</a>
+            <a class="collapse-item" href="{%url 'customer_index' %}">Customer</a>
+            <a class="collapse-item" href="{%url 'estimate_index' %}">Quotation</a>
+            <a class="collapse-item" href="{%url 'sales_index' %}">Sales Order</a>
+            <!-- <a class="collapse-item" href="{%url 'delivery_index' %}">Delivery Challans</a> -->
+            <a class="collapse-item" href="{%url 'invoice_index' %}">Invoices</a>
+            <!-- <a class="collapse-item" href="{%url 'paymentrec_index' %}">Payments Received</a> -->
           </div>
         </div>
       </li>
@@ -203,28 +200,28 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-
-            <a class="collapse-item" href="../../vendor/">Vendors</a>
-            <a class="collapse-item" href="#">Enquiry</a>
-            <a class="collapse-item" href="#">Purchase Orders</a>
-            <a class="collapse-item" href="../../expenses/">Expenses</a>
+            <a class="collapse-item" href="{%url 'vendor_index' %}">Vendors</a>
+            <a class="collapse-item" href="{%url 'expense_index' %}">Expenses</a>
+            <a class="collapse-item" href="{%url 'purchase_index' %}">Purchase Orders</a>
+            <!-- <a class="collapse-item" href="{%url 'bills_index' %}">Purchase Orders</a>
+            <a class="collapse-item" href="{%url 'paymentrec_index' %}">Payment made</a> -->
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="../">
+        <a class="nav-link" href="report/">
           <i class="fas fa-fw fa-book"></i>
           <span>Reports</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-passport"></i>
           <span>Documents</span></a>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -309,179 +306,81 @@
                 </form>
               </div>
             </li>
-            <!--settings-->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-cogs fa-fw"></i>
 
-              </a>
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Settings
-                </h6>
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                      aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-
-                      </button>
-                    </div>
-                  </div>
-                </form>
-
-                <a class="dropdown-item d-flex align-items-center" href="#">
-
-                  <div>
-
-                    <span class="font-weight-bold">demo</span>
-                  </div>
-
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-
-                  <div>
-
-                    <span class="font-weight-bold">demo</span>
-                  </div>
-                </a>
-
-
-              </div>
-
-
-            </li>
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alerts Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    ₹290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-              </div>
-            </li>
-
-            <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been
-                      having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them
-                      sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so
-                      far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people
-                      say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li>
-
-            <div class="topbar-divider d-none d-sm-block"></div>
+            
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" id="img__Trigger"
+                  src="{{media_url}}{{organisation.organisation_logo}}">
               </a>
-              
+
             </li>
 
           </ul>
 
         </nav>
         <!-- End of Topbar -->
+
+
+
+        <!-- profile side bar -->
+        <ul class="navbar-nav sidebar-dark summaclass" id="SideProfileBar">
+
+          <!-- Sidebar - Brand -->
+          <div class="card" style="align-items: center;">
+            <img class="card-img-top" id="Profile__image" src="{{media_url}}{{organisation.organisation_logo}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{organisation.organisation_name}}<br> </h5>
+              <p class="card-text" style="margin: 0px;">Company ID: {{organisation.Company_ID}}</p>
+              <p class="card-text"><small class="text-muted">{{organisation.website}}</small></p>
+            </div>
+            <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
+              <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
+              <div class="vl"></div>
+              <a href="#" data-toggle="modal" data-target="#logoutModal"  style="color: rgb(226, 32, 32);">Sign Out</a>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider my-0">
+
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col col-sm-12" style="margin-top: 30px ;">
+                <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
+                  <h6>MY ORGANISATIONS</h6>
+                  <a class="nav-item dropdown" style="float: right;" href="{% url 'manage' %}"><i class="fa fa-cog"
+                      aria-hidden="true"></i> Manage</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr style="width: 100%;">
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col col-sm-12" style="margin-bottom: 4%;">
+                <div style="display: flex; justify-content: space-between;">
+                  <h6>{{organisation.organisation_name}}</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i
+                      class="fa fa-check" aria-hidden="true"></i></a>
+                </div>
+                <h6>GSTIN : {{organisation.Tax_ID}}</h6>
+              </div>
+            </div>
+          </div>
+
+          <hr style="width: 100%;">
+
+          
+
+        </ul>
+        <!-- ENd of profile side bar -->
+
 
         <!-- Begin Page Content -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: .5px solid #D3D3D3">
@@ -635,11 +534,12 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="{%url 'logoutuser' %}">Logout</a>
           </div>
         </div>
       </div>
     </div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
@@ -910,7 +810,13 @@ toggle between hiding and showing the dropdown content */
       console.log(document.querySelectorAll(".table__heading"));
     </script>
 
-
+<script>
+  $("#img__Trigger").click(function () {
+    $("#SideProfileBar").toggleClass("SideProfileBarClass");
+    $("#SideProfileBar").toggleClass("summaclass");
+    // console.log("dsadasdas")
+  });
+</script>
 
 </body>
 

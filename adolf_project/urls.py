@@ -32,7 +32,7 @@ urlpatterns = [
     path('bills/',include('bills.urls')),
     path('report/',include('report.urls')),
     path('delivery_challan/',include('delivery_challan.urls')),
-    path('purchase_order/',include('purchaseitem.urls')),
+    path('purchaseitem/',include('purchaseitem.urls')),
     path('paymentreceived/',include('paymentreceived.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
