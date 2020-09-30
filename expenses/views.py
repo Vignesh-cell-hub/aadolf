@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    alldetails = Expenses.objects.filter(organisation=request.user.profile.organisation)
+    alldetails = Expenses.objects.filter(organisation=request.user.profile.organisation.organisation_name)
     context = {"alldetails":alldetails}
     return render(request,'expenses/expense_tbl.html',context)
 
@@ -44,7 +44,7 @@ def upload(request):
                         expense_notes = expense_notes,
                         customer_name = customer_name,
                         expense_file = expense_file,
-                        organisation=request.user.profile.organisation)
+                        organisation=request.user.profile.organisation.organisation_name)
 
         expense.save()
         return redirect(index)

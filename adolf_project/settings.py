@@ -86,20 +86,20 @@ WSGI_APPLICATION = 'adolf_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'adolf_new3',
-    #     'USER':'postgres',
-    #     "PASSWORD":'1234',
-    #     'HOST':'localhost'
-    # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd85io2avg2mqkh',
-        'USER': 'carbvfmxldmizh',
-        'PASSWORD':'8a06ef714ab559775c5beb1b7634bc4aa9ba6b904911730a4d27658cfdafd818',
-        'HOST': 'ec2-54-158-122-162.compute-1.amazonaws.com'
+        'NAME': 'adolf_new3',
+        'USER':'postgres',
+        "PASSWORD":'1234',
+        'HOST':'localhost'
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'd85io2avg2mqkh',
+    #     'USER': 'carbvfmxldmizh',
+    #     'PASSWORD':'8a06ef714ab559775c5beb1b7634bc4aa9ba6b904911730a4d27658cfdafd818',
+    #     'HOST': 'ec2-54-158-122-162.compute-1.amazonaws.com'
+    # }
 }
 
 

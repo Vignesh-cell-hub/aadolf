@@ -9,13 +9,13 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def index(request):
-    details = Estimate.objects.filter(organisation=request.user.profile.organisation)
+    details = Estimate.objects.filter(organisation=request.user.profile.organisation.organisation_name)
     return render(request, "estimates/estimate_tbl.html",{"details":details})
 
 @login_required
 def upload(request):
-    alldetails = Customer.objects.filter(organisation=request.user.profile.organisation)
-    allitems = Item.objects.filter(organisation=request.user.profile.organisation)
+    alldetails = Customer.objects.filter(organisation=request.user.profile.organisation.organisation_name)
+    allitems = Item.objects.filter(organisation=request.user.profile.organisation.organisation_name)
     if request.method == 'POST':
         customer_name = Customer.objects.get(pk=request.POST['customer_name']).company_name
         billingStreet = request.POST['billing0']
@@ -46,7 +46,7 @@ def upload(request):
                        billingState=billingState, billingZipcode=billingZipcode,
                        shippingStreet=shippingStreet, shippingCity=shippingCity, shippingState=shippingState,
                        shippingZipcode=shippingZipcode, project_name=projectname, sales_person=salesperson,
-                       sub_total=subtotal, cgst=cgst, sgst=sgst,organisation=request.user.profile.organisation,
+                       sub_total=subtotal, cgst=cgst, sgst=sgst,organisation=request.user.profile.organisation.organisation_name,
                        discount=discount, adjustments=adjustment, customer_notes=customernotes,
                        terms_condition=terms)
         user.save()

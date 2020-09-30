@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    alldetails = Item.objects.filter(organisation=request.user.profile.organisation)
+    alldetails = Item.objects.filter(organisation=request.user.profile.organisation.organisation_name)
     context = {"alldetails":alldetails}
     return render(request,'tables.html',context)
 
@@ -38,7 +38,7 @@ def upload(request):
                     purchaseacc = purchaseacc, 
                     purchasedes = purchasedes,
                     intrastate = intrastate,
-                    interstate = interstate,organisation=request.user.profile.organisation)
+                    interstate = interstate,organisation=request.user.profile.organisation.organisation_name)
         user.save()
         return redirect(index)
         

@@ -183,7 +183,7 @@
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
+                <form class="form-inline mr-auto w-100 navbar-search" >
                   <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
@@ -252,7 +252,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" id="img__Trigger" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200">
+                <img class="img-profile rounded-circle" id="img__Trigger" src="{{media_url}}{{organisation.organisation_logo}}">
               </a>
             
             </li>
@@ -267,7 +267,7 @@
 
           <!-- Sidebar - Brand -->
           <div class="card" style="align-items: center;" >
-            <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200" alt="Card image cap">
+            <img class="card-img-top" id="Profile__image" src="{{media_url}}{{organisation.organisation_logo}}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">AADOLFGROUPS <br>   </h5>
               <p class="card-text" style="margin: 0px;">User ID: 60002359514</p>
@@ -333,15 +333,14 @@
                   
 
 
-    <div class="container-fluid">   
-        <form id="form"> 
-
-
+    <div class="container-fluid">
+        <form id="form" method="post" action="{%url 'manage' %}" enctype='multipart/form-data'>
+          {% csrf_token %}
           <div class="form-group row">
             <label class="col-sm-2 col-form-label form__lable">Organisation Logo</label>
             <div class="col-sm-4">
               <div class="profile-images">
-                <img src="images/profile.png" id="upload-img">
+                <img src="{{media_url}}{{organisation.organisation_logo}}" id="upload-img">
               </div>
               <label class="btn btn-primary" for="img" style="font-size: 13px;"><i class="fa fa-picture-o" aria-hidden="true"></i> Update Your Logo</label>
               <input type="file" id="img" name="img" accept="image/*" class="form-control" style="display: none;">
@@ -356,7 +355,7 @@
           <div class="form-group row">
             <label for="Industry" class="col-sm-2 col-form-label form__lable">Organisation Name*</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="Industry">
+              <input type="text" class="form-control" id="Name" name="name" value="{{organisation.organisation_name}}">
             </div>
           </div>
 
@@ -365,7 +364,7 @@
           <div class="form-group row">
             <label for="Industry" class="col-sm-2 col-form-label form__lable">Industry *</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="Industry">
+              <input type="text" class="form-control" id="Industry" name="industry" value="{{organisation.industry}}">
             </div>
           </div>
 
@@ -374,7 +373,7 @@
           <div class="form-group row">
             <label for="Business_Locations" class="col-sm-2 col-form-label form__lable">Business Locations</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="Business_Locations">
+              <input type="text" class="form-control" id="Business_Locations" name="business_locations" value="{{organisation.business_location}}">
             </div>
           </div>
 
@@ -384,36 +383,69 @@
             <label for="Company_Address" class="col-sm-2 col-form-label form__lable">Company Address</label>
             <div class="col-sm-6">
 
-              <input type="text" class="form-control" id="Company_Address" placeholder="Line 1" >
+              <input type="text" class="form-control" id="Company_Address" placeholder="Line 1" name="address1" value="{{organisation.company_address1}}" >
               <br>
 
-              <input type="text" class="form-control" id="Company_Address" placeholder="Line 2"> 
+              <input type="text" class="form-control" id="Company_Address" placeholder="Line 2" name="address2" value="{{organisation.company_address2}}">
               <br>
 
               <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="City">
+                  <input type="text" class="form-control" placeholder="City" name="city" value="{{organisation.city}}" >
                 </div>
                 <div class="col">
-                  <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                  </select>
+                  <select id="inputState" class="form-control" name="state">
+          <option value="andamanandnicobar Islands" {% if organisation.state == "andamanandnicobar Islands" %} selected {% endif %}>Andaman and Nicobar Islands </option>
+          <option value="arunachalpradesh"  {% if organisation.state == "arunachalpradesh" %} selected {% endif %}>Arunachal Pradesh</option>
+          <option value="assam"  {% if corganisation.state == "assam" %} selected {% endif %}>Assam</option>
+          <option value="bihar"  {% if organisation.state == "bihar" %} selected {% endif %}>Bihar</option>
+          <option value="chandigarh" {% if organisation.state == "chandigarh" %} selected {% endif %}>Chandigarh</option>
+          <option value="chhattisgarh" {% if organisation.state == "chhattisgarh" %} selected {% endif %}>Chhattisgarh</option>
+          <option value="dadra" {% if organisation.statet == "dadra" %} selected {% endif %}>Dadra and Nagar Haveli and Daman and Diu</option>
+          <option value="delhi" {% if organisation.state == "delhi" %} selected {% endif %}>Delhi</option>
+          <option value="goa" {% if organisation.state == "goa" %} selected {% endif %}>Goa</option>
+          <option value="gujarat" {% if organisation.state == "gujarat" %} selected {% endif %}>Gujarat</option>
+          <option value="haryana" {% if organisation.state == "haryana" %} selected {% endif %}>Haryana</option>
+          <option value="himachal" {% if organisation.state == "himachal" %} selected {% endif %}>Himachal Pradesh</option>
+          <option value="jammu" {% if organisation.state == "jammu" %} selected {% endif %}>Jammu and Kashmir</option>
+          <option value="jhar" {% if organisation.state == "jhar" %} selected {% endif %}>Jharkhand</option>
+          <option value="kar" {% if organisation.state == "kar" %} selected {% endif %}>Karnataka</option>
+          <option value="ker" {% if organisation.state == "ker" %} selected {% endif %}>Kerala</option>
+          <option value="ladakh" {% if organisation.state == "ladakh" %} selected {% endif %}>Ladakh</option>
+          <option value="lak" {% if organisation.state == "lak" %} selected {% endif %}>Lakshadweep </option>
+          <option value="madh" {% if organisation.state == "madh" %} selected {% endif %}>Madhya Pradesh</option>
+          <option value="maha" {% if organisation.state == "madh" %} selected {% endif %}>Maharashtra</option>
+          <option value="mani" {% if organisation.state == "mani" %} selected {% endif %}>Manipur</option>
+          <option value="mega" {% if organisation.state == "mega" %} selected {% endif %}>Meghalaya</option>
+          <option value="mizo" {% if organisation.state == "mizo" %} selected {% endif %}>Mizoram</option>
+          <option value="naga" {% if organisation.state == "naga" %} selected {% endif %}>Nagaland</option>
+          <option value="odi" {% if organisation.state == "odi" %} selected {% endif %}>Odisha</option>
+          <option value="puducherry" {% if organisation.state == "puducherry" %} selected {% endif %}>Puducherry</option>
+          <option value="punjab" {% if organisation.state == "punjab" %} selected {% endif %}>Punjab</option>
+          <option value="rajas" {% if organisation.state == "rajas" %} selected {% endif %}>Rajasthan</option>
+          <option value="sikkim" {% if organisation.state == "sikkim" %} selected {% endif %}>Sikkim</option>
+          <option value="tamilnadu" {% if organisation.state == "tamilnadu" %} selected {% endif %}>Tamil Nadu</option>
+          <option value="tel" {% if organisation.state == "tel" %} selected {% endif %}>Telangana</option>
+          <option value="tri" {% if organisation.state == "tri" %} selected {% endif %}>Tripura</option>
+          <option value="uttar" {% if organisation.state == "uttar" %} selected {% endif %}>Uttar Pradesh</option>
+          <option value="uttarkhand" {% if organisation.state == "uttarkhand" %} selected {% endif %}>Uttarakhand</option>
+          <option value="westbengal" {% if organisation.state == "westbengal" %} selected {% endif %}>West Bengal</option>
+	  </select>
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Zip code">
+                  <input type="text" class="form-control" placeholder="Zip code" name="zipcode" value="{{organisation.zipcode}}">
                 </div>
               </div>
               <br>
                <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Phone">
+                  <input type="text" class="form-control" placeholder="Phone" name="phno" value="{{organisation.ph_no}}">
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Fax">
+                  <input type="text" class="form-control" placeholder="Fax" name="fax" value="{{organisation.fax}}">
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Website">
+                  <input type="text" class="form-control" placeholder="Website" name="website" value="{{organisation.website}}">
                 </div>
               </div>
               <br>
@@ -442,7 +474,7 @@
                     </select>
                   </div> -->
                   <div class="col">
-                     <input type="password" class="form-control" id="inputPassword">
+                     <input type="text" class="form-control" id="CompanyID" name="companyID" value="{{organisation.Company_ID}}">
                   </div>
                 </div>            
               </div>
@@ -459,7 +491,7 @@
                     </select>
                   </div> -->
                   <div class="col">
-                     <input type="password" class="form-control" id="inputPassword">
+                     <input type="text" class="form-control" id="TaxID" name="TaxID" value="{{organisation.Tax_ID}}">
                   </div>
                 </div>            
               </div>
@@ -474,7 +506,15 @@
             </div>
           </div> -->
 
-        </div>  
+        </div>
+
+
+        <div class="form-group row" id="aaa">
+          <label for="yourlogo" class="col-sm-2 col-form-label form__lable"></label>
+          <div class="col-sm-12 col-md-6 mb-4">
+            <button class="btn save" type="submit">Save</button>
+          </div>
+        </div>
 
         </form>
               
@@ -487,12 +527,6 @@
         <hr>
 
 
-        <div class="form-group row" id="aaa">
-          <label for="yourlogo" class="col-sm-2 col-form-label form__lable"></label>
-          <div class="col-sm-12 col-md-6 mb-4">
-            <a  href="#aaa" class="btn btn-success">Save</a>
-          </div>
-        </div>
 
         
     </div>
