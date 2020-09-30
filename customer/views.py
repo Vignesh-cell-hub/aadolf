@@ -25,20 +25,17 @@ def upload(request):
         email = request.POST['customeremail']
         work_phone_no = request.POST['Workphone']
         mobile_phone_no = request.POST['mobile']
-        # designation = request.POST['designation']
-        # dept = request.POST['dept']
+        designation = request.POST['designation']
+        dept = request.POST['dept']
         website = request.POST['website']
  
         gst_treatment = request.POST['gsttreatment']
+        gst_id = request.POST['gstid']
         place_of_supply = request.POST['place of supply']
         tax_prefrence = request.POST['taxtype']
         currency = request.POST['currency']
-        # opening_balance = request.POST['openingbalance']
         payment_terms = request.POST['paymentterms']
-        # enable_portal = request.POST.get('yes', False)
-        # portal_language = request.POST['potallanguage']
-        # facebook = request.POST['facebook']
-        # twitter = request.POST['twitter']
+       
 
         billing_attention = request.POST['billattention']
         billing_country = request.POST['billCountry']
@@ -67,21 +64,17 @@ def upload(request):
                         email=email,
                         work_phone_no=work_phone_no,
                         mobile_phone_no=mobile_phone_no,
-                        # designation=designation,
-                        # dept=dept,
+                        designation=designation,
+                        dept=dept,
                         website=website,
 
                         gst_treatment=gst_treatment,
+                        gst_id=gst_id,
                         place_of_supply=place_of_supply,
                         tax_prefrence=tax_prefrence,
                         currency=currency,
-                        # opening_balance=opening_balance,
                         payment_terms=payment_terms,
-                        # enable_portal=enable_portal,
-                        # portal_language=portal_language,
-                        # facebook=facebook,
-                        # twitter=twitter,
-
+                        
                         billing_attention=billing_attention,
                         billing_country=billing_country,
                         billing_address=billing_address,
@@ -120,20 +113,17 @@ def editcustomer(request, id):
         email = request.POST['customeremail']
         work_phone_no = request.POST['Workphone']
         mobile_phone_no = request.POST['mobile']
-        # designation = request.POST['designation']
-        # dept = request.POST['dept']
+        designation = request.POST['designation']
+        dept = request.POST['dept']
         website = request.POST['website']
 
         gst_treatment = request.POST['gsttreatment']
+        gst_id=request.POST['gstid']
         place_of_supply = request.POST['place of supply']
         tax_prefrence = request.POST['taxtype']
         currency = request.POST['currency']
-        # opening_balance = request.POST['openingbalance']
         payment_terms = request.POST['paymentterms']
-        # enable_portal = request.POST.get('yes', False)
-        # portal_language = request.POST['potallanguage']
-        # facebook = request.POST['facebook']
-        # twitter = request.POST['twitter']
+        
 
         billing_attention = request.POST['billattention']
         billing_country = request.POST['billCountry']
@@ -164,20 +154,16 @@ def editcustomer(request, id):
         customer.email = email
         customer.work_phone_no = work_phone_no
         customer.mobile_phone_no = mobile_phone_no
-        # customer.designation = designation
-        # customer.dept = dept
+        customer.designation = designation
+        customer.dept = dept
         customer.website = website
 
         customer.gst_treatment = gst_treatment
+        customer.gst_id = gst_id
         customer.place_of_supply = place_of_supply
         customer.tax_prefrence = tax_prefrence
         customer.currency = currency
-        # customer.opening_balance = opening_balance
         customer.payment_terms = payment_terms
-        # customer.enable_portal = enable_portal
-        # customer.portal_language = portal_language
-        # customer.facebook = facebook
-        # customer.twitter = twitter
 
         customer.billing_attention = billing_attention
         customer.billing_country = billing_country
@@ -203,6 +189,7 @@ def editcustomer(request, id):
         customer = get_object_or_404(Customer, pk=id)
         context = {
             'customer': customer
+
         }
         print("customer edit html invoked")
         return render(request, 'customer/customer_edit.html', context)
