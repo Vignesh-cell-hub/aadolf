@@ -496,15 +496,17 @@
                       <th>DUE DATE</th>
                       <th>AMOUNT</th>
                       <th>BALANCE DUE</th>
-
+                      <th>
+                        
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     {% for i in details %}
                     <tr role="button" data-href="#">
 
-                      <td style="text-align:center">
-                        <input type="checkbox" /></td>
+                      <!-- <td style="text-align:center">
+                        <input type="checkbox" /></td> -->
                       <td style="text-align:center">
                         <a href="#">{{i.invoice_date}}</a></td>
                       <td style="text-align:center">
@@ -521,6 +523,8 @@
                         {{i.amount}}</td>
                       <td style="text-align:center">
                         0.00</td>
+
+                        <td><a class="btn btn-primary" href="{% url 'editItem' i.id %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
 
 
 
