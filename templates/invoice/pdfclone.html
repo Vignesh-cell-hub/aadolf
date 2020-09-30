@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pdf</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 10.5px;
+	white-space: nowrap;
+	/*line-height: 3px;*/
+}
+
+.corner__left{
+	float: right;
+	background-color: #32ad32;
+	color: white;
+	height: 50%;
+}
+
+.img-holder{
+	width: 100px;
+	height: 100px;
+
+}
+.logo__brand{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.header{
+	display: flex;
+	justify-content: space-between;
+}
+.mt-45{
+	margin-top: 5px !important;
+}
+
+.mr-3{
+	margin-right: 3px;
+}
+
+.lh{
+	line-height: 5px;
+}
+
+@media (max-width: 800px){
+.lh{
+	line-height: 10px;
+}
+}
+
+
+
+.balance{
+	background-color: #D3D3D3;
+	width: 100%;
+	height: 15%; 
+	padding: 5px;
+}
+
+#bank__details{
+	width: 45%;
+}
+
+
+@media (max-width: 900px)
+{
+	#bank__details
+	{
+		width: 100%;
+	}
+}
+
+#balance{
+	width: 115%;
+}
+
+
+.table-sm{
+	white-space: nowrap !important; 
+}
+
+.paid{
+	background-color: green;
+	width: 10%;
+	text-align: center;
+	transform: skewY(-30deg);
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: #f0f0f0;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1{
+  width: 500px;
+  height: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -275px;
+  font-size: 3.2em;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 100px;
+  color: #aaa;
+}
+
+h2{
+  width: 500px;
+  height: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: 0 0 0 -225px;
+  font-size: 1.6em;
+  font-weight: 400;
+  text-align: center;
+  line-height: 100%;
+  color: #bbb;
+}
+
+/* The ribbons */
+
+.corner-ribbon{
+  width: 200px;
+  background: #e43;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+/* Custom styles */
+
+.corner-ribbon.sticky{
+  position: fixed;
+}
+
+.corner-ribbon.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* Different positions */
+
+.corner-ribbon.top-left{
+  top: 25px;
+  left: -50px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  font-size: 30px
+}
+
+
+
+
+/* Colors */
+
+.corner-ribbon.white{background: #f0f0f0; color: #555;}
+.corner-ribbon.black{background: #333;}
+.corner-ribbon.grey{background: #999;}
+.corner-ribbon.blue{background: #39d;}
+.corner-ribbon.green{background: #2c7;}
+.corner-ribbon.turquoise{background: #1b9;}
+.corner-ribbon.purple{background: #95b;}
+.corner-ribbon.red{background: #e43;}
+.corner-ribbon.orange{background: #e82;}
+.corner-ribbon.yellow{background: #ec0;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<body>
+<!-- <div class="container" style="margin-top: 100px !important"> -->
+	<div class="header">	
+		<div class="corner-ribbon top-left sticky green shadow">PAID</div>
+	</div>
+
+
+	<button class="btn dropdown-toggle corner__left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    <i class="fa fa-cog" aria-hidden="true"></i> Cutomize
+	</button>
+	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+		   <a class="dropdown-item" href="#">Action</a>
+		   <a class="dropdown-item" href="#">Another action</a>
+		   <a class="dropdown-item" href="#">Something else here</a>
+	</div>
+
+
+
+<div class="container-fluid" style="margin-top: 100px">
+	<div class="container-fluid">
+		<div class="header mt-45">
+			<div class="img-holder">
+				<img class="logo__brand" src="{{media_url}}{{organisation.organisation_logo}}">
+			</div>
+			<div class="heading-holder">
+				<div class="diesc">
+					<h3>TAX INVOICE</h3>
+					<div class="float-right">{{invoice.invoice}}</div><br><br>
+					<div class="float-right">Balance Due</div><br>
+					<div class="float-right">&#8377; 0.00</div>
+				</div>
+			</div>
+		</div><br>
+
+		<div>
+			<div class="adderss">
+				<h4>{{organisation.organisation_name}}</h4>
+				<div class="float-left">{{organisation.company_address1}}</div><br>
+				<div class="float-left">{{organisation.company_address2}}</div><br>
+				<div class="float-left">{{organisation.city}},{{organisation.state}}</div><br>
+				<div class="float-left">{{organisation.zipcode}}</div><br>
+				<div class="float-left">{{organisation.website}}</div>
+			</div>
+		</div><br>
+1234
+		<div class="mt-45" style="display: flex;justify-content: space-between;">
+			<div class="bill_to">
+				<div class="float-left">Bill to</div>
+				<br><br>
+				<div class="float-left"><a href="#">{{invoice.customer_name}}</a>
+				</div><br>
+				<div class="float-left">{{invoice.billingStreet}}</div>
+				<br>
+				<div class="float-left">{{invoice.billingCity}}</div>
+				<br>
+				<div class="float-left">{{invoice.billingState}}</div>
+				<br>
+				<div class="float-left">{{invoice.billingZipcode}}</div>
+				<br>
+				<br>
+			</div>
+			<div style="flex-basis: 20%">
+				<br>
+				<br>
+				<div class="float-left">Invoice Date:</div>
+				<div class="float-right">{{invoice.invoice_date}}</div>
+				<br>
+				<br>
+				<div class="float-left">Terms:</div>
+				<div class="float-right">{{invoice.terms}}</div>
+				<br>
+				<br>
+				<div class="float-left">Due Date:</div>
+				<div class="float-right">{{invoice.due_date}}</div><br>
+			</div>
+		</div>
+
+		<div>
+			<p>Place of Supply : {{invoice.place_of_supply}}</p>
+		</div>
+
+		<!-- table -->
+		<div class="table-responsive-sm mt-45">
+		  <table class="table table-bordered ">
+		     <thead class="thead-dark">
+			    <tr>
+			      <th scope="col" class="mr-3">#</th>
+			      <th scope="col" class="mr-3">Item&Description</th>
+			      <th scope="col" class="mr-3">HSN/SAC</th>
+			      <th scope="col" class="mr-3">Qty</th>
+			      <th scope="col" class="mr-3">Rate</th>
+			      <th scope="col" class="mr-3">CGST</th>
+			      <th scope="col" class="mr-3">SGST</th>
+			      <th scope="col" class="mr-3">Amount</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  {% for transaction in invoice_transaction %}
+			    <tr>
+			      <th>{{ forloop.counter }}</th>
+					<td> <div class="float-left">{{transaction.item_details}}</div> </td>
+			      <td> <div class="float-right">998314</div> </td>
+			      <td> <div class="float-right">{{transaction.quantity}}</div> </td>
+			      <td> <div class="float-right">{{transaction.rate}}</div> </td>
+			      <td> <div class="float-right">{{transaction.tax}}</div><br><div class="float-right">9%</div></td>
+			      <td> <div class="float-right">450.00</div><br><div class="float-right">9%</div></td>
+			      <td> <div class="float-right">{{transaction.amount}}</div> </td>
+			    </tr>
+
+			  {% endfor %}
+			  </tbody>
+		  </table>
+		</div>
+
+		<div class="row">
+			<div class="col col-sm-12 col-md-4"></div>
+			<div class="col col-sm-12 col-md-4"></div>
+			<div class="col col-sm-12 col-md-4">
+				<div class="row">
+					<div class="col col-sm-6" style="padding: 0">
+						<div class="float-right"><h6>ISub Total</h6></div>
+						<br>
+						<br>
+						<div class="float-right"><h6>CGST9(9%)</h6></div>
+						<br>
+						<br>
+						<div class="float-right"><h6>SGST(9%)</h6></div>
+						<br>
+						<br>
+						<div class="float-right"><h6>Toatal</h6></div>
+						<br>
+						<br>
+						<div class="float-right"><h6>Payment Made</h6></div>
+						<br>
+						<br>
+						<div class="balance"><h6 style="text-align: right">Balance Due</h6></div>
+					</div>
+					<div class="col col-sm-6" style="padding: 0">
+						<div class="float-right">{{invoice.sub_total}}</div>
+						<br>
+						<br>
+						<div class="float-right">{{invoice.cgst}}</div>
+						<br>
+						<br>
+						<div class="float-right">{{invoice.sgst}}</div>
+						<br>
+						<br>
+						<div class="float-right">{{invoice.total}}</div>
+						<br>
+						<br>
+						<div class="float-right" style="color: #ff726f">(-) 16,520.00</div>
+						<br>
+						<br>
+						<div class="balance" ><h6 style="text-align: right">{{invoice.total}}</h6></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" style="margin-top: 20px">
+			<div class="col col-sm-12 col-md-6"></div>
+			<div class="col col-sm-12 col-md-6">
+				<div class="row">
+					<div class="col col-sm-8">
+						<div class="float-right"><h5>Total in Words : </h5></div>
+					</div>
+					<div class="col col-sm-4">
+						<div class="float-right"><em style="white-space: normal;">Indian Rupees Sixteen Thousand Five Hundered Twenty Only</em></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" style="margin-bottom: 150px">
+			<div class="col col-sm-6">
+				<h6>Notes</h6><br>
+				<p>1. Deduct Tax at source wherever applicable-PAN AASCSAQ668F</p>
+				<p>2. To be settled within one week from date of invoice</p>
+				<p>3. Payment may also be made through New Banking to the following account</p>
+				<table class="table-sm">
+				  <thead>
+				    <tr>
+				      <td></td>
+				      <td>Bank Name</td>
+				      <td> : </td>
+				      <td>ICIC Bank</td>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th></th>
+				      <td>Account Name</td>
+				      <td> : </td>
+				      <td>Aadolf Enterprises Private Limited</td>
+				    </tr>
+				    <tr>
+				      <th></th>
+				      <td>Account No</td>
+				      <td> : </td>
+				      <td>602605056026</td>
+				    </tr>
+				    <tr>
+				      <th></th>
+				      <td>Branch</td>
+				      <td> : </td>
+				      <td>CHENNAI-T.NAGAR</td>
+				    </tr>
+				    <tr>
+				      <th></th>
+				      <td>IFSC Code</td>
+				      <td> : </td>
+				      <td>ICIC0006026</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col col-sm-6"></div>
+		</div>
+	</div>
+</div>
+<!-- </div> -->
+
+	
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</html>

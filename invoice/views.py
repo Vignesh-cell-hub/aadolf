@@ -5,6 +5,7 @@ from itemform.models import Item
 from .models import Invoice,Invoice_transaction
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
 # Create your views here.
 @login_required
@@ -49,7 +50,7 @@ def upload(request):
                        discount=discount,adjustments=adjustment,total=total,customer_notes=customernotes,terms_condition=terms,organisation=request.user.profile.organisation.organisation_name)
         user.save()
 
-        for obj in range(1,3):
+        for obj in range(1,2):
             item_details = request.POST['name' + str(obj)]
             quantity = request.POST['quantity' + str(obj)]
             rate = request.POST['rate' + str(obj)]
@@ -57,8 +58,21 @@ def upload(request):
             amount = request.POST['amount' + str(obj)]
             final = Invoice_transaction(item_details=item_details, quantity=quantity, rate=rate, tax=tax, amount=amount,invoice=user)
             final.save()
+        if 'saveaspdf' in request.POST:
+            print('saveaspdf')
+            print(request.user.profile.organisation.organisation_name)
+            context={
+                'organisation':request.user.profile.organisation,
+                'invoice':user,
+                'invoice_transaction':Invoice_transaction.objects.filter(invoice=user),
+                'media_url': settings.MEDIA_URL,
 
-        return redirect(index)
+            }
+            return render(request, "invoice/pdfclone.html", context)
+        elif 'save' in request.POST:
+            print('save')
+            return redirect(index)
+
     else:
         count = len(Invoice.objects.all())
         if count>0:
@@ -69,6 +83,20 @@ def upload(request):
         print("next",next_num)   
         context = {"alldetails":alldetails,'items':allitems,'next_number':next_num}
     return render(request, "invoice/invoice_form.html",context)
+
+
+@login_required()
+def printpdf(request,id):
+    print(id)
+    invoice=Invoice.objects.get(id=id)
+    context = {
+        'organisation': request.user.profile.organisation,
+        'invoice': invoice ,
+        'invoice_transaction': Invoice_transaction.objects.filter(invoice=invoice),
+        'media_url': settings.MEDIA_URL,
+
+    }
+    return render(request, "invoice/pdfclone.html", context)
 
 @login_required
 def getdata(request,id):

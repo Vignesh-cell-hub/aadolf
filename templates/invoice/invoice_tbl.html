@@ -514,15 +514,13 @@
                       <td style="text-align:center">
                         {{i.customer_name}}</td>
                       <td style="text-align:center">
-                        PAID</td>
-                      <td style="text-align:center">
                         {{i.due_date}}</td>
                       <td style="text-align:center">
-                        {{i.amount}}</td>
+                        {{i.total}}</td>
                       <td style="text-align:center">
                         0.00</td>
-
-
+                       <td style="text-align:center">
+                         <a class="btn" href="{% url 'printpdf' i.id %}"> <button>PRINT</button></a> </td>
 
                     </tr>
                     {% endfor %}
