@@ -262,7 +262,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <img class="img-profile rounded-circle" id="img__Trigger"
-                  src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200">
+                  src="{{media_url}}{{organisation.organisation_logo}}">
               </a>
 
             </li>
@@ -279,17 +279,16 @@
 
           <!-- Sidebar - Brand -->
           <div class="card" style="align-items: center;">
-            <img class="card-img-top" id="Profile__image" src="https://source.unsplash.com/Z5g_6TLS6Ho/200x200"
-              alt="Card image cap">
+            <img class="card-img-top" id="Profile__image" src="{{media_url}}{{organisation.organisation_logo}}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">AADOLFGROUPS <br> </h5>
+              <h5 class="card-title">{{organisation.organisation_name}}<br> </h5>
               <p class="card-text" style="margin: 0px;">User ID: 60002359514</p>
               <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
             </div>
             <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
               <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
               <div class="vl"></div>
-              <a href="{%url 'logoutuser' %}" style="color: rgb(226, 32, 32);">Sign Out</a>
+              <a data-toggle="modal" data-target="#logoutModal"  style="color: rgb(226, 32, 32);">Sign Out</a>
             </div>
           </div>
 
@@ -382,7 +381,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="{%url 'logoutuser' %}">Logout</a>
           </div>
         </div>
       </div>

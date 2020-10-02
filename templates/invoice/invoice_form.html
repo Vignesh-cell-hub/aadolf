@@ -620,7 +620,7 @@
                                         </div>
                                       </div>
 
-                                      <!--check-->
+                                      check-->
             </div>
 
             <div class="pt-7 mt-auto">
@@ -705,6 +705,7 @@
               <label for="total" class="col-lg-9 col-form-label bold">Total (₹)</label>
               <input id="total" class="col-lg-3 total dynamic_table" name="total" type="number" value="0.00">
             </div>
+            <input id="rowcount" class="d-none" type="text" name="rowcount" value="0.00" readonly>
             <input id="grandtotal" class="d-none" type="text" name="totalamount" value="0.00" readonly>
           </div>
         </div>
@@ -886,7 +887,7 @@
                                        
                                         <br>
                                       `
-        gst.innerHTML = data.gst;
+        gst.innerHTML = data.wgst;
       }
     });
   }
@@ -1005,6 +1006,9 @@
     console.log("total", total);
     document.getElementById("total").value = total;
     document.getElementById("grandtotal").value = total;
+    document.getElementById("rowcount").value = item_data.length 
+    console.log(item_data.length);
+    setTimeout(function(){ alert("Hello"); }, 3000);
   }
 </script>
 

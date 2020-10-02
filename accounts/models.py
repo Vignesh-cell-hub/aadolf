@@ -52,7 +52,7 @@ class Organisation(models.Model):
     industry = models.CharField(max_length=200, default="")
     business_location = models.CharField(max_length=200, default="")
     company_address1 = models.CharField(max_length=200, default="")
-    company_address2 = models.CharField(max_length=200, default="",null=True)
+    company_address2 = models.CharField(max_length=200, default="",blank=True)
     city = models.CharField(max_length=200, default="")
     state = models.CharField(max_length=200,choices=STATE_CHOICES,default="tamilnadu")
     zipcode=models.CharField(max_length=200,default="")
