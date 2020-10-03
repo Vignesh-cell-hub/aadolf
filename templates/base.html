@@ -19,17 +19,12 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <!-- Custom styles for this page -->
-  <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
-
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" type="text/css" />
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet">
-
+<!-- Custom styles for this page -->
+  <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css" integrity="sha512-0nkKORjFgcyxv3HbE4rzFUlENUMNqic/EzDIeYCgsKa/nwqr2B91Vu/tNAu4Q0cBuG4Xe/D1f/freEci/7GDRA==" crossorigin="anonymous" />
-
 
 </head>
 
@@ -82,9 +77,9 @@
             <a class="collapse-item" href="{%url 'customer_index' %}">Customer</a>
             <a class="collapse-item" href="{%url 'estimate_index' %}">Quotation</a>
             <a class="collapse-item" href="{%url 'sales_index' %}">Sales Order</a>
-            <!-- <a class="collapse-item" href="{%url 'delivery_index' %}">Delivery Challans</a> -->
+            <a class="collapse-item" href="{%url 'delivery_index' %}">Delivery Challans</a>
             <a class="collapse-item" href="{%url 'invoice_index' %}">Invoices</a>
-            <!-- <a class="collapse-item" href="{%url 'paymentrec_index' %}">Payments Received</a> -->
+            <a class="collapse-item" href="{%url 'paymentrec_index' %}">Payments Received</a>
           </div>
         </div>
       </li>
@@ -113,7 +108,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="{%url 'index' %}">
+        <a class="nav-link" href="report/">
           <i class="fas fa-fw fa-book"></i>
           <span>Reports</span></a>
       </li>
@@ -209,7 +204,58 @@
               </div>
             </li>
 
-            
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    ₹290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -236,13 +282,13 @@
             <img class="card-img-top" id="Profile__image" src="{{media_url}}{{organisation.organisation_logo}}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{organisation.organisation_name}}<br> </h5>
-              <p class="card-text" style="margin: 0px;">Company ID: {{organisation.Company_ID}}</p>
-              <p class="card-text"><small class="text-muted">{{organisation.website}}</small></p>
+              <p class="card-text" style="margin: 0px;">User ID: 60002359514</p>
+              <p class="card-text"><small class="text-muted">aadolfgroups@gmail.com</small></p>
             </div>
             <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 10px;">
               <a href="#" id="#MyAccount" style="margin-right: 10px;">My Account</a>
               <div class="vl"></div>
-              <a href="#" data-toggle="modal" data-target="#logoutModal"  style="color: rgb(226, 32, 32);">Sign Out</a>
+              <a data-toggle="modal" data-target="#logoutModal"  style="color: rgb(226, 32, 32);">Sign Out</a>
             </div>
           </div>
 
@@ -254,7 +300,7 @@
             <div class="row">
               <div class="col col-sm-12" style="margin-top: 30px ;">
                 <div class="py-3" style="display: flex; justify-content: space-between; align-items: center;">
-                  <h6>MY ORGANISATIONS</h6>
+                  <h6>MY ORGANISATION</h6>
                   <a class="nav-item dropdown" style="float: right;" href="{% url 'manage' %}"><i class="fa fa-cog"
                       aria-hidden="true"></i> Manage</a>
                 </div>
@@ -268,17 +314,30 @@
             <div class="row">
               <div class="col col-sm-12" style="margin-bottom: 4%;">
                 <div style="display: flex; justify-content: space-between;">
-                  <h6>{{organisation.organisation_name}}</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i
+                  <h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i
                       class="fa fa-check" aria-hidden="true"></i></a>
                 </div>
-                <h6>GSTIN : {{organisation.Tax_ID}}</h6>
+                <h6>organisation id : 123455</h6>
               </div>
             </div>
           </div>
 
           <hr style="width: 100%;">
 
-          
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col col-sm-12" style="margin-bottom: 4%;">
+                <div style="display: flex; justify-content: space-between;">
+                  <h6>AADOLF SOLUTIONS</h6> <a class="nav-item dropdown" style="float: right; color: green;" href="#"><i
+                      class="fa fa-check" aria-hidden="true"></i></a>
+                </div>
+                <h6>organisation id : 123455</h6>
+              </div>
+            </div>
+          </div>
+
+          <hr style="width: 100%;">
+
 
         </ul>
         <!-- ENd of profile side bar -->
@@ -349,6 +408,8 @@
   <script src="{% static 'vendor/datatables/jquery.dataTables.min.js'%}"></script>
   <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
 
+  <!-- Page level custom scripts -->
+  <script src="{% static 'js/demo/datatables-demo.js' %}"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -365,8 +426,7 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous"></script>
 
- <!-- Page level custom scripts -->
- <script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+
       
     <script>
       $("#img__Trigger").click(function () {

@@ -53,7 +53,7 @@ def upload(request):
         order_no=request.POST['order_no']
         invoice_date=request.POST['invoicedate']
         due_date=request.POST['due_date']
-
+        print("Row Count : ",request.POST['rowcount'])
         user = Invoice(invoice_date = invoice_date,invoice = invoice, order_no = order_no, customer_name = customer_name, due_date=due_date,billingStreet=billingStreet,billingCity=billingCity,billingState=billingState,billingZipcode=billingZipcode,
                        shippingStreet=shippingStreet,shippingCity=shippingCity,shippingState=shippingState,shippingZipcode=shippingZipcode,place_of_supply=placeofsupply,sales_person=salesperson,sub_total=subtotal,cgst=cgst,sgst=sgst,igst=igst,
                        discount=discount,adjustments=adjustment,total=total,customer_notes=customernotes,terms_condition=terms,organisation=request.user.profile.organisation.organisation_name)
@@ -114,6 +114,8 @@ def getdata(request,id):
     current_user_data = Customer.objects.get(id=id)
     # current_user_data = current_user_datas[0]
     gst_treatment = current_user_data.gst_treatment
+    gst_id = current_user_data.gst_id
+
     
     billing_address = current_user_data.billing_address 
     billing_city = current_user_data.billing_city
@@ -128,5 +130,5 @@ def getdata(request,id):
     datas = {}
     datas['billing_address'] = billing_address+'<br>'+billing_city+"<br>"+billing_state+"<br>"+billing_zipcode
     datas['shipping_address'] = shipping_address+"<br>"+shipping_city+"<br>"+shipping_state+"<br>"+shipping_zipcode
-    datas['wgst'] = gst_treatment
+    datas['wgst'] = gst_treatment+"<br>"+gst_id
     return JsonResponse({'data':datas,'current_user_data':serializers.serialize('json', [current_user_data,])})

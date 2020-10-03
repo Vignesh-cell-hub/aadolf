@@ -41,6 +41,16 @@
     /* font-size: 17px; */
   }
 
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+
   /* Style the tab content */
   .tabcontent {
     display: none;
@@ -107,8 +117,18 @@
     display: inline-block;
   }
 
-  
-  
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 1px;
+    cursor: pointer;
+    float: right;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
 
   .container {
     border-radius: 5px;
@@ -318,9 +338,9 @@
                   <label for="taxpre">GST ID</label>
                 </div>
                 <div class="col-lg-4">
-                  <input type="text" class="form-control" id="gstid" name="gstid">
+                  <input type="text" class="form-control col-lg-8" id="gstid" name="gstid">
                 </div>
-</div>
+
 
               <div class="row">
                 <div class="col-lg-3">
@@ -675,7 +695,7 @@
               </div>
             </div>
           </div>
- 
+
           <br><br>
           <!-- save and cancel -->
           <div class="row" style="margin-top: 40px;">

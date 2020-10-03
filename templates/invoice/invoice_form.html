@@ -31,6 +31,11 @@
 </head>
 
 <style>
+  /* .required {
+    color: red;
+  } */
+
+
   .font-xs {
     font-size: 12.5px;
   }
@@ -281,7 +286,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <form class="inv-frm" method="POST">
+    <form class="inv-frm" method="POST" >
       {% csrf_token %}
       <div class="inv-frm-bdy">
         <div class="form-group row required">
@@ -325,17 +330,110 @@
             </div>
           </div>
         </div>
-
         <div class="row form-group">
           <div class="col-lg-5 offset-lg-2">
             <div class="info-item txn-salestax">
               <div id="ember871" class="popover-container ember-view"><span
                   class="text-muted text-uppercase font-small">GST Treatment</span>
+                <div class="btn-group">
+                  <buttton id="ember872"
+                    class="btn btn-link text-uppercase font-xxs pl-0 ember-view dropdown-toggle-split"
+                    data-toggle="dropdown">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                    </svg>
+                  </buttton>
+                  <div class="dropdown-menu" style="border: 0px">
+                    <div class="modal-content" style="z-index: 100">
+                      <div class="modal-header" style="padding: .25rem .25rem">
+                        <p class="modal-title" id="exampleModalLabel" style="margin-top: 4%; margin-left: 5%">GST
+                          Treatment</p>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true" style="margin-right: 10;">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="dropdown1">
+                          <button class="dropbtn1" id="Drop-search" style="width: 15rem">Unregistered Business</button>
+                          <div id="myDropdown1" class="dropdown-content1">
+                            <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction1()">
+                            <div style="max-height: 200px; border-radius: 10px;cursor: pointer; width: 100%;">
 
+                              <a class="drop__item"><span>Unregistered Business</span>
+                                <hr></a>
+
+                              <a class="drop__item"><span style="word-wrap:break-word">About</span><br><span
+                                  class="search__span">Use these settings for all future transactions of this
+                                  customer</span>
+                                <hr></a>
+
+                              <a class="drop__item"><span style="word-wrap:break-word">Base</span><br><span
+                                  class="search__span">Use these settings for all future transactions of this
+                                  customer</span>
+                                <hr></a>
+
+                              <a class="drop__item"><span style="word-wrap:break-word">Blog</span><br><span
+                                  class="search__span">Use these settings for all future transactions of this
+                                  customer</span>
+                                <hr></a>
+
+                              <a class="drop__item"><span style="word-wrap:break-word">Xavier</span><br><span
+                                  class="search__span">Use these settings for all future transactions of this
+                                  customer</span>
+                                <hr></a>
+
+                              <a class="drop__item"><span style="word-wrap:break-word">Zoo</span><br><span
+                                  class="search__span">Use these settings for all future transactions of this
+                                  customer</span>
+                                <hr></a>
+
+                              <a class="drop__item"><span style="word-wrap:break-word">Fillup</span><br><span
+                                  class="search__span">Use these settings for all future transactions of this
+                                  customer</span>
+                                <hr></a>
+
+                              <a class="drop__item"><span style="word-wrap:break-word">Sandy</span><br><span
+                                  class="search__span">Use these settings for all future transactions of this
+                                  customer</span>
+                                <hr></a>
+
+                              <a class="drop__item"><span
+                                  style="word-wrap:break-word">Sandysadsadsdsdddsadsadsadsadsadsadsadsadsadsadsasd</span><br><span
+                                  class="search__span">Use these settings for all future transactions of this
+                                  customer</span>
+                                <hr></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group" id="Gst-shower" style="margin-top: 5%; color: red ; display: none;">
+                          <label for="GSTin">GSTIN*</label>
+                          <input id="GSTin" type="text" class="form-control" onkeyup="buttoDisable()">
+                        </div>
+                        <div class="form-group form-check">
+                          <label class="form-check-label" for="exampleCheck1" id="makeit" style="margin-top: 5%">Make it
+                            permanent?</label>
+                          <br>
+                          <input type="checkbox" class="form-check-input" for="ckeck-conform"
+                            style="background-color: transparent;">
+                          <label class="form-check-label" for="exampleCheck1" id="ckeck-conform">Use these settings for
+                            all future transactions of this customer</label>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="updateAddress" class="btn btn-primary"
+                          data-dismiss="modal">Update</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <br>
                 <input type="text" name="" readonly style="border: none;display: none;" id="dropdownSelectedName">
                 <div id="gst" class="mb-3"></div>
-
+                <div id="ember873" class="pop-over-div d-none popover bs-popover-bottom ember-view">
+                </div>
               </div>
             </div>
           </div>
@@ -400,11 +498,15 @@
           </div>
         </div>
 
-
         <div class="form-group row">
-          <label class="col-form-label col-sm-2 required">Invoice Date*</label>
-          <div class="col-lg-3">
+          <label class="col-form-label col-lg-2 required">Invoice Date*</label>
+          <div class="col-lg-4">
             <input placeholder="" id="" class="form-control" name="invoicedate" type="date" />
+
+            <div style="padding-top: 2px" class="font-xs">
+              To create transaction dated before 01/07/2017,
+              <a href="#">click here</a>
+            </div>
           </div>
 
           <div class="col-lg-1">
@@ -412,91 +514,101 @@
           </div>
 
           <div class="col-lg-2">
-            <select class="form-control" id="paymentterms" name="paymentterms">
-              <option value="rec">Due on receipt</option>
-              <option value="fif">NET 15</option>
-              <option value="thi">NET 30</option>
-              <option value="for">NET 45</option>
-              <option value="six">NET 60</option>
-              <option value="mon">Due end of the month</option>
-              <option value="next">Due end of the next month</option>
-            </select></div>
-
+            <div id="" class="">
+              <div class="ac-box">
+                <span class="ac-selected form-control" tabindex="0">
+                  <span data-integrity-label="">Due on Receipt
+                    <i class="zf-ac-toggler">
+                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                        viewBox="0 0 512 512" xml:space="preserve">
+                        <path
+                          d="M493.9 227.8c-21.4-21-56.1-21.1-77.6-.3L256 382.9 95.7 227.6c-21.5-20.8-56.3-20.7-77.6.3-10.6 10.4-15.9 24-15.9 37.7 0 13.8 5.4 27.5 16.2 38l199 192.9c21.4 20.7 55.9 20.7 77.3 0l199-192.9c21.4-20.9 21.6-54.8.2-75.8z">
+                        </path>
+                      </svg> </i></span>
+                </span>
+              </div>
+            </div>
+          </div>
           <div class="col-lg-1">
             <p class="form-control-plaintext">Due Date</p>
           </div>
-
-          <div class="col-lg-3 ">
-            <input placeholder="dd/MM/yyyy" id="due_date" class="form-control" name="due_date" type="date" />
+          <div class="col-lg-2 badge-editable">
+            <input placeholder="dd/MM/yyyy" id="ember2030" class="form-control" name="due_date" type="date" />
             <div class="text-danger d-none" style="clear: both">
               Choose a due date on or after the invoice date.
             </div>
           </div>
         </div>
 
+        <hr />
 
-      </div>
-      <br>
-      <hr />
+        <div class="form-group row">
+          <label for="item-units" class="col-sm-2 col-form-label">Sales person</label>
 
-      <div class="form-group row">
-        <label for="item-units" class="col-sm-2 col-form-label">Sales person</label>
-
-        <div class="input-group col-sm-3 mb-3">
-          <select class="custom-select choose" id="units" name="salesperson">
-            <option value="Select salesperson..">Select salesperson..</option>
-            <option value="K Rajkumar">K Rajkumar</option>
-            <option value="K Raju">K Raju</option>
-            <option value="Peter">Peter</option>
-          </select>
+          <div class="input-group col-sm-3 mb-3">
+            <select class="custom-select choose" id="units" name="salesperson">
+              <option value="null"></option>
+              <option value="box">box</option>
+              <option value="cm">cm</option>
+              <option value="dz">dz</option>
+              <option value="ft">ft</option>
+              <option value="g">g</option>
+              <option value="in">in</option>
+              <option value="kg">kg</option>
+              <option value="km">km</option>
+              <option value="lb">lb</option>
+              <option value="mg">mg</option>
+              <option value="m">m</option>
+              <option value="pcs">pcs</option>
+              <option value="1">1</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <hr />
-      <br />
-      <br />
-      <div>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">Item Details</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Rate</th>
-              <th scope="col">
-                Tax
-                <svg width="2rem" height="1em" viewBox="0 0 16 16" class="tx-imp bi bi-exclamation-circle-fill ml-2"
-                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                </svg>
-              </th>
-              <th scope="col">Amount</th>
-            </tr>
-          </thead>
-          <tbody id="itemtable">
-            <tr>
+        <hr />
+        <br />
+        <br />
+        <div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Item Details</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Rate</th>
+                <th scope="col">
+                  Tax
+                  <svg width="2rem" height="1em" viewBox="0 0 16 16" class="tx-imp bi bi-exclamation-circle-fill ml-2"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                  </svg>
+                </th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="itemtable">
+              <tr>
 
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column">
-          <div id="" class="btn-group line-seperator align-self-start add-line-item-btn dropdown">
-            <div class="dropdown mb-4">
-              <button class="btn btn-primary dropdown-toggle" type="button" style="width: 130px;"
-                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Add Item
-              </button>
-              <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                {% for item in items %}
-                <div class="dropdown-item"
-                  onclick="addItemRow('{{item.id}}','{{item.name}}','{{item.sellamount}}','{{item.intrastate}}')">
-                  {{item.name}}</div>
-                {% endfor %}
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column">
+            <div id="" class="btn-group line-seperator align-self-start add-line-item-btn dropdown">
+              <div class="dropdown mb-4">
+                <button class="btn btn-primary dropdown-toggle" type="button" style="width: 130px;"
+                  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Add Item
+                </button>
+                <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+
+                  <div class="dropdown-item" onclick="addItemRow('1','20NB Flanged End','980','GST18')">
+                    20NB Flanged End</div>
+
+                </div>
               </div>
-            </div>
-            <!--check
+              <!--check
                                     <div class="dropdown mb-4">
                                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                           Dropdown
@@ -508,144 +620,144 @@
                                         </div>
                                       </div>
 
-                                      <!--check-->
-          </div>
+                                      check-->
+            </div>
 
-          <div class="pt-7 mt-auto">
-            <div class="mb-2">Customer Notes:</div>
-            <div>
-              <textarea name="customernotes" id="" cols="50" rows="2" style="
+            <div class="pt-7 mt-auto">
+              <div class="mb-2">Customer Notes:</div>
+              <div>
+                <textarea name="customernotes" id="" cols="50" rows="2" style="
                           margin-top: 0px;
                           margin-bottom: 0px;
                           height: 100px;
                         "></textarea>
-            </div>
-            <span class="span-txt">Will be displayed on the invoice</span>
-          </div>
-        </div>
-
-        <div class="col-lg-6 total-frm" style="background-color: #eee; border-radius: 10px">
-          <div class="form-group row">
-            <label for="sub-total" class="col-lg-9 col-form-label">Sub Total</label>
-            <input id="subtotal" class="col-lg-3 total-amt dynamic_table" type="number" name="subtotal" value="0.00"
-              readonly>
-          </div>
-
-          <div class="form-group row only__TN">
-            <label for="CGST" class="col-lg-9 col-form-label">CGST9[9%]</label>
-            <input id="cgst" class="col-lg-3 total-amt dynamic_table" type="number" name="cgst" value="0.00" readonly>
-          </div>
-
-
-          <div class="form-group row only__TN">
-            <label for="SGST" class="col-lg-9 col-form-label">SGST9[9%]</label>
-            <input id="sgst" class="col-lg-3 total-amt dynamic_table" type="number" name="sgst" value="0.00" readonly>
-          </div>
-
-
-          <div class="form-group row not__TN">
-            <label for="IGST" class="col-lg-9 col-form-label">IGST18[18%]</label>
-            <input class="col-lg-3 total-amt dynamic_table" id="igst" type="number" name="igst" value="0.00" readonly>
-          </div>
-
-
-          <div class="form-group row">
-            <label class="col-form-label col-lg-4">Discount</label>
-            <div class="input-group col-lg-4">
-              <input id="discount" value="0.00" type="text" onchange="getdiscount()" class="form-control"
-                aria-label="Rupees amount">
-              <div class="input-group-append">
-                <span class="input-group-text">₹</span>
               </div>
+              <span class="span-txt">Will be displayed on the invoice</span>
             </div>
-            <input id="showdiscount" class="col-lg-4 total-amt dynamic_table" name="showdiscount" type="text"
-              value="-0.00" readonly>
           </div>
 
-          <div class="form-group row">
-            <div class="col-lg-4 col-sm-4 col-4">
-              <input type="text" class="form-control" placeholder="Adjustment" readonly>
+          <div class="col-lg-6 total-frm" style="background-color: #eee; border-radius: 10px">
+            <div class="form-group row">
+              <label for="sub-total" class="col-lg-9 col-form-label">Sub Total</label>
+              <input id="subtotal" class="col-lg-3 total-amt dynamic_table" type="number" name="subtotal" value="0.00"
+                readonly>
             </div>
 
-            <div class="input-group col-lg-4">
-              <input id="adjustment" type="text" value="0.00" onchange="adjustment_calc()" class="form-control"
-                aria-label="Rupees amount">
-              <div class="adjustment-exp">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle mt-2 ml-1"
-                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                  <path
-                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-                </svg>
+            <div class="form-group row only__TN">
+              <label for="CGST" class="col-lg-9 col-form-label">CGST9[9%]</label>
+              <input id="cgst" class="col-lg-3 total-amt dynamic_table" type="number" name="cgst" value="0.00" readonly>
+            </div>
+
+
+            <div class="form-group row only__TN">
+              <label for="SGST" class="col-lg-9 col-form-label">SGST9[9%]</label>
+              <input id="sgst" class="col-lg-3 total-amt dynamic_table" type="number" name="sgst" value="0.00" readonly>
+            </div>
+
+
+            <div class="form-group row not__TN">
+              <label for="IGST" class="col-lg-9 col-form-label">IGST18[18%]</label>
+              <input class="col-lg-3 total-amt dynamic_table" id="igst" type="number" name="igst" value="0.00" readonly>
+            </div>
+
+
+            <div class="form-group row">
+              <label class="col-form-label col-lg-4">Discount</label>
+              <div class="input-group col-lg-4">
+                <input id="discount" value="0.00" type="text" onchange="getdiscount()" class="form-control"
+                  aria-label="Rupees amount">
+                <div class="input-group-append">
+                  <span class="input-group-text">₹</span>
+                </div>
               </div>
+              <input id="showdiscount" class="col-lg-4 total-amt dynamic_table" name="showdiscount" type="text"
+                value="-0.00" readonly>
             </div>
-            <input id="showadjustment" class="col-lg-4 total-amt dynamic_table" name="showadjustment" type="text"
-              value="0.00" readonly>
-          </div>
 
-          <!-- <div class="form-group row">
+            <div class="form-group row">
+              <div class="col-lg-4 col-sm-4 col-4">
+                <input type="text" class="form-control" placeholder="Adjustment" readonly>
+              </div>
+
+              <div class="input-group col-lg-4">
+                <input id="adjustment" type="text" value="0.00" onchange="adjustment_calc()" class="form-control"
+                  aria-label="Rupees amount">
+                <div class="adjustment-exp">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle mt-2 ml-1"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path
+                      d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                  </svg>
+                </div>
+              </div>
+              <input id="showadjustment" class="col-lg-4 total-amt dynamic_table" name="showadjustment" type="text"
+                value="0.00" readonly>
+            </div>
+
+            <!-- <div class="form-group row">
                                     <label for="sub-total" class="col-lg-9 col-form-label">Round Off</label>
                                     <div class="col-lg-3 total-amt">0.00</div>
                                 </div> -->
 
-          <div class="form-group row ">
-            <label for="total" class="col-lg-9 col-form-label bold">Total (₹)</label>
-            <input id="total" class="col-lg-3 total dynamic_table" name="total" type="number" value="0.00">
+            <div class="form-group row ">
+              <label for="total" class="col-lg-9 col-form-label bold">Total (₹)</label>
+              <input id="total" class="col-lg-3 total dynamic_table" name="total" type="number" value="0.00">
+            </div>
+            <input id="rowcount" class="d-none" type="text" name="rowcount" value="0.00" readonly>
+            <input id="grandtotal" class="d-none" type="text" name="totalamount" value="0.00" readonly>
           </div>
-          <input id="grandtotal" class="d-none" type="text" name="totalamount" value="0.00" readonly>
         </div>
-      </div>
 
-      <hr>
-      <div class="fill-container grey-btm-bg">
-        <div class="row ">
-          <div class="col-lg-12 txn-line-seperator">
-            <div class="mb-2">Terms &amp; Conditions</div>
-            <div>
-              <textarea name="terms" id="termsbx" class="form-control" cols="20" rows="4"
-                placeholder="Enter the terms and conditions of your business to be displayed in your transaction"></textarea>
+        <hr>
+        <div class="fill-container grey-btm-bg">
+          <div class="row ">
+            <div class="col-lg-12 txn-line-seperator">
+              <div class="mb-2">Terms &amp; Conditions</div>
+              <div>
+                <textarea name="terms" id="termsbx" class="form-control" cols="20" rows="4"
+                  placeholder="Enter the terms and conditions of your business to be displayed in your transaction"></textarea>
+              </div>
+
             </div>
 
-          </div>
+            <div class="col-lg-4" style="display: none;">
+              <div class="form-group">
 
-          <div class="col-lg-4" style="display: none;">
-            <div class="form-group">
-
-              <div class="form-control-plaintext">
-                <span class="font-xs">Attach File(s) to Invoice</span>
-              </div>
-              <div class="input-group mb-3">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile02">
-                  <label class="custom-file-label" for="inputGroupFile02"
-                    aria-describedby="inputGroupFileAddon02">Choose file</label>
+                <div class="form-control-plaintext">
+                  <span class="font-xs">Attach File(s) to Invoice</span>
                 </div>
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                    <label class="custom-file-label" for="inputGroupFile02"
+                      aria-describedby="inputGroupFileAddon02">Choose file</label>
+                  </div>
+                </div>
+
               </div>
-
             </div>
-          </div>
 
+          </div>
+        </div>
+        <hr>
+        <br><br>
+        <div class="row padding-20">
+          <div>
+            <button class="btn btn-primary btn-lg" name="save" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+              as Draft</button>
+          </div>
+          <div class="padding-left-20">
+             <button class="btn btn-primary btn-lg" name="saveaspdf" type="submit"><i class="fa fa-print" aria-hidden="true"></i> Save and Print</button>
+          </div>
+          <div class="padding-left-20">
+            <button class="btn btn-dark btn-lg" type="reset">cancel</button>
+          </div>
         </div>
       </div>
-      <hr>
-      <br><br>
-      <div class="row padding-20">
-        <div>
-          <button class="btn btn-primary btn-lg" name="save" type="submit"><i class="fa fa-floppy-o"
-              aria-hidden="true"></i> Save
-            as Draft</button>
-        </div>
-        <div class="padding-left-20">
-          <button class="btn btn-primary btn-lg" name="saveaspdf" type="submit"><i class="fa fa-print"
-              aria-hidden="true"></i> Save and Print</button>
-        </div>
-        <div class="padding-left-20">
-          <a href="{% url 'invoice_index'%}"> <button class="btn btn-dark btn-lg" type="button">Cancel</button></a>
-        </div>
-      </div>
+    </form>
   </div>
-  </form>
-</div>
 </div>
 <!-- </div> -->
 
@@ -719,7 +831,7 @@
   $("#Invoive11").click(() => {
     Currentyear = new Date().getFullYear() + "";
     CYLength = Currentyear.length - 1;
-    inputCurrentYear = "INV-" + Currentyear[CYLength - 1] + Currentyear[CYLength] + "/" + (Number(Currentyear[
+    inputCurrentYear = "EST-" + Currentyear[CYLength - 1] + Currentyear[CYLength] + "/" + (Number(Currentyear[
       CYLength - 1] + Currentyear[CYLength]) + 1)
     $("#Prefix1").val(inputCurrentYear)
   })
@@ -775,7 +887,7 @@
                                        
                                         <br>
                                       `
-        gst.innerHTML = data.gst;
+        gst.innerHTML = data.wgst;
       }
     });
   }
@@ -894,6 +1006,9 @@
     console.log("total", total);
     document.getElementById("total").value = total;
     document.getElementById("grandtotal").value = total;
+    document.getElementById("rowcount").value = item_data.length 
+    console.log(item_data.length);
+    setTimeout(function(){ alert("Hello"); }, 3000);
   }
 </script>
 
@@ -921,9 +1036,10 @@
 
 
 
+
 <script type="text/javascript">
   /* When the user clicks on the button,
-            toggle between hiding and showing the dropdown content */
+        toggle between hiding and showing the dropdown content */
   var drop_search = document.getElementById("Drop-search");
   drop_search.addEventListener("click", () => {
     document.getElementById("myDropdown1").classList.toggle("show1");
@@ -943,9 +1059,11 @@
       this_content = this.textContent.split(this.firstElementChild.textContent);
 
       document.getElementById("dropdownSelectedName").style.display = "block";
-
-      $("#dropdownSelectedName").val(this.firstElementChild.textContent);
-
+      if ($("#GSTin").val() == "") {
+        $("#dropdownSelectedName").val("");
+      } else {
+        $("#dropdownSelectedName").val(this.firstElementChild.textContent);
+      }
       var Gst_shower = document.getElementById("Gst-shower");
       if (drop_search.textContent == "Unregistered Business") {
         drop_search.textContent = "Unregistered Business";
@@ -957,11 +1075,10 @@
     })
   }
 
-
   $(document).ready(function () {
     if ($("#GSTin").val() == "") {
       document.getElementById("updateAddress").disabled = true;
-      Gst_shower.style.display = "none";
+      $("#dropdownSelectedName").val("")
     } else {
       document.getElementById("updateAddress").disabled = false;
     }
@@ -993,7 +1110,6 @@
     }
   }
 </script>
-
 
 <script type="text/javascript">
   $(".modal-body").on("click", ".dropdown1", function (event) {
