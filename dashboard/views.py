@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def index(request):
 <<<<<<< HEAD
+<<<<<<< HEAD
     organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
 
     context={
@@ -13,6 +14,9 @@ def index(request):
         }
     return render(request,"index.html", context)
   
+=======
+    return render(request,"index.html")
+>>>>>>> parent of 740ccec... ✔ Invoice bug fix
 =======
     return render(request,"index.html")
 >>>>>>> parent of 740ccec... ✔ Invoice bug fix
