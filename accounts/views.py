@@ -66,7 +66,7 @@ def manage(request):
         organisation.Tax_ID=Tax_ID
 
         organisation.save()
- 
+
         return redirect('manage')
 
     else:

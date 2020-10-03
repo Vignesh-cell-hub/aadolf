@@ -317,24 +317,6 @@ a:active {
 
     <div class="row">
       <div class="col-20">
-        <label for="web">Designation</label>
-      </div>
-      <div class="col-20">
-        <input type="text" id="web" name="website" value='{{customer.designation}}'>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-20">
-        <label for="web">Department</label>
-      </div>
-      <div class="col-20">
-        <input type="text" id="web" name="website" value='{{customer.dept}}'>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-20">
         <label for="web">Website</label>
       </div>
       <div class="col-20">
@@ -348,8 +330,8 @@ a:active {
   <i class="tablinks" onclick="openSwitch(event, 'Other Details')">Other Details</i>
   <i class="tablinks" onclick="openSwitch(event, 'Address')">Address</i>
   <i class="tablinks" onclick="openSwitch(event, 'Contact persons')">Contact Persons</i>
-  <!-- <i class="tablinks" onclick="openSwitch(event, 'Custom fields')">Custom Fields</i>
-  <i class="tablinks" onclick="openSwitch(event, 'Reporting Tags')">Reporting Tags</i> -->
+  <i class="tablinks" onclick="openSwitch(event, 'Custom fields')">Custom Fields</i>
+  <i class="tablinks" onclick="openSwitch(event, 'Reporting Tags')">Reporting Tags</i>
   <i class="tablinks" onclick="openSwitch(event, 'Remarks')">Remarks</i>
  </div>
 
@@ -443,14 +425,14 @@ a:active {
         </select>
       </div>
   </div>
-  <!-- <div class="row">
+  <div class="row">
       <div class="col-25">
         <label for="openbal">Opening Balance</label>
       </div>
       <div class="col-25">
         <input type="text" id="openbal" name="openingbalance" value="{{customer.opening_balance}}">
       </div>
-  </div> -->
+  </div>
   <div class="row">
       <div class="col-25">
         <label for="paymentterms">Payment Terms</label>
@@ -467,7 +449,7 @@ a:active {
 	  </select>
      </div>
   </div>
-  <!-- <div class="row">
+  <div class="row">
       <div class="col-25">
         <label for="portal">Enable Portal?</label>
       </div>
@@ -505,8 +487,7 @@ a:active {
         <input type="text" id="twitter" name="twitter" value='{{customer.twitter}}'>
       </div>
   </div>
-  <p>Customer Owner: Assign a user as the Customer owner to provide access only to the data of this customer <a href=""> Learn More</a></p> -->
-
+  <p>Customer Owner: Assign a user as the Customer owner to provide access only to the data of this customer <a href=""> Learn More</a></p>
 </div>
 
 <div id="Address" class="tabcontent">
@@ -713,14 +694,14 @@ View and edit the address format of your transactions under Settings > Preferenc
 </table>
 </div>
 
-<!-- <div id="Custom fields" class="tabcontent">
+<div id="Custom fields" class="tabcontent">
  <center><p>Start adding custom fields for your contacts by going to Settings  Preferences  Customers and Vendors. You can add as many as Ten extra fields, as well as refine the address format of your customers from there.</p></center>
-</div> -->
+</div>
 
-<!-- <div id="Reporting Tags" class="tabcontent">
+<div id="Reporting Tags" class="tabcontent">
  <center><p>You've not created any Reporting Tags.
 Start creating reporting tags by going to More Settings  Reporting Tags</p></center>
-</div> -->
+</div>
 
 <div id="Remarks" class="tabcontent">
  <div class="row">
