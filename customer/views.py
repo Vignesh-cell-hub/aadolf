@@ -1,147 +1,163 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Customer
 from django.contrib.auth.decorators import login_required
-
+from django.conf import settings
+from accounts.models import Organisation
 
 # from django.http import HttpResponse
 # Create your views here.
 @login_required
 def index(request):
     print(request.user)
-    alldetails = Customer.objects.filter(organisation=request.user.profile.organisation.organisation_name)
-    context = {"alldetails": alldetails}
-    return render(request, 'customer/customer_tbl.html', context)
+    alldetails = Customer.objects.filter(
+        organisation=request.user.profile.organisation.organisation_name
+    )
+    organisation = Organisation.objects.filter(
+        organisation_name=request.user.profile.organisation.organisation_name
+    )
+
+    context = {
+        "alldetails": alldetails,
+        "organisation": organisation[0],
+        "media_url": settings.MEDIA_URL,
+    }
+    return render(request, "customer/customer_tbl.html", context)
+
 
 @login_required
 def upload(request):
-    if request.method == 'POST':
-        print('hi')
-        customer_type = request.POST['type']
-        primarycontact = request.POST['primarycontact']
-        first_name = request.POST['firstname']
-        last_name = request.POST['lastname']
-        company_name = request.POST['companyname']
-        display_name = request.POST['displayname']
-        email = request.POST['customeremail']
-        work_phone_no = request.POST['Workphone']
-        mobile_phone_no = request.POST['mobile']
-        designation = request.POST['designation']
-        dept = request.POST['dept']
-        website = request.POST['website']
- 
-        gst_treatment = request.POST['gsttreatment']
-        gst_id = request.POST['gstid']
-        place_of_supply = request.POST['place of supply']
-        tax_prefrence = request.POST['taxtype']
-        currency = request.POST['currency']
-        payment_terms = request.POST['paymentterms']
-       
+    organisation=Organisation.objects.filter(organisation_name=request.user.profile.organisation.organisation_name)
 
-        billing_attention = request.POST['billattention']
-        billing_country = request.POST['billCountry']
-        billing_address = request.POST['billaddress']
-        billing_city = request.POST['billcity']
-        billing_state = request.POST['billstate']
-        billing_zipcode = request.POST['billzipc']
-        billing_phone = request.POST['billphone']
-        billing_fax = request.POST['billfax']
+    context={
+            'organisation': organisation[0],
+            'media_url': settings.MEDIA_URL,
+        }
 
-        shipping_attention = request.POST['attention']
-        shipping_country = request.POST['Country']
-        shipping_address = request.POST['address']
-        shipping_city = request.POST['city']
-        shipping_state = request.POST['state']
-        shipping_zipcode = request.POST['zipc']
-        shipping_phone = request.POST['phone']
-        shipping_fax = request.POST['fax']
+    if request.method == "POST":
+        print("hi")
+        customer_type = request.POST["type"]
+        primarycontact = request.POST["primarycontact"]
+        first_name = request.POST["firstname"]
+        last_name = request.POST["lastname"]
+        company_name = request.POST["companyname"]
+        display_name = request.POST["displayname"]
+        email = request.POST["customeremail"]
+        work_phone_no = request.POST["Workphone"]
+        mobile_phone_no = request.POST["mobile"]
+        designation = request.POST["designation"]
+        dept = request.POST["dept"]
+        website = request.POST["website"]
 
-        user = Customer(customer_type=customer_type,
-                        primarycontact=primarycontact,
-                        first_name=first_name,
-                        last_name=last_name,
-                        company_name=company_name,
-                        display_name=display_name,
-                        email=email,
-                        work_phone_no=work_phone_no,
-                        mobile_phone_no=mobile_phone_no,
-                        designation=designation,
-                        dept=dept,
-                        website=website,
+        gst_treatment = request.POST["gsttreatment"]
+        gst_id = request.POST["gstid"]
+        place_of_supply = request.POST["place of supply"]
+        tax_prefrence = request.POST["taxtype"]
+        currency = request.POST["currency"]
+        payment_terms = request.POST["paymentterms"]
 
-                        gst_treatment=gst_treatment,
-                        gst_id=gst_id,
-                        place_of_supply=place_of_supply,
-                        tax_prefrence=tax_prefrence,
-                        currency=currency,
-                        payment_terms=payment_terms,
-                        
-                        billing_attention=billing_attention,
-                        billing_country=billing_country,
-                        billing_address=billing_address,
-                        billing_city=billing_city,
-                        billing_state=billing_state,
-                        billing_zipcode=billing_zipcode,
-                        billing_phone=billing_phone,
-                        billing_fax=billing_fax,
+        billing_attention = request.POST["billattention"]
+        billing_country = request.POST["billCountry"]
+        billing_address = request.POST["billaddress"]
+        billing_city = request.POST["billcity"]
+        billing_state = request.POST["billstate"]
+        billing_zipcode = request.POST["billzipc"]
+        billing_phone = request.POST["billphone"]
+        billing_fax = request.POST["billfax"]
 
-                        shipping_attention=shipping_attention,
-                        shipping_country=shipping_country,
-                        shipping_address=shipping_address,
-                        shipping_city=shipping_city,
-                        shipping_state=shipping_state,
-                        shipping_zipcode=shipping_zipcode,
-                        shipping_phone=shipping_phone,
-                        shipping_fax=shipping_fax,
-                        organisation=request.user.profile.organisation.organisation_name,
-                        )
+        shipping_attention = request.POST["attention"]
+        shipping_country = request.POST["Country"]
+        shipping_address = request.POST["address"]
+        shipping_city = request.POST["city"]
+        shipping_state = request.POST["state"]
+        shipping_zipcode = request.POST["zipc"]
+        shipping_phone = request.POST["phone"]
+        shipping_fax = request.POST["fax"]
+
+        user = Customer(
+            customer_type=customer_type,
+            primarycontact=primarycontact,
+            first_name=first_name,
+            last_name=last_name,
+            company_name=company_name,
+            display_name=display_name,
+            email=email,
+            work_phone_no=work_phone_no,
+            mobile_phone_no=mobile_phone_no,
+            designation=designation,
+            dept=dept,
+            website=website,
+            gst_treatment=gst_treatment,
+            gst_id=gst_id,
+            place_of_supply=place_of_supply,
+            tax_prefrence=tax_prefrence,
+            currency=currency,
+            payment_terms=payment_terms,
+            billing_attention=billing_attention,
+            billing_country=billing_country,
+            billing_address=billing_address,
+            billing_city=billing_city,
+            billing_state=billing_state,
+            billing_zipcode=billing_zipcode,
+            billing_phone=billing_phone,
+            billing_fax=billing_fax,
+            shipping_attention=shipping_attention,
+            shipping_country=shipping_country,
+            shipping_address=shipping_address,
+            shipping_city=shipping_city,
+            shipping_state=shipping_state,
+            shipping_zipcode=shipping_zipcode,
+            shipping_phone=shipping_phone,
+            shipping_fax=shipping_fax,
+            organisation=request.user.profile.organisation.organisation_name,
+        )
         user.save()
         return redirect(index)
     else:
-        print('get request')
+        print("get request")
 
-    return render(request, 'customer/customer_form.html')
+    return render(request, "customer/customer_form.html", context)
+
 
 @login_required
 def editcustomer(request, id):
-    if request.method == 'POST':
-        customer_type = request.POST['type']
-        primarycontact = request.POST['primarycontact']
-        first_name = request.POST['firstname']
-        last_name = request.POST['lastname']
-        company_name = request.POST['companyname']
+    if request.method == "POST":
+        customer_type = request.POST["type"]
+        primarycontact = request.POST["primarycontact"]
+        first_name = request.POST["firstname"]
+        last_name = request.POST["lastname"]
+        company_name = request.POST["companyname"]
         display_name = primarycontact + " " + first_name + " " + last_name
-        email = request.POST['customeremail']
-        work_phone_no = request.POST['Workphone']
-        mobile_phone_no = request.POST['mobile']
-        designation = request.POST['designation']
-        dept = request.POST['dept']
-        website = request.POST['website']
+        email = request.POST["customeremail"]
+        work_phone_no = request.POST["Workphone"]
+        mobile_phone_no = request.POST["mobile"]
+        designation = request.POST["designation"]
+        dept = request.POST["dept"]
+        website = request.POST["website"]
 
-        gst_treatment = request.POST['gsttreatment']
-        gst_id=request.POST['gstid']
-        place_of_supply = request.POST['place of supply']
-        tax_prefrence = request.POST['taxtype']
-        currency = request.POST['currency']
-        payment_terms = request.POST['paymentterms']
-        
+        gst_treatment = request.POST["gsttreatment"]
+        gst_id = request.POST["gstid"]
+        place_of_supply = request.POST["place of supply"]
+        tax_prefrence = request.POST["taxtype"]
+        currency = request.POST["currency"]
+        payment_terms = request.POST["paymentterms"]
 
-        billing_attention = request.POST['billattention']
-        billing_country = request.POST['billCountry']
-        billing_address = request.POST['billaddress']
-        billing_city = request.POST['billcity']
-        billing_state = request.POST['billstate']
-        billing_zipcode = request.POST['billzipc']
-        billing_phone = request.POST['billphone']
-        billing_fax = request.POST['billfax']
+        billing_attention = request.POST["billattention"]
+        billing_country = request.POST["billCountry"]
+        billing_address = request.POST["billaddress"]
+        billing_city = request.POST["billcity"]
+        billing_state = request.POST["billstate"]
+        billing_zipcode = request.POST["billzipc"]
+        billing_phone = request.POST["billphone"]
+        billing_fax = request.POST["billfax"]
 
-        shipping_attention = request.POST['attention']
-        shipping_country = request.POST['Country']
-        shipping_address = request.POST['address']
-        shipping_city = request.POST['city']
-        shipping_state = request.POST['state']
-        shipping_zipcode = request.POST['zipc']
-        shipping_phone = request.POST['phone']
-        shipping_fax = request.POST['fax']
+        shipping_attention = request.POST["attention"]
+        shipping_country = request.POST["Country"]
+        shipping_address = request.POST["address"]
+        shipping_city = request.POST["city"]
+        shipping_state = request.POST["state"]
+        shipping_zipcode = request.POST["zipc"]
+        shipping_phone = request.POST["phone"]
+        shipping_fax = request.POST["fax"]
 
         customer = Customer.objects.get(id=id)
 
@@ -183,13 +199,10 @@ def editcustomer(request, id):
         customer.shipping_phone = shipping_phone
         customer.shipping_fax = shipping_fax
         customer.save()
-        return redirect('customer_index')
+        return redirect("customer_index")
 
     else:
         customer = get_object_or_404(Customer, pk=id)
-        context = {
-            'customer': customer
-
-        }
+        context = {"customer": customer}
         print("customer edit html invoked")
-        return render(request, 'customer/customer_edit.html', context)
+        return render(request, "customer/customer_edit.html", context)

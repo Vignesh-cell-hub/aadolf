@@ -13,3 +13,4 @@ def index(request):
             'media_url': settings.MEDIA_URL,
         }
     return render(request,"index.html", context)
+  
